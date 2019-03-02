@@ -1,0 +1,9 @@
+#ifndef __BWLABEL_HH_
+#define __BWLABEL_HH_
+
+#include "fsl_common.h"
+
+uint8_t bwlabel(uint8_t *img, uint8_t n, uint8_t* labels);
+void wallner(uint8_t *src, uint8_t *dst);
+void wallner_new(uint8_t *input, uint8_t *bin);
+#endif
