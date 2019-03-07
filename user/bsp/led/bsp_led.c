@@ -4,13 +4,13 @@
   * @author  fire
   * @version V1.0
   * @date    2018-xx-xx
-  * @brief   ledÓ¦ÓÃº¯Êý½Ó¿Ú
+  * @brief   ledåº”ç”¨å‡½æ•°æŽ¥å£
   ******************************************************************
   * @attention
   *
-  * ÊµÑéÆ½Ì¨:Ò°»ð  i.MXRT1052¿ª·¢°å 
-  * ÂÛÌ³    :http://www.firebbs.cn
-  * ÌÔ±¦    :https://fire-stm32.taobao.com
+  * å®žéªŒå¹³å°:é‡Žç«  i.MXRT1052å¼€å‘æ¿ 
+  * è®ºå›    :http://www.firebbs.cn
+  * æ·˜å®    :https://fire-stm32.taobao.com
   *
   ******************************************************************
   */
@@ -21,24 +21,24 @@
 #include "./led/bsp_led.h"   
 
  /**
-  * @brief  ³õÊ¼»¯¿ØÖÆLEDµÄIO
-  * @param  ÎÞ
-  * @retval ÎÞ
+  * @brief  åˆå§‹åŒ–æŽ§åˆ¶LEDçš„IO
+  * @param  æ— 
+  * @retval æ— 
   */
 void LED_GPIO_Config(void)
 {	
 	  
-		/* ¶¨Òågpio³õÊ¼»¯ÅäÖÃ½á¹¹Ìå */
+		/* å®šä¹‰gpioåˆå§‹åŒ–é…ç½®ç»“æž„ä½“ */
     gpio_pin_config_t led_config;
 		
-    /** ºËÐÄ°åµÄLEDµÆ£¬IOMUXC MUX¼°PADÅäÖÃ **/
+    /** æ ¸å¿ƒæ¿çš„LEDç¯ï¼ŒIOMUXC MUXåŠPADé…ç½® **/
 		
-    /* ÉèÖÃÒý½ÅµÄ¸´ÓÃÄ£Ê½ */
+    /* è®¾ç½®å¼•è„šçš„å¤ç”¨æ¨¡å¼ */
 		IOMUXC_SetPinMux(
-      CORE_BOARD_LED_IOMUXC,    /* ÅäÖÃÎªÆÕÍ¨IO */
-      0U);                      /* ²»Ê¹ÓÃSION¹¦ÄÜ */
+      CORE_BOARD_LED_IOMUXC,    /* é…ç½®ä¸ºæ™®é€šIO */
+      0U);                      /* ä¸ä½¿ç”¨SIONåŠŸèƒ½ */
 		
-		/*ÉèÖÃÒý½Å¹¦ÄÜ*/
+		/*è®¾ç½®å¼•è„šåŠŸèƒ½*/
 		IOMUXC_SetPinConfig(
       CORE_BOARD_LED_IOMUXC,        
       SRE_0_SLOW_SLEW_RATE|
@@ -50,23 +50,23 @@ void LED_GPIO_Config(void)
       PUS_0_100K_OHM_PULL_DOWN|
       HYS_0_HYSTERESIS_DISABLED
       );	
-    /* ÅäÖÃËµÃ÷ : */
-		/* ×ª»»ËÙÂÊ: ×ª»»ËÙÂÊÂý
-			Çý¶¯Ç¿¶È: R0/6 
-			´ø¿íÅäÖÃ : medium(100MHz)
-			¿ªÂ©ÅäÖÃ: ¹Ø±Õ 
-			À­/±£³ÖÆ÷ÅäÖÃ: ¹Ø±Õ
-			À­/±£³ÖÆ÷Ñ¡Ôñ: ±£³ÖÆ÷£¨ÉÏÃæÒÑ¹Ø±Õ£¬ÅäÖÃÎÞÐ§£©
-			ÉÏÀ­/ÏÂÀ­Ñ¡Ôñ: 100KÅ·Ä·ÏÂÀ­£¨ÉÏÃæÒÑ¹Ø±Õ£¬ÅäÖÃÎÞÐ§£©
-			ÖÍ»ØÆ÷ÅäÖÃ: ¹Ø±Õ */      
+    /* é…ç½®è¯´æ˜Ž : */
+		/* è½¬æ¢é€ŸçŽ‡: è½¬æ¢é€ŸçŽ‡æ…¢
+			é©±åŠ¨å¼ºåº¦: R0/6 
+			å¸¦å®½é…ç½® : medium(100MHz)
+			å¼€æ¼é…ç½®: å…³é—­ 
+			æ‹‰/ä¿æŒå™¨é…ç½®: å…³é—­
+			æ‹‰/ä¿æŒå™¨é€‰æ‹©: ä¿æŒå™¨ï¼ˆä¸Šé¢å·²å…³é—­ï¼Œé…ç½®æ— æ•ˆï¼‰
+			ä¸Šæ‹‰/ä¸‹æ‹‰é€‰æ‹©: 100Kæ¬§å§†ä¸‹æ‹‰ï¼ˆä¸Šé¢å·²å…³é—­ï¼Œé…ç½®æ— æ•ˆï¼‰
+			æ»žå›žå™¨é…ç½®: å…³é—­ */      
       
-     /* RGB LEDµÆ£¬Ê¹ÓÃÍ¬ÑùµÄIOMUXC MUX¼°PADÅäÖÃ */
+     /* RGB LEDç¯ï¼Œä½¿ç”¨åŒæ ·çš„IOMUXC MUXåŠPADé…ç½® */
   
     IOMUXC_SetPinMux(
-      RGB_RED_LED_IOMUXC,    /* ÅäÖÃÎªÆÕÍ¨IO */
-      0U);                  /* ²»Ê¹ÓÃSION¹¦ÄÜ */
+      RGB_RED_LED_IOMUXC,    /* é…ç½®ä¸ºæ™®é€šIO */
+      0U);                  /* ä¸ä½¿ç”¨SIONåŠŸèƒ½ */
 		
-		/*ÉèÖÃÒý½Å¹¦ÄÜ*/
+		/*è®¾ç½®å¼•è„šåŠŸèƒ½*/
 		IOMUXC_SetPinConfig(
       RGB_RED_LED_IOMUXC,        
       SRE_0_SLOW_SLEW_RATE|
@@ -80,10 +80,10 @@ void LED_GPIO_Config(void)
       );	
                       
     IOMUXC_SetPinMux(
-      RGB_GREEN_LED_IOMUXC,    /* ÅäÖÃÎªÆÕÍ¨IO */
-      0U);                 /* ²»Ê¹ÓÃSION¹¦ÄÜ */
+      RGB_GREEN_LED_IOMUXC,    /* é…ç½®ä¸ºæ™®é€šIO */
+      0U);                 /* ä¸ä½¿ç”¨SIONåŠŸèƒ½ */
 		
-		/*ÉèÖÃÒý½Å¹¦ÄÜ*/
+		/*è®¾ç½®å¼•è„šåŠŸèƒ½*/
 		IOMUXC_SetPinConfig(
       RGB_GREEN_LED_IOMUXC,        
       SRE_0_SLOW_SLEW_RATE|
@@ -97,10 +97,10 @@ void LED_GPIO_Config(void)
       );	
                       
     IOMUXC_SetPinMux(
-      RGB_BLUE_LED_IOMUXC,    /* ÅäÖÃÎªÆÕÍ¨IO */
-      0U);                /* ²»Ê¹ÓÃSION¹¦ÄÜ */
+      RGB_BLUE_LED_IOMUXC,    /* é…ç½®ä¸ºæ™®é€šIO */
+      0U);                /* ä¸ä½¿ç”¨SIONåŠŸèƒ½ */
 		
-		/*ÉèÖÃÒý½Å¹¦ÄÜ*/
+		/*è®¾ç½®å¼•è„šåŠŸèƒ½*/
 		IOMUXC_SetPinConfig(
       RGB_BLUE_LED_IOMUXC,        
       SRE_0_SLOW_SLEW_RATE|
@@ -112,17 +112,33 @@ void LED_GPIO_Config(void)
       PUS_0_100K_OHM_PULL_DOWN|
       HYS_0_HYSTERESIS_DISABLED
       );	
-      
-      
-     /** ºËÐÄ°åµÄLEDµÆ£¬GPIOÅäÖÃ **/       
-    led_config.direction = kGPIO_DigitalOutput; //Êä³öÄ£Ê½
-    led_config.outputLogic =  1;                //Ä¬ÈÏ¸ßµçÆ½
-    led_config.interruptMode = kGPIO_NoIntmode; //²»Ê¹ÓÃÖÐ¶Ï
+                      
+    IOMUXC_SetPinMux(
+      RGB_WHITE_LED_IOMUXC,    /* é…ç½®ä¸ºæ™®é€šIO */
+      0U);                /* ä¸ä½¿ç”¨SIONåŠŸèƒ½ */
 		
-		/* ³õÊ¼»¯ LED GPIO. */
+		/*è®¾ç½®å¼•è„šåŠŸèƒ½*/
+		IOMUXC_SetPinConfig(
+      RGB_WHITE_LED_IOMUXC,        
+      SRE_0_SLOW_SLEW_RATE|
+      DSE_6_R0_6|
+      SPEED_2_MEDIUM_100MHz|
+      ODE_0_OPEN_DRAIN_DISABLED|
+      PKE_0_PULL_KEEPER_DISABLED|
+      PUE_0_KEEPER_SELECTED|
+      PUS_0_100K_OHM_PULL_DOWN|
+      HYS_0_HYSTERESIS_DISABLED
+      );      
+      
+     /** æ ¸å¿ƒæ¿çš„LEDç¯ï¼ŒGPIOé…ç½® **/       
+    led_config.direction = kGPIO_DigitalOutput; //è¾“å‡ºæ¨¡å¼
+    led_config.outputLogic =  1;                //é»˜è®¤é«˜ç”µå¹³
+    led_config.interruptMode = kGPIO_NoIntmode; //ä¸ä½¿ç”¨ä¸­æ–­
+		
+		/* åˆå§‹åŒ– LED GPIO. */
     GPIO_PinInit(CORE_BOARD_LED_GPIO, CORE_BOARD_LED_GPIO_PIN, &led_config);
     
-    /* Ê¹ÓÃÍ¬ÑùµÄLED configÅäÖÃRGB LEDµÆ */
+    /* ä½¿ç”¨åŒæ ·çš„LED configé…ç½®RGB LEDç¯ */
     GPIO_PinInit(RGB_RED_LED_GPIO, RGB_RED_LED_GPIO_PIN, &led_config);
     GPIO_PinInit(RGB_GREEN_LED_GPIO, RGB_GREEN_LED_GPIO_PIN, &led_config);
     GPIO_PinInit(RGB_BLUE_LED_GPIO, RGB_BLUE_LED_GPIO_PIN, &led_config);
