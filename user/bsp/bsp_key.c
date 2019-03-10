@@ -6,29 +6,29 @@ void KEY_Init(void)
 {
 		gpio_pin_config_t key_config;
 	
-	//IO¹¦ÄÜÉèÖÃ
-	IOMUXC_SetPinMux(IOMUXC_SNVS_WAKEUP_GPIO5_IO00,0);	        //SNVS_WAKEUPÅäÖÃÎªALT5,¼´GPIO5_00
-  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_05_GPIO1_IO05,0);	    //GPIO_AD_B0_05ÅäÖÃÎªALT5,¼´GPIO1_IO05
+	//IOåŠŸèƒ½è®¾ç½®
+	IOMUXC_SetPinMux(IOMUXC_SNVS_WAKEUP_GPIO5_IO00,0);	        //SNVS_WAKEUPé…ç½®ä¸ºALT5,å³GPIO5_00
+  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_05_GPIO1_IO05,0);	    //GPIO_AD_B0_05é…ç½®ä¸ºALT5,å³GPIO1_IO05
 	IOMUXC_SetPinConfig(IOMUXC_SNVS_WAKEUP_GPIO5_IO00,0xF080);      
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_05_GPIO1_IO05,0xF080);    
-	key_config.direction=kGPIO_DigitalInput;	//ÊäÈë
-	key_config.interruptMode=kGPIO_NoIntmode;	//²»Ê¹ÓÃÖĞ¶Ï¹¦ÄÜ
-	key_config.outputLogic=1;					//Ä¬ÈÏ¸ßµçÆ½
-	GPIO_PinInit(GPIO5,0,&key_config); 			//³õÊ¼»¯GPIO5_00 
+	key_config.direction=kGPIO_DigitalInput;	//è¾“å…¥
+	key_config.interruptMode=kGPIO_NoIntmode;	//ä¸ä½¿ç”¨ä¸­æ–­åŠŸèƒ½
+	key_config.outputLogic=1;					//é»˜è®¤é«˜ç”µå¹³
+	GPIO_PinInit(GPIO5,0,&key_config); 			//åˆå§‹åŒ–GPIO5_00 
     
-   //KEY0Ä¬ÈÏµçÆ½ÉèÖÃ
-   key_config.direction=kGPIO_DigitalInput;	//ÊäÈë
-	key_config.interruptMode=kGPIO_NoIntmode;	//²»Ê¹ÓÃÖĞ¶Ï¹¦ÄÜ
-	key_config.outputLogic=1;					//Ä¬ÈÏ¸ßµçÆ½
-	GPIO_PinInit(GPIO1,5,&key_config); 			//³õÊ¼»¯GPIO1_05
+   //KEY0é»˜è®¤ç”µå¹³è®¾ç½®
+   key_config.direction=kGPIO_DigitalInput;	//è¾“å…¥
+	key_config.interruptMode=kGPIO_NoIntmode;	//ä¸ä½¿ç”¨ä¸­æ–­åŠŸèƒ½
+	key_config.outputLogic=1;					//é»˜è®¤é«˜ç”µå¹³
+	GPIO_PinInit(GPIO1,5,&key_config); 			//åˆå§‹åŒ–GPIO1_05
 	
 }
 
 uint8_t KEY_Scan(uint8_t mode)
 {
-    static uint8_t key_up=1;     //°´¼üËÉ¿ª±êÖ¾
+    static uint8_t key_up=1;     //æŒ‰é”®æ¾å¼€æ ‡å¿—
     if(mode==1)
-			key_up=1;    //Ö§³ÖÁ¬°´
+			key_up=1;    //æ”¯æŒè¿æŒ‰
     if(key_up&&(KEY0==0||WK_UP==0))
     {
         delay_ms(10);
@@ -40,7 +40,7 @@ uint8_t KEY_Scan(uint8_t mode)
     }
 		else if(KEY0==1&&WK_UP==1)
 			key_up=1;
-    return 0;   //ÎŞ°´¼ü°´ÏÂ
+    return 0;   //æ— æŒ‰é”®æŒ‰ä¸‹
 }
 
 void delay_ms(uint32_t count)
@@ -50,6 +50,6 @@ void delay_ms(uint32_t count)
 		for(j=0;j<100000;++j)
 			for (i = 0; i < count; i++)
 			{			
-					__asm("NOP"); /* µ÷ÓÃnop¿ÕÖ¸Áî */
+					__asm("NOP"); /* è°ƒç”¨nopç©ºæŒ‡ä»¤ */
 			}
 }
