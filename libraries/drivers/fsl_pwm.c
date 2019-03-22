@@ -444,7 +444,7 @@ void PWM_UpdatePwmDutycycle(PWM_Type *base,
                             pwm_mode_t currPwmMode,
                             uint8_t dutyCyclePercent)
 {
-    assert(dutyCyclePercent <= 100);
+    assert(dutyCyclePercent <= 10000);
     assert(pwmSignal < 2);
     uint16_t pulseCnt = 0, pwmHighPulse = 0;
     int16_t modulo = 0;
@@ -455,7 +455,7 @@ void PWM_UpdatePwmDutycycle(PWM_Type *base,
             modulo = base->SM[subModule].VAL1;
             pulseCnt = modulo * 2;
             /* Calculate pulse width */
-            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 100;
+            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 10000;
 
             /* Setup the PWM dutycycle */
             if (pwmSignal == kPWM_PwmA)
@@ -472,7 +472,7 @@ void PWM_UpdatePwmDutycycle(PWM_Type *base,
         case kPWM_CenterAligned:
             pulseCnt = base->SM[subModule].VAL1;
             /* Calculate pulse width */
-            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 100;
+            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 10000;
 
             /* Setup the PWM dutycycle */
             if (pwmSignal == kPWM_PwmA)
@@ -490,7 +490,7 @@ void PWM_UpdatePwmDutycycle(PWM_Type *base,
             modulo = base->SM[subModule].VAL1;
             pulseCnt = modulo * 2;
             /* Calculate pulse width */
-            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 100;
+            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 10000;
 
             /* Setup the PWM dutycycle */
             if (pwmSignal == kPWM_PwmA)
@@ -507,7 +507,7 @@ void PWM_UpdatePwmDutycycle(PWM_Type *base,
         case kPWM_EdgeAligned:
             pulseCnt = base->SM[subModule].VAL1;
             /* Calculate pulse width */
-            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 100;
+            pwmHighPulse = (pulseCnt * dutyCyclePercent) / 10000;
 
             /* Setup the PWM dutycycle */
             if (pwmSignal == kPWM_PwmA)

@@ -24,6 +24,8 @@
 #include "fsl_debug_console.h"
 #include "./led/bsp_led.h"
 #include "carmer.h"
+#include "bsp_FlexPwm.h"
+#include "bsp_EnCoder.h"
 
 /* RT-Thread 头文件 */
 #include "rtthread.h"
@@ -38,6 +40,8 @@
 #define LED1_THREAD_STACK_SIZE          512
 #define LED1_THREAD_TIMESLICE           5
 
+
+extern int16_t s_volt[8];
 /*
 *************************************************************************
 *                               变量
@@ -50,6 +54,10 @@ static  rt_thread_t led1_thread = RT_NULL,
 /* 指向信号量的指针 */
 static rt_sem_t sem = RT_NULL;
 
+     
+
+
+
 /*
 *************************************************************************
 *                             函数声明
@@ -59,6 +67,11 @@ static void led1_thread_entry(void* parameter);
 static void thread1_entry(void* parameter);
 static void thread2_entry(void* parameter);
 static void camera_entry(void* parameter);
+static void run_entry(void* parameter);
+static void AD7606_entry(void* parameter);
+
+
+
 /*
 *************************************************************************
 *                             main 函数
@@ -99,6 +112,18 @@ int main(void)
                                  20);     /* 线程时间片 */	
 	if (led2_thread != RT_NULL)
     rt_thread_startup(led2_thread);
+  else
+    return -1;
+	return 0;
+
+  	AD7606_thread = rt_thread_create("AD7606",                     /* 线程名字，字符串形式 */
+                                 AD7606_entry,          /* 线程入口函数 */
+                                 (void*)2,                    /* 线程入口函数参数 */
+                                 4096,     /* 线程栈大小，单位为字节 */
+                                 LED1_THREAD_PRIORITY,       /* 线程优先级，数值越大，优先级越小 */                  
+                                 2);     /* 线程时间片 */	
+	if (AD7606_entry != RT_NULL)
+    rt_thread_startup(AD7606_entry);
   else
     return -1;
 	return 0;
@@ -185,5 +210,23 @@ static void thread2_entry(void* parameter)
 static void camera_entry(void* parameter)
 {
 	CAM_DIS();
+}
+
+
+static void run_entry(void* parameter)
+{
+  uint16_t speed=0;   
+
+}
+
+static void AD7606_entry(void* parameter)
+{
+  while(1)
+  {
+    rt_thread_delay(500);
+    AD7606_Scan();
+    AD7606_Mak();
+  } 
+
 }
 /****************************END OF FILE**********************/

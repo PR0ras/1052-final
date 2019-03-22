@@ -15,40 +15,40 @@ void PWMPinInit(void)
 
 void PWM_bsp_Init(PWM_Type *Pwmx,pwm_submodule_t Module_x,uint8_t subModulesToUpdate,pwm_channels_t Channel1,uint32_t freq)
 {
-	uint16_t psc=7;  //Ô¤·ÖÆµÆ÷,0~7,±íÊ¾2^psc·ÖÆµ.
+	uint16_t psc=7;  //é¢„åˆ†é¢‘å™¨,0~7,è¡¨ç¤º2^pscåˆ†é¢‘.
 	pwm_config_t pwm_init_structure;
 	uint32_t sourceclock;
 	pwm_signal_param_t pwm_ignal[2];
-	pwm_clock_prescale_t pwm_prescale=(pwm_clock_prescale_t)psc; //·ÖÆµ
+	pwm_clock_prescale_t pwm_prescale=(pwm_clock_prescale_t)psc; //åˆ†é¢‘
     
 
-	//³õÊ¼»¯Pwmx Ä£¿éNµÄÍ¨µÀX
-  PWM_GetDefaultConfig(&pwm_init_structure);              //ÏÈ³õÊ¼»¯ÎªÄ¬ÈÏÅäÖÃ
-  pwm_init_structure.clockSource=kPWM_BusClock;           //Ê±ÖÓÔ´ÎªIP BUS=IPG_CLK_ROOT=150MHz
-  pwm_init_structure.prescale=pwm_prescale;               //ÉèÖÃ·ÖÆµ
-  pwm_init_structure.reloadLogic=kPWM_ReloadPwmFullCycle; //È«ÖÜÆÚ¸üĞÂ
-  pwm_init_structure.pairOperation=kPWM_Independent;      //PMWA PWMB¶ÀÁ¢Ä£Ê½
-	PWM_Init(Pwmx,Module_x,&pwm_init_structure);       //³õÊ¼»¯PwmxÄ£¿é3
+	//åˆå§‹åŒ–Pwmx æ¨¡å—Nçš„é€šé“X
+  PWM_GetDefaultConfig(&pwm_init_structure);              //å…ˆåˆå§‹åŒ–ä¸ºé»˜è®¤é…ç½®
+  pwm_init_structure.clockSource=kPWM_BusClock;           //æ—¶é’Ÿæºä¸ºIP BUS=IPG_CLK_ROOT=150MHz
+  pwm_init_structure.prescale=pwm_prescale;               //è®¾ç½®åˆ†é¢‘
+  pwm_init_structure.reloadLogic=kPWM_ReloadPwmFullCycle; //å…¨å‘¨æœŸæ›´æ–°
+  pwm_init_structure.pairOperation=kPWM_Independent;      //PMWA PWMBç‹¬ç«‹æ¨¡å¼
+	PWM_Init(Pwmx,Module_x,&pwm_init_structure);       //åˆå§‹åŒ–Pwmxæ¨¡å—3
 
-	//ÆÁ±Î¹ÊÕÏ¼ì²â¹¦ÄÜ
+	//å±è”½æ•…éšœæ£€æµ‹åŠŸèƒ½
   //Pwmx->SM[0].DISMAP[0]=0; 
 	Pwmx->SM[1].DISMAP[0]=0;
 	Pwmx->SM[2].DISMAP[0]=0;
     
-	//ÉèÖÃPwmxÍ¨µÀ
+	//è®¾ç½®Pwmxé€šé“
 	sourceclock=CLOCK_GetFreq(kCLOCK_IpgClk);
     
-  pwm_ignal[0].pwmChannel=Channel1;                     //PWMAÍ¨µÀ
-  pwm_ignal[0].level=kPWM_HighTrue;                      //¸ßµçÆ½ÓĞĞ§
-  pwm_ignal[0].dutyCyclePercent=80;                    //Õ¼¿Õ±È
-//	pwm_ignal[1].pwmChannel=kPWM_PwmB;                     //PWMÍ¨µÀ
-//	pwm_ignal[1].level=kPWM_HighTrue;                      //¸ßµçÆ½ÓĞĞ§
-//  pwm_ignal[1].dutyCyclePercent=50;                    //Õ¼¿Õ±È
-	//ÉèÖÃPwmx£¬ÖĞÑë¶ÔÆëÄ£Ê½
+  pwm_ignal[0].pwmChannel=Channel1;                     //PWMAé€šé“
+  pwm_ignal[0].level=kPWM_HighTrue;                      //é«˜ç”µå¹³æœ‰æ•ˆ
+  pwm_ignal[0].dutyCyclePercent=80;                    //å ç©ºæ¯”
+//	pwm_ignal[1].pwmChannel=kPWM_PwmB;                     //PWMé€šé“
+//	pwm_ignal[1].level=kPWM_HighTrue;                      //é«˜ç”µå¹³æœ‰æ•ˆ
+//  pwm_ignal[1].dutyCyclePercent=50;                    //å ç©ºæ¯”
+	//è®¾ç½®Pwmxï¼Œä¸­å¤®å¯¹é½æ¨¡å¼
   PWM_SetupPwm(Pwmx,Module_x,pwm_ignal,1,kPWM_CenterAligned,freq,sourceclock);
 
-  PWM_SetPwmLdok(Pwmx,subModulesToUpdate,true);    //ÉèÖÃPWMµÄload okÎ»
-  PWM_StartTimer(Pwmx,subModulesToUpdate);         //¿ªÆô¶¨Ê±Æ÷
+  PWM_SetPwmLdok(Pwmx,subModulesToUpdate,true);    //è®¾ç½®PWMçš„load okä½
+  PWM_StartTimer(Pwmx,subModulesToUpdate);         //å¼€å¯å®šæ—¶å™¨
 }
 
 void PWMInit()
@@ -59,3 +59,20 @@ void PWMInit()
 	PWM_bsp_Init(PWM2,kPWM_Module_2,kPWM_Control_Module_2,kPWM_PwmA,50);
 }
 
+void MOTOR_PWMs_Reload(uint32_t pwm_Difference)
+{
+    //æ›´æ–°ç”µæœº1å ç©ºæ¯”
+   PWM_UpdatePwmDutycycle(Pwm2,kPWM_Module_1,kPWM_PwmA,kPWM_CenterAligned,pwm_Reference); //æ›´æ–°PWMBå ç©ºæ¯”
+   PWM_SetPwmLdok(Pwm2,kPWM_Control_Module_1,true);    //è®¾ç½®PWMçš„load okä½ 
+
+    //æ›´æ–°ç”µæœº2å ç©ºæ¯”
+   PWM_UpdatePwmDutycycle(Pwm2,kPWM_Module_1,kPWM_PwmB,kPWM_CenterAligned,pwm_Reference+pwm_Difference); //æ›´æ–°PWMBå ç©ºæ¯”
+   PWM_SetPwmLdok(Pwm2,kPWM_Control_Module_1,true);    //è®¾ç½®PWMçš„load okä½ 
+}
+
+void DJ_PWM_Reload(uint32_t Offset)  //Medianä¸­å€¼  Offsetåç§»é‡
+{
+    //æ›´æ–°èˆµæœºå ç©ºæ¯”
+   PWM_UpdatePwmDutycycle(Pwm2,kPWM_Module_1,kPWM_PwmB,kPWM_CenterAligned, Median + Offset); //æ›´æ–°PWMBå ç©ºæ¯”
+   PWM_SetPwmLdok(Pwm2,kPWM_Control_Module_1,true);    //è®¾ç½®PWMçš„load okä½ 
+}

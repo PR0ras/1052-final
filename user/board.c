@@ -167,7 +167,7 @@ void BOARD_ConfigMPU(void)
     SCB_EnableICache();
     
 #if defined(USE_RAM_VECTOR_TABLE)
-    /* ����SDRAM�汾���ж������� */
+    /* 启用SDRAM版本的中断向量表 */
     CopyAndUseRAMVectorTable();    
 #endif
 }
@@ -175,31 +175,31 @@ void BOARD_ConfigMPU(void)
 
 #if defined(USE_RAM_VECTOR_TABLE)
 /**
-  * @brief ���ж�����������һ�ݵ�SDRAM����ʹ�ø��ж�������
-  * @note  ������nor_sdram_code�汾�ĳ���оƬ�ϵ������д��������SDRAM�����У�
-           ʹ��SDRAM���ж����������жϲ���ʱCPU����Ҫ����FLASH
-  * @retval ��
+  * @brief 把中断向量表复制一份到SDRAM，并使用该中断向量表
+  * @note  适用于nor_sdram_code版本的程序，芯片上电后把所有代码加载至SDRAM中运行，
+           使用SDRAM的中断向量表后，中断产生时CPU不需要访问FLASH
+  * @retval 无
   */
 void CopyAndUseRAMVectorTable(void)
 {
-/* ���ݲ�ͬ����ƽ̨�ķ�ɢ�����ļ��õ�VECTOR_TABLE �� VECTOR_RAM�ĵ�ַ*/
+/* 根据不同编译平台的分散加载文件得到VECTOR_TABLE 和 VECTOR_RAM的地址*/
 #if defined(__CC_ARM)
-    /* ROM��RAM�е��ж�����������ַ��MDK��ɢ�����ļ����﷨�� */
+    /* ROM、RAM中的中断向量表基地址（MDK分散加载文件的语法） */
     extern uint32_t Image$$VECTOR_ROM$$Base[];
     extern uint32_t Image$$VECTOR_RAM$$Base[];
-    /* SDRAM�������Ļ���ַ�����ڼ���VECTOR_RAMռ�õĿռ� */
+    /* SDRAM主体代码的基地址，用于计算VECTOR_RAM占用的空间 */
     extern uint32_t Image$$ER_m_ram_text$$Base[];
 
     #define __VECTOR_TABLE                Image$$VECTOR_ROM$$Base
     #define __VECTOR_RAM                  Image$$VECTOR_RAM$$Base
     #define __RAM_VECTOR_TABLE_SIZE     (((uint32_t)Image$$ER_m_ram_text$$Base - (uint32_t)Image$$VECTOR_RAM$$Base))
 #elif defined(__ICCARM__)
-    /* ROM��RAM�е��ж��������Ĵ�С�ͻ���ַ��IAR��ɢ�����ļ����﷨�� */
+    /* ROM、RAM中的中断向量表的大小和基地址（IAR分散加载文件的语法） */
     extern uint32_t __RAM_VECTOR_TABLE_SIZE[];
     extern uint32_t __VECTOR_TABLE[];
     extern uint32_t __VECTOR_RAM[];
 #elif defined(__GNUC__)
-    /* ��δ����GCC�������� */
+    /* 暂未测试GCC开发环境 */
     extern uint32_t __VECTOR_TABLE[];
     extern uint32_t __VECTOR_RAM[];
     extern uint32_t __RAM_VECTOR_TABLE_SIZE_BYTES[];
@@ -211,13 +211,13 @@ void CopyAndUseRAMVectorTable(void)
     irqMaskValue = DisableGlobalIRQ();
     if (SCB->VTOR != (uint32_t)__VECTOR_RAM)
     {
-        /* ���ж������������ݴ�ROM������RAM */
+        /* 把中断向量表的内容从ROM复制至RAM */
         for (n = 0; n < ((uint32_t)__RAM_VECTOR_TABLE_SIZE) / sizeof(uint32_t); n++)
         {
             __VECTOR_RAM[n] = __VECTOR_TABLE[n];
         }
-        /* ����Cortex-M�ں˵�VTOR�Ĵ���ָ��RAM�汾���ж�������
-         * ��������ж�ʱ���VTOR�Ĵ���ָ��ĵ�ַ�����ж� 
+        /* 调整Cortex-M内核的VTOR寄存器指向RAM版本的中断向量表
+         * 后面产生中断时会从VTOR寄存器指向的地址加载中断 
         */
         SCB->VTOR = (uint32_t)__VECTOR_RAM;
     }
@@ -237,13 +237,13 @@ void CopyAndUseRAMVectorTable(void)
 
 /*
 *************************************************************************
-*                         ������RT-Thread��صĺ���
+*                         以下是RT-Thread相关的函数
 *************************************************************************
 */
 
 #if defined(RT_USING_USER_MAIN) && defined(RT_USING_HEAP)
 
-/* ���ڲ�SRAM����DTCM���������һ���־�̬�ڴ�����Ϊrtt�Ķѿռ䣬��������Ϊ4KB */
+/* 从内部SRAM（即DTCM）里面分配一部分静态内存来作为rtt的堆空间，这里配置为4KB */
 #define RT_HEAP_SIZE 2048
 static uint32_t rt_heap[RT_HEAP_SIZE];
 RT_WEAK void *rt_heap_begin_get(void)
@@ -260,39 +260,41 @@ RT_WEAK void *rt_heap_end_get(void)
 
 
 /**
-  * @brief  ������Ӳ����ʼ������
-  * @param  ��
-  * @retval ��
+  * @brief  开发板硬件初始化函数
+  * @param  无
+  * @retval 无
   *
   * @attention
-  * RTT�ѿ�������صĳ�ʼ������ͳһ�ŵ�board.c�ļ���ʵ�֣�
-  * ��Ȼ���������Щ����ͳһ�ŵ�main.c�ļ�Ҳ�ǿ��Եġ�
+  * RTT把开发板相关的初始化函数统一放到board.c文件中实现，
+  * 当然，你想把这些函数统一放到main.c文件也是可以的。
   */
 void rt_hw_board_init(void)
 {  
-	  /* ��ʼ���ڴ������Ԫ */
+	  /* 初始化内存管理单元 */
     BOARD_ConfigMPU();
   
-		/* ��ʼ������������ */
+		/* 初始化开发板引脚 */
     //BOARD_InitPins();
   
-		/* ��ʼ��������ʱ�� */
+		/* 初始化开发板时钟 */
     BOARD_BootClockRUN(); 
   
-		/* ��ʼ�����Դ��� */
+		/* 初始化调试串口 */
 	BOARD_InitDebugConsole();
-    //PRINTF("*****��ӭʹ�� Ұ��i.MX RT1052 ������*****\r\n");
+    //PRINTF("*****欢迎使用 野火i.MX RT1052 开发板*****\r\n");
 		
-		/* ��ʼ��LED���� */
+		/* 初始化LED引脚 */
 		LCD_Init(LCD_INTERRUPT_ENABLE);
 		LED_GPIO_Config();
 		CAMCSI_Init();
+        PWMInit();
+        bsp_spi_InitAD7606();
 		//PIT_CH0_Int_Init(7500);
 //		OLEDPinInit();
 //		oled_init();
-/* ��������Ӳ����صĳ�ʼ�������� */
+/* 将开发板硬件相关的初始化放上面 */
   
-    /* ��ʼ��SysTick */
+    /* 初始化SysTick */
     SysTick_Config( SystemCoreClock / RT_TICK_PER_SECOND ); 
 
   
@@ -312,9 +314,9 @@ void rt_hw_board_init(void)
 
 
 /**
-  * @brief  SysTick�жϷ�����
-  * @param  ��
-  * @retval ��
+  * @brief  SysTick中断服务函数
+  * @param  无
+  * @retval 无
   *
   * @attention
   *

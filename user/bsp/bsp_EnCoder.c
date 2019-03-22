@@ -4,16 +4,16 @@
 #include "fsl_qtmr.h"
 #include "fsl_pit.h"
 
-static int16_t tmp=0;
+int16_t tmp=0;
 
 void ENCPinInit(void)
 {
-	//IO¹¦ÄÜÉèÖÃ
+	//IOåŠŸèƒ½è®¾ç½®
 	IOMUXC_SetPinMux(IOMUXC_GPIO_B0_06_QTIMER3_TIMER0,0);	//CNT
   IOMUXC_SetPinMux(IOMUXC_GPIO_B0_07_QTIMER3_TIMER1,0);	//Dir
-	//ÅäÖÃIOÒı½ÅGPIO_AD_B0_03ºÍGPIO_SD_B1_03µÄ¹¦ÄÜ
-	//µÍ×ª»»ËÙ¶È,Çı¶¯ÄÜÁ¦ÎªR0/6,ËÙ¶ÈÎª100Mhz£¬¹Ø±Õ¿ªÂ·¹¦ÄÜ£¬Ê¹ÄÜpull/keepr
-	//Ñ¡Ôñkeeper¹¦ÄÜ£¬ÏÂÀ­100K Ohm£¬¹Ø±ÕHyst
+	//é…ç½®IOå¼•è„šGPIO_AD_B0_03å’ŒGPIO_SD_B1_03çš„åŠŸèƒ½
+	//ä½è½¬æ¢é€Ÿåº¦,é©±åŠ¨èƒ½åŠ›ä¸ºR0/6,é€Ÿåº¦ä¸º100Mhzï¼Œå…³é—­å¼€è·¯åŠŸèƒ½ï¼Œä½¿èƒ½pull/keepr
+	//é€‰æ‹©keeperåŠŸèƒ½ï¼Œä¸‹æ‹‰100K Ohmï¼Œå…³é—­Hyst
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_B0_06_QTIMER3_TIMER0,0x10B0);
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_B0_07_QTIMER3_TIMER1,0x10B0);
 }
@@ -21,12 +21,12 @@ void ENCPinInit(void)
 void PITInit(void)
 {
 	pit_config_t pit_config;
-	PIT_GetDefaultConfig(&pit_config);  //³õÊ¼»¯ÎªÄ¬ÈÏÅäÖÃ
-  pit_config.enableRunInDebug=true;   //µ÷ÊÔÄ£Ê½ÏÂPIT¼ÌĞøÔËĞĞ
-  PIT_Init(PIT,&pit_config);          //³õÊ¼»¯PIT¶¨Ê±Æ÷
-	PIT_SetTimerPeriod(PIT,kPIT_Chnl_1,660000);//ÉèÖÃµ¹¼ÆÊ±³õÊ¼Öµ
-  PIT_EnableInterrupts(PIT,kPIT_Chnl_1,kPIT_TimerInterruptEnable);//Ê¹ÄÜÖĞ¶Ï
-	//RT1052_NVIC_SetPriority(PIT_IRQn,6,0);	//ÇÀÕ¼ÓÅÏÈ¼¶6£¬×ÓÓÅÏÈ¼¶0
+	PIT_GetDefaultConfig(&pit_config);  //åˆå§‹åŒ–ä¸ºé»˜è®¤é…ç½®
+  pit_config.enableRunInDebug=true;   //è°ƒè¯•æ¨¡å¼ä¸‹PITç»§ç»­è¿è¡Œ
+  PIT_Init(PIT,&pit_config);          //åˆå§‹åŒ–PITå®šæ—¶å™¨
+	PIT_SetTimerPeriod(PIT,kPIT_Chnl_1,660000);//è®¾ç½®å€’è®¡æ—¶åˆå§‹å€¼
+  PIT_EnableInterrupts(PIT,kPIT_Chnl_1,kPIT_TimerInterruptEnable);//ä½¿èƒ½ä¸­æ–­
+	//RT1052_NVIC_SetPriority(PIT_IRQn,6,0);	//æŠ¢å ä¼˜å…ˆçº§6ï¼Œå­ä¼˜å…ˆçº§0
 	EnableIRQ(PIT_IRQn);
 	PIT_StartTimer(PIT,kPIT_Chnl_1);
 }
@@ -35,29 +35,23 @@ void ENCInit(void)
 {
 	ENCPinInit();
 	qtmr_config_t qtmrConfig;
-	QTMR_GetDefaultConfig(&qtmrConfig);   //µÃµ½Ä¬ÈÏµÄ²ÎÊı
-	qtmrConfig.primarySource = kQTMR_ClockCounter0InputPin;    //Counter0InputPin×÷ÎªÖ÷ÒªµÄÊäÈëÔ´£¬ÓÃÓÚÂö³åÊäÈë£¬J11Òı½ÅÓë±àÂëÆ÷µÄAÏàÏàÁ¬
-  qtmrConfig.secondarySource = kQTMR_Counter1InputPin;       //Counter1InputPin×÷Îª´ÎÒªµÄÊäÈëÔ´£¬ÓÃÓÚ·½ÏòÊäÈë£¬K11Òı½ÅÓë±àÂëÆ÷µÄDirÏàÁ¬
-	QTMR_Init(TMR3, kQTMR_Channel_0, &qtmrConfig);             //³õÊ¼»¯TMR3µÄÍ¨µÀ0
-	QTMR_StartTimer(TMR3, kQTMR_Channel_0, kQTMR_PriSrcRiseEdgeSecDir);   //¿ªÆôTMR3Í¨µÀ0µÄ¼ÆÊıÆ÷£¬¼ÆÊıÄ£Ê½Ê¹ÓÃ´ø·½Ïò¼ÆÊıÄ£Ê½
+	QTMR_GetDefaultConfig(&qtmrConfig);   //å¾—åˆ°é»˜è®¤çš„å‚æ•°
+	qtmrConfig.primarySource = kQTMR_ClockCounter0InputPin;    //Counter0InputPinä½œä¸ºä¸»è¦çš„è¾“å…¥æºï¼Œç”¨äºè„‰å†²è¾“å…¥ï¼ŒJ11å¼•è„šä¸ç¼–ç å™¨çš„Aç›¸ç›¸è¿
+  qtmrConfig.secondarySource = kQTMR_Counter1InputPin;       //Counter1InputPinä½œä¸ºæ¬¡è¦çš„è¾“å…¥æºï¼Œç”¨äºæ–¹å‘è¾“å…¥ï¼ŒK11å¼•è„šä¸ç¼–ç å™¨çš„Dirç›¸è¿
+	QTMR_Init(TMR3, kQTMR_Channel_0, &qtmrConfig);             //åˆå§‹åŒ–TMR3çš„é€šé“0
+	QTMR_StartTimer(TMR3, kQTMR_Channel_0, kQTMR_PriSrcRiseEdgeSecDir);   //å¼€å¯TMR3é€šé“0çš„è®¡æ•°å™¨ï¼Œè®¡æ•°æ¨¡å¼ä½¿ç”¨å¸¦æ–¹å‘è®¡æ•°æ¨¡å¼
 	PITInit();
 }
 
-int16_t DisCNT(void)
-{
-	//int16_t tmp=(int16_t)TMR3->CHANNEL[kQTMR_Channel_0].CNTR;
-	//TMR3->CHANNEL[kQTMR_Channel_0].CNTR = 0;
-	return tmp;
-}
 
 void PIT_IRQHandler(void)
 {
-	 //PIT CH1ÖĞ¶Ï
+	 //PIT CH1ä¸­æ–­
 	if((PIT_GetStatusFlags(PIT,kPIT_Chnl_1)&kPIT_TimerFlag)==kPIT_TimerFlag)
 	{
 		tmp=(int16_t)TMR3->CHANNEL[kQTMR_Channel_0].CNTR;
 		TMR3->CHANNEL[kQTMR_Channel_0].CNTR = 0;
-		PIT_ClearStatusFlags(PIT,kPIT_Chnl_1,kPIT_TimerFlag);//Çå³şÖĞ¶Ï±êÖ¾Î»
+		PIT_ClearStatusFlags(PIT,kPIT_Chnl_1,kPIT_TimerFlag);//æ¸…æ¥šä¸­æ–­æ ‡å¿—ä½
 	}
-	 __DSB();				//Êı¾İÍ¬²½ÆÁ±ÎÖ¸Áî
+	 __DSB();				//æ•°æ®åŒæ­¥å±è”½æŒ‡ä»¤
 }
