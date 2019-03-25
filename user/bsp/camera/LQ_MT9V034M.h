@@ -58,6 +58,7 @@ extern void MT9V034_Reset(void);
 extern void MT9V034_SetReservedReg(void);
 extern void MT9V034_SetFrameRate(uint8_t frameRate);
 void MT9V034_SetFrameResolution(uint16_t height,uint16_t width, uint8_t fps);
+void imgremote(uint8_t address,uint16_t data);
 extern void MT9V034_SetAutoExposure(bool enable);
 void LPI2C1_Init(uint32_t baudrate);
 

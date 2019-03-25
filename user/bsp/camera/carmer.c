@@ -98,7 +98,6 @@ extern void CSI_DriverIRQHandler(void);
 
 void CSI_IRQHandler(void)
 {
-	//LCD_P6x8Str(15, 6, "Success");
 	CSI_DriverIRQHandler();
 }
 
@@ -115,13 +114,11 @@ void CAMCSI_Init(void)
 	{
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, (uint32_t)(csiFrameBuf[i]));
 	}
-	//PRINTF("Camera Start\r\n");
+	//PRINTF("Camera Start\r\n");//摄像头启动成功
 }
 
 void CAM_DIS(void)
 {
-	
-	
 	uint8_t curLcdBufferIdx = 1U;
 	CAMERA_RECEIVER_Start(&cameraReceiver);
 
@@ -136,10 +133,8 @@ void CAM_DIS(void)
 	ELCDIF_SetNextBufferAddr(LCDIF, inactiveFrameAddr);
 	ELCDIF_RgbModeStart(LCDIF);
 	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
-	
 	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, inactiveFrameAddr);
 	PRINTF("CAMERA Start Success\r\n");
-	
 //	cnt=0;
 //	wallner(csiFrameBuf[0], Pix_Data);
 //	PRINTF("wallner Time:%d \r\n",cnt);
@@ -174,7 +169,7 @@ void CAM_DIS(void)
 		for (int i = 0; i < 120; i++)
 		{
 			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+40,Pix_Data + i * 188, 188);
-			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
+			//memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
 			memcpy(s_frameBuffer[curLcdBufferIdx][i + 20] + 550, (uint8_t *)inactiveFrameAddr + i * 188, 188);
 		}
 		//memcpy(s_frameBuffer[!curLcdBufferIdx],s_frameBuffer[curLcdBufferIdx],38400);
@@ -182,7 +177,7 @@ void CAM_DIS(void)
 		ELCDIF_SetNextBufferAddr(LCDIF, (uint32_t)s_frameBuffer[curLcdBufferIdx]);
 		s_frameDone = false;
 		wallner((uint8_t *)inactiveFrameAddr, Pix_Data);
-		wallner_new((uint8_t *)inactiveFrameAddr, Lab_Data);
+		//wallner_new((uint8_t *)inactiveFrameAddr, Lab_Data);
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
 		activeFrameAddr = inactiveFrameAddr;
 		//wallner_new((uint8_t *)inactiveFrameAddr, Pix_Data);
@@ -191,10 +186,10 @@ void CAM_DIS(void)
 		{
 		}
 		
-//		sprintf(dispBuff, "FPS = %d ", FPS);
-//		LCD_ClearLine(LINE(6));
+		sprintf(dispBuff, "FPS = %d ", FPS);
+		LCD_ClearLine(LINE(6));
 //		/*然后显示该字符串即可，其它变量也是这样处理*/
-//		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);
+		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);
 	}
 }
 

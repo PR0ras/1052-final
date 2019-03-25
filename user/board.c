@@ -39,7 +39,8 @@
 #include "carmer.h"
 #include <rthw.h>
 #include <rtthread.h>
-
+#include "bsp_pit.h"
+#include "bsp_lpuart.h"
 /*******************************************************************************
  * Variables
  ******************************************************************************/
@@ -274,7 +275,7 @@ void rt_hw_board_init(void)
     BOARD_ConfigMPU();
   
 		/* 初始化开发板引脚 */
-    //BOARD_InitPins();
+    BOARD_InitPins();
   
 		/* 初始化开发板时钟 */
     BOARD_BootClockRUN(); 
@@ -287,7 +288,8 @@ void rt_hw_board_init(void)
 		LCD_Init(LCD_INTERRUPT_ENABLE);
 		LED_GPIO_Config();
 		CAMCSI_Init();
-		//PIT_CH0_Int_Init(7500);
+        uart_Init();
+		PIT_CH0_Int_Init(75000000);
 //		OLEDPinInit();
 //		oled_init();
 /* 将开发板硬件相关的初始化放上面 */

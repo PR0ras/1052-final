@@ -315,3 +315,8 @@ void wallner_new(uint8_t *input, uint8_t *bin)
 		}
 	}
 }
+
+void SecondBW(uint8_t *input, uint8_t *bin)
+{
+	uint8_t  i=0,j=0;
+}

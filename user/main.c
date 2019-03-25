@@ -25,6 +25,8 @@
 #include "./led/bsp_led.h"
 #include "carmer.h"
 
+#include "bsp_lpuart.h"
+#include "LQ_MT9V034M.h"
 /* RT-Thread 头文件 */
 #include "rtthread.h"
 
@@ -45,7 +47,8 @@
 */
 /* 定义线程控制块指针 */
 static  rt_thread_t led1_thread = RT_NULL,
-										led2_thread = RT_NULL;
+										led2_thread = RT_NULL,
+                    cmd_thread  = RT_NULL;
 
 /* 指向信号量的指针 */
 static rt_sem_t sem = RT_NULL;
@@ -59,6 +62,7 @@ static void led1_thread_entry(void* parameter);
 static void thread1_entry(void* parameter);
 static void thread2_entry(void* parameter);
 static void camera_entry(void* parameter);
+static void cmd_entry(void* parameter);
 /*
 *************************************************************************
 *                             main 函数
@@ -76,8 +80,6 @@ int main(void)
 	   * 即在component.c文件中的rtthread_startup()函数中完成了。
 	   * 所以在main函数中，只需要创建线程和启动线程即可。
 	   */
-
-	
 	led1_thread = rt_thread_create("led1",                     /* 线程名字，字符串形式 */
                                  led1_thread_entry,          /* 线程入口函数 */
                                  (void*)1,                    /* 线程入口函数参数 */
@@ -99,6 +101,17 @@ int main(void)
                                  20);     /* 线程时间片 */	
 	if (led2_thread != RT_NULL)
     rt_thread_startup(led2_thread);
+  else
+    return -1;
+    
+    cmd_thread = rt_thread_create("led2",                     /* 线程名字，字符串形式 */
+                                 cmd_entry,          /* 线程入口函数 */
+                                 (void*)3,                    /* 线程入口函数参数 */
+                                 512,     /* 线程栈大小，单位为字节 */
+                                 LED1_THREAD_PRIORITY,       /* 线程优先级，数值越大，优先级越小 */                  
+                                 2);     /* 线程时间片 */	
+	if (cmd_thread != RT_NULL)
+    rt_thread_startup(cmd_thread);
   else
     return -1;
 	return 0;
@@ -185,5 +198,22 @@ static void thread2_entry(void* parameter)
 static void camera_entry(void* parameter)
 {
 	CAM_DIS();
+}
+
+static void cmd_entry(void* parameter)
+{
+  while (1)
+  {
+    if (rxflag)
+    {
+      //PRINTF("camaddress: %x\r\n", camaddress);
+      //PRINTF("camdata: %x\r\n", camdata);
+      rt_enter_critical();
+      imgremote(camaddress, camdata);
+      rt_exit_critical();
+      rxflag = 0;
+    }
+    rt_thread_delay(500);
+  }
 }
 /****************************END OF FILE**********************/
