@@ -321,40 +321,40 @@ void LCD_Init(bool enableInterrupt)
   }
 }
 
-// void LCD_PXP_Config(void)
-// {
-//     PXP_Init(APP_PXP);
-// 	PXP_SetAlphaSurfacePosition(APP_PXP, 0xFFFFU, 0xFFFFU, 0U, 0U);
-//     /* PS configure. */
-// 	psBufferConfig.pixelFormat =  kPXP_PsPixelFormatY8;//kPXP_PsPixelFormatRGB888;
-// 	psBufferConfig.swapByte = false; 
-//     psBufferConfig.bufferAddrU = 0U;
-//     psBufferConfig.bufferAddrV = 0U;
-//     psBufferConfig.pitchBytes = 752;  
+void LCD_PXP_Config(void)
+{
+    PXP_Init(APP_PXP);
+	PXP_SetAlphaSurfacePosition(APP_PXP, 0xFFFFU, 0xFFFFU, 0U, 0U);
+    /* PS configure. */
+	psBufferConfig.pixelFormat =  kPXP_PsPixelFormatY8;//kPXP_PsPixelFormatRGB888;
+	psBufferConfig.swapByte = false; 
+    psBufferConfig.bufferAddrU = 0U;
+    psBufferConfig.bufferAddrV = 0U;
+    psBufferConfig.pitchBytes = 188;  
 	
-// 	outputBufferConfig.pixelFormat = kPXP_OutputPixelFormatRGB565;//kPXP_OutputPixelFormatRGB888,
-//     outputBufferConfig.interlacedMode = kPXP_OutputProgressive;
-//     outputBufferConfig.buffer1Addr = 0U;
-//     outputBufferConfig.pitchBytes = 800 * 4;
-//     outputBufferConfig.width = LCD_PIXEL_WIDTH;
-//     outputBufferConfig.height = LCD_PIXEL_HEIGHT;
+	outputBufferConfig.pixelFormat = kPXP_OutputPixelFormatY8;//kPXP_OutputPixelFormatRGB888,
+    outputBufferConfig.interlacedMode = kPXP_OutputProgressive;
+    outputBufferConfig.buffer1Addr = 0U;
+    outputBufferConfig.pitchBytes = 94;
+    outputBufferConfig.width = 94;
+    outputBufferConfig.height = 60;
+	//PXP_SetOutputBufferConfig(APP_PXP, &outputBufferConfig);
+	PXP_EnableCsc1(PXP, false);             
+    PXP_SetProcessSurfaceScaler(PXP,188,120, 94, 60);
 	
-// 	PXP_EnableCsc1(PXP, false);             
-//     PXP_SetProcessSurfaceScaler(PXP,IMAGEW, IMAGEH, 752, 480);
+    PXP_SetProcessSurfacePosition(PXP, 0u, 0u, 94 - 1U, 60 - 1U); 
 	
-//     PXP_SetProcessSurfacePosition(PXP, 32u, 12u, 752 - 1U, 480 - 1U); 
-	
-//     PXP_SetProcessSurfaceBackGroundColor(APP_PXP, 0U);
-// 	PXP_SetRotateConfig(PXP, kPXP_RotateOutputBuffer, kPXP_Rotate180, kPXP_FlipDisable);
-//     //PXP_SetProcessSurfaceBufferConfig(APP_PXP, &psBufferConfig);
+    PXP_SetProcessSurfaceBackGroundColor(APP_PXP, 0U);
+	//PXP_SetRotateConfig(PXP, kPXP_RotateOutputBuffer, kPXP_Rotate180, kPXP_FlipDisable);
+    //PXP_SetProcessSurfaceBufferConfig(APP_PXP, &psBufferConfig);
 
-//     /* Disable AS. */
+    /* Disable AS. */
 
-//     //PXP_SetOutputBufferConfig(APP_PXP, &outputBufferConfig);
+    
 
-//     /* Disable CSC1, it is enabled by default. */
-//     PXP_EnableCsc1(APP_PXP, false);
-// }
+    /* Disable CSC1, it is enabled by default. */
+    PXP_EnableCsc1(APP_PXP, false);
+}
 
 /***************************÷–∂œœ‡πÿ******************************/
 /**

@@ -21,7 +21,7 @@ void CAMCSI_Init(void);
 void Campin_Init(void);
 void test(void);
 void CAM_DIS(void);
-void testSend(void);
+
 
 //AT_NONCACHEABLE_SECTION_ALIGN(static uint16_t s_frameBuffer[4][CAMERA_HEIGHT*CAMERA_WIDTH*CAMERA_BPP/sizeof(uint16_t)],
 //                              FRAME_BUFFER_ALIGN);CAMERA_HEIGHT 

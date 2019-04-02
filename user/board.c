@@ -34,13 +34,14 @@
 #include "fsl_common.h"
 #include "fsl_debug_console.h"
 #include "board.h"
+#include <rthw.h>
+#include <rtthread.h>
 #include "./led/bsp_led.h"
 #include "./lcd/bsp_lcd.h" 
 #include "carmer.h"
-#include <rthw.h>
-#include <rtthread.h>
 #include "bsp_pit.h"
 #include "bsp_lpuart.h"
+#include "bsp_key.h"
 /*******************************************************************************
  * Variables
  ******************************************************************************/
@@ -245,7 +246,7 @@ void CopyAndUseRAMVectorTable(void)
 #if defined(RT_USING_USER_MAIN) && defined(RT_USING_HEAP)
 
 /* 从内部SRAM（即DTCM）里面分配一部分静态内存来作为rtt的堆空间，这里配置为4KB */
-#define RT_HEAP_SIZE 2048
+#define RT_HEAP_SIZE 20480
 static uint32_t rt_heap[RT_HEAP_SIZE];
 RT_WEAK void *rt_heap_begin_get(void)
 {
@@ -286,9 +287,11 @@ void rt_hw_board_init(void)
 		
 		/* 初始化LED引脚 */
 		LCD_Init(LCD_INTERRUPT_ENABLE);
+        LCD_PXP_Config();
 		LED_GPIO_Config();
 		CAMCSI_Init();
         uart_Init();
+        KEY_Init();
 		PIT_CH0_Int_Init(75000000);
 //		OLEDPinInit();
 //		oled_init();

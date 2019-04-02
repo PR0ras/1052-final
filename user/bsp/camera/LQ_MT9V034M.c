@@ -121,7 +121,7 @@ status_t LQMT9V034_Init(camera_device_handle_t *handle, const camera_config_t *c
     SCCB_RegWrite(MT9V034_I2C_ADDR, 0x2C, 0x0004);                                     //参考电压设置   1.4v
     SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_ANALOG_CTRL, MT9V034_ANTI_ECLIPSE_ENABLE); //反向腐蚀
 
-    SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_MAX_GAIN_REG, 30); //0xAB  最大模拟增益     64
+    //SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_MAX_GAIN_REG, 30); //0xAB  最大模拟增益     64
 
     SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_AGC_AEC_PIXEL_COUNT_REG, 188 * 120); //0xB0  用于AEC/AGC直方图像素数目,最大44000   IMAGEH*IMAGEW
     SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_ADC_RES_CTRL_REG, 0x0303);           //0x1C  here is the way to regulate darkness :)
@@ -150,14 +150,14 @@ void MT9V034_SetFrameResolution(uint16_t height, uint16_t width, uint8_t fps)
    // MTV_IICWriteReg16(0x09, 0x01D9);   //COARSE_SHUTTER_WIDTH_2_CONTEXTA 0x01D9
     MTV_IICWriteReg16(0x0A, 0x0164);   //SHUTTER_WIDTH_CONTROL_CONTEXTA 0x0164
     MTV_IICWriteReg16(0x0B, 0x01E0);   //COARSE_SHUTTER_WIDTH_TOTAL_CONTEXTA 0x0000
-    MTV_IICWriteReg16(0x31, 0x0025);   //V1_CONTROL_CONTEXTA 0x0027
-    MTV_IICWriteReg16(0x32, 0x0021);   //V2_CONTROL_CONTEXTA 0x001A
-    MTV_IICWriteReg16(0x33, 0x0006);   //V3_CONTROL_CONTEXTA 0x0005
+    MTV_IICWriteReg16(0x31, 0x0030);   //V1_CONTROL_CONTEXTA 0x0027
+    MTV_IICWriteReg16(0x32, 0x001A);   //V2_CONTROL_CONTEXTA 0x001A
+    MTV_IICWriteReg16(0x33, 0x0010);   //V3_CONTROL_CONTEXTA 0x0005
     MTV_IICWriteReg16(0x34, 0x0003);   //V4_CONTROL_CONTEXTA 0x0003
 
     SCCB_RegWrite(MT9V034_I2C_ADDR, 0x13, 0x2D2E); //We also recommended using R0x13 = 0x2D2E with this setting for better column FPN.
-    SCCB_RegWrite(MT9V034_I2C_ADDR, 0x20, 0x03C7); //0x01C7对比度差，发白；0x03C7对比度提高 Recommended by design to improve performance in HDR mode and when frame rate is low.
-    SCCB_RegWrite(MT9V034_I2C_ADDR, 0x24, 0x0010); //Corrects pixel negative dark offset when global reset in R0x20[9] is enabled.
+    SCCB_RegWrite(MT9V034_I2C_ADDR, 0x20, 0x01C7); //0x01C7对比度差，发白；0x03C7对比度提高 Recommended by design to improve performance in HDR mode and when frame rate is low.
+    SCCB_RegWrite(MT9V034_I2C_ADDR, 0x24, 0x001B); //Corrects pixel negative dark offset when global reset in R0x20[9] is enabled.
     SCCB_RegWrite(MT9V034_I2C_ADDR, 0x2B, 0x0003); //Improves column FPN.
     SCCB_RegWrite(MT9V034_I2C_ADDR, 0x2F, 0x0003); //Improves FPN at near-saturation.
 
@@ -177,7 +177,7 @@ void MT9V034_SetFrameResolution(uint16_t height, uint16_t width, uint8_t fps)
     MTV_IICWriteReg16(MT9V034_AEC_AGC_ENABLE, 0x0000);                 //AEC
 
     //MTV_IICWriteReg16(MT9V034_MAX_GAIN_REG, 50);
-    SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_AGC_AEC_DESIRED_BIN_REG, 40); //0xA5  图像亮度  60  1-64
+    //SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_AGC_AEC_DESIRED_BIN_REG, 40); //0xA5  图像亮度  60  1-64
     //SCCB_RegWrite(MT9V034_I2C_ADDR,MT9V034_ANALOG_GAIN,0x8010); 
     
 }

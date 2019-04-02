@@ -27,6 +27,7 @@
 
 #include "bsp_lpuart.h"
 #include "LQ_MT9V034M.h"
+#include "bsp_key.h"
 /* RT-Thread 头文件 */
 #include "rtthread.h"
 
@@ -48,7 +49,8 @@
 /* 定义线程控制块指针 */
 static  rt_thread_t led1_thread = RT_NULL,
 										led2_thread = RT_NULL,
-                    cmd_thread  = RT_NULL;
+                    cmd_thread  = RT_NULL,
+                    key_thread  = RT_NULL;
 
 /* 指向信号量的指针 */
 static rt_sem_t sem = RT_NULL;
@@ -63,6 +65,7 @@ static void thread1_entry(void* parameter);
 static void thread2_entry(void* parameter);
 static void camera_entry(void* parameter);
 static void cmd_entry(void* parameter);
+static void key_entry(void* parameter);
 /*
 *************************************************************************
 *                             main 函数
@@ -112,6 +115,16 @@ int main(void)
                                  2);     /* 线程时间片 */	
 	if (cmd_thread != RT_NULL)
     rt_thread_startup(cmd_thread);
+  else
+    return -1;
+    key_thread = rt_thread_create("led2",                     /* 线程名字，字符串形式 */
+                                 key_entry,          /* 线程入口函数 */
+                                 (void*)3,                    /* 线程入口函数参数 */
+                                 512,     /* 线程栈大小，单位为字节 */
+                                 LED1_THREAD_PRIORITY,       /* 线程优先级，数值越大，优先级越小 */                  
+                                 2);     /* 线程时间片 */	
+	if (key_thread != RT_NULL)
+    rt_thread_startup(key_thread);
   else
     return -1;
 	return 0;
@@ -215,5 +228,30 @@ static void cmd_entry(void* parameter)
     }
     rt_thread_delay(500);
   }
+}
+
+static void key_entry(void* parameter)
+{
+  uint8_t contis=0;
+  while(1){
+    /* code */
+    if(keypres==WKUP_PRES)
+    {
+      testSend();
+      keypres = 0;
+    }
+    if(keypres==KEY0_PRES)
+    {
+      contis=~contis;
+      keypres = 0;
+    }
+    if(contis)
+    {
+      testSend();
+    }
+    rt_thread_delay(80);
+  }
+  
+  
 }
 /****************************END OF FILE**********************/
