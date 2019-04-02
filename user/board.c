@@ -39,6 +39,9 @@
 #include "carmer.h"
 #include <rthw.h>
 #include <rtthread.h>
+#include "bsp_FlexPwm.h"
+#include "bsp_Timer.h"
+#include "bsp_ad7606_spi.h"
 
 /*******************************************************************************
  * Variables
@@ -244,7 +247,7 @@ void CopyAndUseRAMVectorTable(void)
 #if defined(RT_USING_USER_MAIN) && defined(RT_USING_HEAP)
 
 /* 从内部SRAM（即DTCM）里面分配一部分静态内存来作为rtt的堆空间，这里配置为4KB */
-#define RT_HEAP_SIZE 2048
+#define RT_HEAP_SIZE 20480
 static uint32_t rt_heap[RT_HEAP_SIZE];
 RT_WEAK void *rt_heap_begin_get(void)
 {
@@ -274,7 +277,7 @@ void rt_hw_board_init(void)
     BOARD_ConfigMPU();
   
 		/* 初始化开发板引脚 */
-    //BOARD_InitPins();
+    BOARD_InitPins();
   
 		/* 初始化开发板时钟 */
     BOARD_BootClockRUN(); 
@@ -286,10 +289,15 @@ void rt_hw_board_init(void)
 		/* 初始化LED引脚 */
 		LCD_Init(LCD_INTERRUPT_ENABLE);
 		LED_GPIO_Config();
-		CAMCSI_Init();
+        BEE_GPIO_Config();
+		//CAMCSI_Init();
         PWMInit();
+        ENCInit();
         bsp_spi_InitAD7606();
-		//PIT_CH0_Int_Init(7500);
+	 
+		PIT_CH0_Int_Init(750000);
+        uart_Init();
+        Init_OK();
 //		OLEDPinInit();
 //		oled_init();
 /* 将开发板硬件相关的初始化放上面 */

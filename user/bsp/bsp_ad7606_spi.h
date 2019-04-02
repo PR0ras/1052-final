@@ -51,8 +51,8 @@ void AD7606_Reset(void);
 
 void AD7606_Scan(void); 		/* 此函数代码按照时序编写 */
 int16_t AD7606_ReadAdc(uint8_t _ch);
-uint8_t bsp_spiRead1(void)；
-
+uint8_t bsp_spiRead1(void);
+void AD7606_StartConv(void);
 
 
 

@@ -442,7 +442,7 @@ void PWM_UpdatePwmDutycycle(PWM_Type *base,
                             pwm_submodule_t subModule,
                             pwm_channels_t pwmSignal,
                             pwm_mode_t currPwmMode,
-                            uint8_t dutyCyclePercent)
+                            uint16_t dutyCyclePercent)
 {
     assert(dutyCyclePercent <= 10000);
     assert(pwmSignal < 2);

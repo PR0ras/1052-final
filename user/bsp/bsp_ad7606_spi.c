@@ -246,7 +246,7 @@ static void AD7606_ConfigGPIO(void)
   /* GPIO configuration of BUSY on GPIO_B1_03 (pin D11) */
   gpio_pin_config_t BUSY_config = {
       .direction = kGPIO_DigitalInput,
-      .outputLogic = 0U,
+      .outputLogic = 0U, 
       .interruptMode = kGPIO_NoIntmode
   };
   /* Initialize GPIO functionality on GPIO_B1_03 (pin D11) */

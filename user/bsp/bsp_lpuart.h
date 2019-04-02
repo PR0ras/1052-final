@@ -4,7 +4,7 @@
 #include "fsl_common.h"
 
 
-
+void uart_Init(void);
 void uartcontrol(uint8_t *tmp);
 void uartsend(uint16_t *txuartdata);
 void Speedupdate(void);
