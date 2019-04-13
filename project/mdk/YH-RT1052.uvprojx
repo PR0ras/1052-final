@@ -456,6 +456,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -691,6 +701,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -735,11 +765,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -1056,7 +1081,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>1</Optim>
             <oTime>1</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -1199,6 +1224,16 @@
               <FileName>fsl_pit.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1435,6 +1470,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1479,11 +1534,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -1944,6 +1994,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2179,6 +2239,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2223,11 +2303,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -2689,6 +2764,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2924,6 +3009,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2968,11 +3073,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -3434,6 +3534,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3669,6 +3779,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3713,11 +3843,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -4179,6 +4304,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4414,6 +4549,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4458,11 +4613,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -4924,6 +5074,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_pit.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_qtmr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
+            </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5159,6 +5319,26 @@
               <FileType>5</FileType>
               <FilePath>..\..\user\bsp\1052_NVIC.h</FilePath>
             </File>
+            <File>
+              <FileName>bsp_ad7606_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_ad7606_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5203,11 +5383,6 @@
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
