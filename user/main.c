@@ -239,9 +239,9 @@ static void run_entry(void* parameter)
 {
   while(1)
 	{
-    rt_thread_delay(100);
+    rt_thread_delay(20);
     run();
-    Speedupdate();
+    //Speedupdate();
 	}
 }
 

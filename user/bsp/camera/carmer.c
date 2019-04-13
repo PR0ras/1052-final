@@ -3,7 +3,6 @@
 #include "./lcd/bsp_lcd.h"
 #include "./font/fonts.h"
 #include "bwLabel.h"
-#include "bsp_pit.h"
 #include "1052_NVIC.h"
 
 #include "fsl_iomuxc.h"

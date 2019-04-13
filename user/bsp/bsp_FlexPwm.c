@@ -69,7 +69,7 @@ void PWMInit()
 	PWM_bsp_Init(PWM2,kPWM_Module_2,kPWM_Control_Module_2,300);
   //电机1占空比为固定值
   PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmB,pwm_Reference);
- // PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmA,pwm_Reference);
+  //PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmA,pwm_Reference);
 }
 
 void PWMx_SMx_DutySet(PWM_Type *Pwmx,	pwm_submodule_t Module_x,uint8_t subModulesToUpdate,pwm_channels_t pwmSignal,uint16_t duty) 
@@ -80,9 +80,8 @@ void PWMx_SMx_DutySet(PWM_Type *Pwmx,	pwm_submodule_t Module_x,uint8_t subModule
 
 void MOTOR_PWMs_Reload(int32_t pwm_Difference)
 { //更新电机2占空比
-
-    PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmA,pwm_Reference+pwm_Difference);
- // PWM_SetPwmLdok(PWM2,kPWM_Control_Module_1,true);    //设置PWM的load ok位
+  PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmA,pwm_Reference+pwm_Difference);
+  //PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmB,pwm_Reference+pwm_Difference);
 }
 
 void DJ_PWM_Reload(int32_t Offset)  //Median中值  Offset偏移量
@@ -99,14 +98,15 @@ void run()
  
   now_PWM+=Kp*(err-l_err)+Ki*err+Kd*(err-2*l_err+ll_err);//增量式
   //Integral_err+=err;//位置式
-  //now_PWM=Kp*err+Ki*Integral_err+Kd*(err-l_err);//位置式
+ // now_PWM=Kp*err+Ki*Integral_err+Kd*(err-l_err);//位置式
   l_err=err;
   ll_err=l_err;//增量式
 
-  if(now_PWM>5000) now_PWM=5000;
-  if(now_PWM<-5000) now_PWM=-5000; 
+  if(now_PWM>pwm_max) now_PWM=pwm_max;
+  if(now_PWM<-pwm_max) now_PWM=-pwm_max; 
 
-  MOTOR_PWMs_Reload(1000);
+  MOTOR_PWMs_Reload(now_PWM);
+  PRINTF("err:%d,speed_now:%d,now_PWM:%d\r\n", err,speed_now,now_PWM );
 }
 
 
