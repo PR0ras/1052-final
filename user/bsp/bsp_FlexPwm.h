@@ -9,7 +9,10 @@
 
 #include "fsl_pwm.h"
 
+
+#include "fsl_debug_console.h"
 #define pwm_Reference 5000        //  电机PWM基准值
+#define pwm_max       2000        //电机限幅
 #define Median 5020               //舵机中值
 #define lim_right  4050           //舵机右极限
 #define lim_lift   5990           //舵机左极限
