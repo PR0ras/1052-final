@@ -129,7 +129,7 @@ void CAM_DIS(void)
  	// sendXfer.data = (uint8_t *)uartimg;
     // sendXfer.dataSize = sizeof(uartimg);
 	sendXfer.data = (uint8_t *)csiFrameBuf[0];
-    sendXfer.dataSize = sizeof(csiFrameBuf[0]);
+  sendXfer.dataSize = sizeof(csiFrameBuf[0]);
 
 	uint8_t curLcdBufferIdx = 1U;
 	CAMERA_RECEIVER_Start(&cameraReceiver);
