@@ -11,6 +11,7 @@
 ******************************************************************************/
 #include "LQ_MT9V034M.h"
 #include "fsl_debug_console.h"
+#define LPI2C_CLOCK_FREQUENCY ((CLOCK_GetFreq(kCLOCK_Usb1PllClk) / 8) / (5U + 1U))
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -94,14 +95,14 @@ void LPI2C1_Init(uint32_t baudrate)
     //配置I2C1作为I2C主机
     LPI2C_MasterGetDefaultConfig(&lpi2c1_config);          //先配置为默认配置
     lpi2c1_config.baudRate_Hz = baudrate;                  //设置I2C速率
-    LPI2C_MasterInit(LPI2C1, &lpi2c1_config, sourceClock); //初始化I2C1
+    LPI2C_MasterInit(LPI2C1, &lpi2c1_config, LPI2C_CLOCK_FREQUENCY); //初始化I2C1
 }
 void MT9V034_Default_Settings(void);
 // MT9V034 Port Init
 status_t LQMT9V034_Init(camera_device_handle_t *handle, const camera_config_t *config)
 {
     uint16_t data = 0;
-    LPI2C1_Init(400000);                           //// I2C 初始化
+    LPI2C1_Init(100000);                           //// I2C 初始化
     MTV_IICReadReg16(MT9V034_CHIP_VERSION, &data); //读取ID
                                                    //PRINTF("tmp: %x \r\n",tmp);
                                                    //PRINTF("kStatus_Success: %x \r\n",kStatus_Success);
@@ -114,9 +115,9 @@ status_t LQMT9V034_Init(camera_device_handle_t *handle, const camera_config_t *c
     }
     /*下面的和K66 K60例程一样，可以改变摄像头的输出图像大小，修改后CSI  和 PXP 都需要自行修改*/
 
-    MT9V034_Default_Settings(); //最小曝光时间配置  注意神眼摄像头的寄存器掉电不会丢失，修改前最好记得备份当前配置
+    //MT9V034_Default_Settings(); //最小曝光时间配置  注意神眼摄像头的寄存器掉电不会丢失，修改前最好记得备份当前配置
     /*下面的和K66 K60例程一样，可以改变摄像头的输出图像大小，修改后CSI  和 PXP 都需要自行修改*/
-    MT9V034_SetFrameResolution(IMAGEH, IMAGEW, config->framePerSec); //设置摄像头图像分频输出,BIT4,5镜像设置:上下左右镜像
+    //MT9V034_SetFrameResolution(IMAGEH, IMAGEW, config->framePerSec); //设置摄像头图像分频输出,BIT4,5镜像设置:上下左右镜像
 
     SCCB_RegWrite(MT9V034_I2C_ADDR, 0x2C, 0x0004);                                     //参考电压设置   1.4v
     SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_ANALOG_CTRL, MT9V034_ANTI_ECLIPSE_ENABLE); //反向腐蚀

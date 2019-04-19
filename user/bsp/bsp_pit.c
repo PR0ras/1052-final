@@ -16,9 +16,9 @@ void PIT_CH0_Int_Init(uint32_t ldval)
     PIT_Init(PIT, &pit_config);         //初始化PIT定时器
 
     PIT_SetTimerPeriod(PIT, kPIT_Chnl_0, ldval);                       //设置倒计时初始值
-//    PIT_SetTimerPeriod(PIT, kPIT_Chnl_0, 75000000);
+    PIT_SetTimerPeriod(PIT, kPIT_Chnl_1, 7500);
     PIT_EnableInterrupts(PIT, kPIT_Chnl_0, kPIT_TimerInterruptEnable); //使能中断
-//    PIT_EnableInterrupts(PIT, kPIT_Chnl_1, kPIT_TimerInterruptEnable); //使能中断
+    PIT_EnableInterrupts(PIT, kPIT_Chnl_1, kPIT_TimerInterruptEnable); //使能中断
 //    //RT1052_NVIC_SetPriority(PIT_IRQn, 6, 0);                           //抢占优先级6，子优先级0
     
 	PIT_ClearStatusFlags(PIT, kPIT_Chnl_0, kPIT_TimerFlag); //清楚中断标志位
@@ -26,7 +26,7 @@ void PIT_CH0_Int_Init(uint32_t ldval)
     PIT_StartTimer(PIT, kPIT_Chnl_0); //打开PIT
 		//RT1052_NVIC_SetPriority(PIT_IRQn,5,0);
 	EnableIRQ(PIT_IRQn);              //使能PIT中断
-    //PIT_StartTimer(PIT, kPIT_Chnl_1); //打开PIT
+    PIT_StartTimer(PIT, kPIT_Chnl_1); //打开PIT
 	//PIT_StopTimer(PIT, kPIT_Chnl_0); //打开PIT
 	//PIT_Deinit(PIT);
 }
@@ -44,7 +44,7 @@ void PIT_IRQHandler(void)
     }
    if ((PIT_GetStatusFlags(PIT, kPIT_Chnl_1) & kPIT_TimerFlag) == kPIT_TimerFlag)
     {
-//        //cnt++;
+       cnt++;
 //        FPS=FPStmp;
 //        FPStmp=0;
         PIT_ClearStatusFlags(PIT, kPIT_Chnl_1, kPIT_TimerFlag); //清楚中断标志位

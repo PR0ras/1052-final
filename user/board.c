@@ -287,12 +287,14 @@ void rt_hw_board_init(void)
 		
 		/* 初始化LED引脚 */
 		LCD_Init(LCD_INTERRUPT_ENABLE);
-        LCD_PXP_Config();
+        //LCD_PXP_Config();
 		LED_GPIO_Config();
 		CAMCSI_Init();
         uart_Init();
         KEY_Init();
 		PIT_CH0_Int_Init(75000000);
+        BOARD_InitCameraResource();
+        Campin_Init();
 //		OLEDPinInit();
 //		oled_init();
 /* 将开发板硬件相关的初始化放上面 */

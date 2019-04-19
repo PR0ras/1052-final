@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\nor_txt_sdram\Objects\YH-RT1052.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\nor_txt_sdram\Objects\YH-RT1052.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Apr 07 17:26:10 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 18 14:54:01 2019
 <BR><P>
 <H3>Maximum Stack Usage =        560 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -16,6 +16,7 @@ Mutually Recursive functions
  <LI><a href="#[6]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">UsageFault_Handler</a><BR>
  <LI><a href="#[7]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">SVC_Handler</a><BR>
  <LI><a href="#[8]">DebugMon_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">DebugMon_Handler</a><BR>
+ <LI><a href="#[125]">CLOCK_GetPerClkFreq</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[121]">CLOCK_GetFreq</a><BR>
 </UL>
 <P>
 <H3>
@@ -915,7 +916,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertRadixNumToString
+<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertRadixNumToString
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ldivmod
 </UL>
 
@@ -924,10 +925,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertRadixNumToString
+<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertRadixNumToString
 </UL>
 
-<P><STRONG><a name="[11b]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
+<P><STRONG><a name="[11c]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
 </UL>
 
@@ -935,7 +936,7 @@ Global Symbols
 
 <P><STRONG><a name="[1bf]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[f8]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[f8]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
@@ -944,8 +945,10 @@ Global Symbols
 
 <P><STRONG><a name="[1c1]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[f7]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[f7]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edge_bw
 </UL>
 
 <P><STRONG><a name="[114]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
@@ -960,7 +963,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[168]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<BR><BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
 </UL>
 
 <P><STRONG><a name="[fa]"></a>__aeabi_l2d</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, dfltl.o(.text))
@@ -968,7 +971,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
 </UL>
 
 <P><STRONG><a name="[fc]"></a>__aeabi_d2lz</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, dfixl.o(.text))
@@ -977,7 +980,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
 </UL>
 
 <P><STRONG><a name="[1c3]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
@@ -1013,9 +1016,9 @@ Global Symbols
 <P><STRONG><a name="[fb]"></a>_double_epilogue</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, depilogue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2d
 </UL>
@@ -1082,50 +1085,93 @@ Global Symbols
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[110]"></a>BOARD_InitCameraResource</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, carmer.o(i.BOARD_InitCameraResource))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = BOARD_InitCameraResource &rArr; LPI2C1_Init &rArr; LPI2C_MasterInit &rArr; LPI2C_MasterSetBaudRate
+<P><STRONG><a name="[110]"></a>BOARD_InitCameraResource</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, carmer.o(i.BOARD_InitCameraResource))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = BOARD_InitCameraResource &rArr; LPI2C1_Init &rArr; LPI2C_MasterInit &rArr; LPI2C_MasterSetBaudRate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPI2C1_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAMCSI_Init
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
 <P><STRONG><a name="[18e]"></a>BOARD_InitPins</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, pin_mux.o(i.BOARD_InitPins))
 <BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[112]"></a>CAMCSI_Init</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, carmer.o(i.CAMCSI_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = CAMCSI_Init &rArr; BOARD_InitCameraResource &rArr; LPI2C1_Init &rArr; LPI2C_MasterInit &rArr; LPI2C_MasterSetBaudRate
+<P><STRONG><a name="[112]"></a>CAMCSI_Init</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, carmer.o(i.CAMCSI_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = CAMCSI_Init &rArr; LPI2C1_Init &rArr; LPI2C_MasterInit &rArr; LPI2C_MasterSetBaudRate
 </UL>
-<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_SetOutputBufferConfig
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Campin_Init
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_SetOutputBufferConfig
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RT1052_NVIC_SetPriority
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT9V034_SetFrameResolution
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Campin_Init
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCameraResource
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPI2C1_Init
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[118]"></a>CAM_DIS</STRONG> (Thumb, 360 bytes, Stack size 0 bytes, carmer.o(i.CAM_DIS))
+<P><STRONG><a name="[118]"></a>CAM_DIS</STRONG> (Thumb, 344 bytes, Stack size 0 bytes, carmer.o(i.CAM_DIS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 544<LI>Call Chain = CAM_DIS &rArr; DbgConsole_Printf &rArr; StrFormatPrintf &rArr; __hardfp_pow &rArr; sqrt
 </UL>
 <BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
-<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_SetProcessSurfaceBufferConfig
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GetFont
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearLine
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wallner
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edge_dect
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;edge_bw
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;camera_entry
+</UL>
+
+<P><STRONG><a name="[121]"></a>CLOCK_GetFreq</STRONG> (Thumb, 340 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = CLOCK_GetFreq &rArr; CLOCK_GetPeriphClkFreq &rArr; CLOCK_GetSysPfdFreq &rArr; CLOCK_GetPllFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1PfdFreq
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSysPfdFreq
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFreq
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPerClkFreq
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPeriphClkFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPerClkFreq
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPI2C1_Init
+</UL>
+
+<P><STRONG><a name="[125]"></a>CLOCK_GetPerClkFreq</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetPerClkFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
+<LI>Call Chain = CLOCK_GetPerClkFreq &rArr;  CLOCK_GetFreq (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
 <P><STRONG><a name="[10f]"></a>CLOCK_GetPllFreq</STRONG> (Thumb, 540 bytes, Stack size 24 bytes, fsl_clock.o(i.CLOCK_GetPllFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CLOCK_GetPllFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_DebugConsoleSrcFreq
+<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetUsb1PfdFreq
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSysPfdFreq
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPeriphClkFreq
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_DebugConsoleSrcFreq
+</UL>
+
+<P><STRONG><a name="[124]"></a>CLOCK_GetSysPfdFreq</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetSysPfdFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CLOCK_GetSysPfdFreq &rArr; CLOCK_GetPllFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPeriphClkFreq
+</UL>
+
+<P><STRONG><a name="[123]"></a>CLOCK_GetUsb1PfdFreq</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetUsb1PfdFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CLOCK_GetUsb1PfdFreq &rArr; CLOCK_GetPllFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
 <P><STRONG><a name="[10b]"></a>CLOCK_InitArmPll</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_InitArmPll))
@@ -1136,233 +1182,234 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 </UL>
 
-<P><STRONG><a name="[148]"></a>CLOCK_InitVideoPll</STRONG> (Thumb, 162 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_InitVideoPll))
-<BR><BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_InitClock
+<P><STRONG><a name="[14d]"></a>CLOCK_InitVideoPll</STRONG> (Thumb, 162 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_InitVideoPll))
+<BR><BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_InitClock
 </UL>
 
-<P><STRONG><a name="[121]"></a>CSI_Deinit</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, fsl_csi.o(i.CSI_Deinit))
+<P><STRONG><a name="[126]"></a>CSI_Deinit</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, fsl_csi.o(i.CSI_Deinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CSI_Deinit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
+<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_Deinit
 </UL>
 
-<P><STRONG><a name="[12a]"></a>CSI_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_DriverIRQHandler))
+<P><STRONG><a name="[12f]"></a>CSI_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_DriverIRQHandler))
 <BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_IRQHandler
 </UL>
 
-<P><STRONG><a name="[123]"></a>CSI_GetDefaultConfig</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, fsl_csi.o(i.CSI_GetDefaultConfig))
+<P><STRONG><a name="[128]"></a>CSI_GetDefaultConfig</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, fsl_csi.o(i.CSI_GetDefaultConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CSI_GetDefaultConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_Init
 </UL>
 
 <P><STRONG><a name="[36]"></a>CSI_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, carmer.o(i.CSI_IRQHandler))
-<BR><BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_DriverIRQHandler
+<BR><BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_DriverIRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(RESET)
 </UL>
-<P><STRONG><a name="[124]"></a>CSI_Init</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_Init))
+<P><STRONG><a name="[129]"></a>CSI_Init</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CSI_Init &rArr; CSI_Reset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Reset
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
+<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Reset
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_Init
 </UL>
 
-<P><STRONG><a name="[12c]"></a>CSI_ReflashFifoDma</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_ReflashFifoDma))
-<BR><BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferSubmitEmptyBuffer
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStart
+<P><STRONG><a name="[131]"></a>CSI_ReflashFifoDma</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_ReflashFifoDma))
+<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferSubmitEmptyBuffer
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStart
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferHandleIRQ
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Reset
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Init
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Reset
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Init
 </UL>
 
-<P><STRONG><a name="[12b]"></a>CSI_Reset</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_Reset))
+<P><STRONG><a name="[130]"></a>CSI_Reset</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_Reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_Reset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
+<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Init
+<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Init
 </UL>
 
-<P><STRONG><a name="[125]"></a>CSI_TransferCreateHandle</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, fsl_csi.o(i.CSI_TransferCreateHandle))
+<P><STRONG><a name="[12a]"></a>CSI_TransferCreateHandle</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, fsl_csi.o(i.CSI_TransferCreateHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CSI_TransferCreateHandle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_Init
 </UL>
 
-<P><STRONG><a name="[122]"></a>CSI_TransferGetFullBuffer</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_TransferGetFullBuffer))
+<P><STRONG><a name="[127]"></a>CSI_TransferGetFullBuffer</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_TransferGetFullBuffer))
 <BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_GetFullBuffer
 </UL>
 
 <P><STRONG><a name="[d8]"></a>CSI_TransferHandleIRQ</STRONG> (Thumb, 192 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferHandleIRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_TransferHandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferLoadBufferToDevice
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
+<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferLoadBufferToDevice
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_csi.o(i.CSI_TransferCreateHandle)
 </UL>
-<P><STRONG><a name="[126]"></a>CSI_TransferStart</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferStart))
+<P><STRONG><a name="[12b]"></a>CSI_TransferStart</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_TransferStart
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferLoadBufferToDevice
+<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferLoadBufferToDevice
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_Start
 </UL>
 
-<P><STRONG><a name="[127]"></a>CSI_TransferStop</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferStop))
+<P><STRONG><a name="[12c]"></a>CSI_TransferStop</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferStop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_TransferStop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
+<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Stop
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_Stop
 </UL>
 
-<P><STRONG><a name="[128]"></a>CSI_TransferSubmitEmptyBuffer</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferSubmitEmptyBuffer))
+<P><STRONG><a name="[12d]"></a>CSI_TransferSubmitEmptyBuffer</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, fsl_csi.o(i.CSI_TransferSubmitEmptyBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_TransferSubmitEmptyBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferLoadBufferToDevice
+<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ReflashFifoDma
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferLoadBufferToDevice
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_SubmitEmptyBuffer
 </UL>
 
 <P><STRONG><a name="[113]"></a>Campin_Init</STRONG> (Thumb, 130 bytes, Stack size 0 bytes, carmer.o(i.Campin_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAMCSI_Init
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
 <P><STRONG><a name="[a7]"></a>DMA0_DMA16_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA0_DMA16_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA0_DMA16_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b1]"></a>DMA10_DMA26_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA10_DMA26_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA10_DMA26_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b2]"></a>DMA11_DMA27_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA11_DMA27_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA11_DMA27_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b3]"></a>DMA12_DMA28_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA12_DMA28_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA12_DMA28_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b4]"></a>DMA13_DMA29_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA13_DMA29_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA13_DMA29_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b5]"></a>DMA14_DMA30_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA14_DMA30_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA14_DMA30_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b6]"></a>DMA15_DMA31_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA15_DMA31_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA15_DMA31_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[a8]"></a>DMA1_DMA17_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA1_DMA17_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA1_DMA17_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[a9]"></a>DMA2_DMA18_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA2_DMA18_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA2_DMA18_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[aa]"></a>DMA3_DMA19_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA3_DMA19_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA3_DMA19_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[ab]"></a>DMA4_DMA20_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA4_DMA20_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA4_DMA20_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[ac]"></a>DMA5_DMA21_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA5_DMA21_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA5_DMA21_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[ad]"></a>DMA6_DMA22_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA6_DMA22_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA6_DMA22_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[ae]"></a>DMA7_DMA23_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA7_DMA23_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA7_DMA23_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[af]"></a>DMA8_DMA24_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA8_DMA24_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA8_DMA24_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[b0]"></a>DMA9_DMA25_DriverIRQHandler</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA9_DMA25_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA9_DMA25_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
@@ -1372,10 +1419,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
 </UL>
 
-<P><STRONG><a name="[131]"></a>DbgConsole_Init</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fsl_debug_console.o(i.DbgConsole_Init))
+<P><STRONG><a name="[136]"></a>DbgConsole_Init</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fsl_debug_console.o(i.DbgConsole_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = DbgConsole_Init &rArr; LOG_Init &rArr; IO_Init &rArr; LPUART_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Init
+<BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
@@ -1383,8 +1430,8 @@ Global Symbols
 <P><STRONG><a name="[119]"></a>DbgConsole_Printf</STRONG> (Thumb, 42 bytes, Stack size 152 bytes, fsl_debug_console.o(i.DbgConsole_Printf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 544<LI>Call Chain = DbgConsole_Printf &rArr; StrFormatPrintf &rArr; __hardfp_pow &rArr; sqrt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Push
+<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Push
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imgremote
@@ -1402,7 +1449,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
 </UL>
 
-<P><STRONG><a name="[12f]"></a>EDMA_GetChannelStatusFlags</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_GetChannelStatusFlags))
+<P><STRONG><a name="[134]"></a>EDMA_GetChannelStatusFlags</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_GetChannelStatusFlags))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA9_DMA25_DriverIRQHandler
@@ -1429,7 +1476,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
 </UL>
 
-<P><STRONG><a name="[130]"></a>EDMA_HandleIRQ</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, fsl_edma.o(i.EDMA_HandleIRQ))
+<P><STRONG><a name="[135]"></a>EDMA_HandleIRQ</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, fsl_edma.o(i.EDMA_HandleIRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EDMA_HandleIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA9_DMA25_DriverIRQHandler
@@ -1456,10 +1503,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
 </UL>
 
-<P><STRONG><a name="[138]"></a>EDMA_InstallTCD</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_InstallTCD))
+<P><STRONG><a name="[13d]"></a>EDMA_InstallTCD</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_InstallTCD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EDMA_InstallTCD
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
 </UL>
 
 <P><STRONG><a name="[15d]"></a>EDMA_PrepareTransfer</STRONG> (Thumb, 242 bytes, Stack size 24 bytes, fsl_edma.o(i.EDMA_PrepareTransfer))
@@ -1480,38 +1527,38 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_SendEDMA
 </UL>
 
-<P><STRONG><a name="[135]"></a>EDMA_SubmitTransfer</STRONG> (Thumb, 376 bytes, Stack size 32 bytes, fsl_edma.o(i.EDMA_SubmitTransfer))
+<P><STRONG><a name="[13a]"></a>EDMA_SubmitTransfer</STRONG> (Thumb, 376 bytes, Stack size 32 bytes, fsl_edma.o(i.EDMA_SubmitTransfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = EDMA_SubmitTransfer &rArr; EDMA_TcdSetTransferConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_TcdSetTransferConfig
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_TcdReset
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_InstallTCD
+<BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_TcdSetTransferConfig
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_TcdReset
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_InstallTCD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_SendEDMA
 </UL>
 
-<P><STRONG><a name="[136]"></a>EDMA_TcdReset</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_TcdReset))
+<P><STRONG><a name="[13b]"></a>EDMA_TcdReset</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_TcdReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EDMA_TcdReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
 </UL>
 
-<P><STRONG><a name="[137]"></a>EDMA_TcdSetTransferConfig</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_TcdSetTransferConfig))
+<P><STRONG><a name="[13c]"></a>EDMA_TcdSetTransferConfig</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_TcdSetTransferConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EDMA_TcdSetTransferConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
 </UL>
 
-<P><STRONG><a name="[145]"></a>ELCDIF_RgbModeInit</STRONG> (Thumb, 308 bytes, Stack size 24 bytes, fsl_elcdif.o(i.ELCDIF_RgbModeInit))
+<P><STRONG><a name="[14a]"></a>ELCDIF_RgbModeInit</STRONG> (Thumb, 308 bytes, Stack size 24 bytes, fsl_elcdif.o(i.ELCDIF_RgbModeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ELCDIF_RgbModeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 </UL>
 
-<P><STRONG><a name="[146]"></a>ELCDIF_UpdateLut</STRONG> (Thumb, 76 bytes, Stack size 4 bytes, fsl_elcdif.o(i.ELCDIF_UpdateLut))
+<P><STRONG><a name="[14b]"></a>ELCDIF_UpdateLut</STRONG> (Thumb, 76 bytes, Stack size 4 bytes, fsl_elcdif.o(i.ELCDIF_UpdateLut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = ELCDIF_UpdateLut
 </UL>
-<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 </UL>
 
 <P><STRONG><a name="[5b]"></a>GPIO1_Combined_0_15_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, bsp_key.o(i.GPIO1_Combined_0_15_IRQHandler))
@@ -1520,44 +1567,44 @@ Global Symbols
 <P><STRONG><a name="[63]"></a>GPIO5_Combined_0_15_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, bsp_key.o(i.GPIO5_Combined_0_15_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(RESET)
 </UL>
-<P><STRONG><a name="[139]"></a>GPIO_PinInit</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, fsl_gpio.o(i.GPIO_PinInit))
+<P><STRONG><a name="[13e]"></a>GPIO_PinInit</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, fsl_gpio.o(i.GPIO_PinInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = GPIO_PinInit &rArr; GPIO_PinSetInterruptConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinSetInterruptConfig
+<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinSetInterruptConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Config
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
 </UL>
 
-<P><STRONG><a name="[13a]"></a>GPIO_PinSetInterruptConfig</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, fsl_gpio.o(i.GPIO_PinSetInterruptConfig))
+<P><STRONG><a name="[13f]"></a>GPIO_PinSetInterruptConfig</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, fsl_gpio.o(i.GPIO_PinSetInterruptConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = GPIO_PinSetInterruptConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
 </UL>
 
-<P><STRONG><a name="[13b]"></a>IO_Init</STRONG> (Thumb, 72 bytes, Stack size 40 bytes, fsl_io.o(i.IO_Init))
+<P><STRONG><a name="[140]"></a>IO_Init</STRONG> (Thumb, 72 bytes, Stack size 40 bytes, fsl_io.o(i.IO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = IO_Init &rArr; LPUART_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_Init
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_GetDefaultConfig
+<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_Init
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_GetDefaultConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Init
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Init
 </UL>
 
-<P><STRONG><a name="[13e]"></a>IO_Transfer</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fsl_io.o(i.IO_Transfer))
+<P><STRONG><a name="[143]"></a>IO_Transfer</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fsl_io.o(i.IO_Transfer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = IO_Transfer &rArr; LPUART_WriteBlocking
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_WriteBlocking
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_ReadBlocking
+<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_WriteBlocking
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_ReadBlocking
 </UL>
-<BR>[Called By]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Push
+<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Push
 </UL>
 
-<P><STRONG><a name="[141]"></a>KEY_Init</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, bsp_key.o(i.KEY_Init))
+<P><STRONG><a name="[146]"></a>KEY_Init</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, bsp_key.o(i.KEY_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = KEY_Init &rArr; GPIO_PinInit &rArr; GPIO_PinSetInterruptConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
@@ -1568,12 +1615,12 @@ Global Symbols
 <P><STRONG><a name="[11f]"></a>LCD_ClearLine</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, bsp_lcd.o(i.LCD_ClearLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = LCD_ClearLine &rArr; LCD_DisplayChar
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
 </UL>
 
-<P><STRONG><a name="[142]"></a>LCD_DisplayChar</STRONG> (Thumb, 304 bytes, Stack size 44 bytes, bsp_lcd.o(i.LCD_DisplayChar))
+<P><STRONG><a name="[147]"></a>LCD_DisplayChar</STRONG> (Thumb, 304 bytes, Stack size 44 bytes, bsp_lcd.o(i.LCD_DisplayChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = LCD_DisplayChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1583,7 +1630,7 @@ Global Symbols
 <P><STRONG><a name="[120]"></a>LCD_DisplayStringLine</STRONG> (Thumb, 60 bytes, Stack size 20 bytes, bsp_lcd.o(i.LCD_DisplayStringLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = LCD_DisplayStringLine &rArr; LCD_DisplayChar
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
 </UL>
@@ -1592,57 +1639,46 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
 </UL>
 
-<P><STRONG><a name="[143]"></a>LCD_Init</STRONG> (Thumb, 232 bytes, Stack size 48 bytes, bsp_lcd.o(i.LCD_Init))
+<P><STRONG><a name="[148]"></a>LCD_Init</STRONG> (Thumb, 232 bytes, Stack size 48 bytes, bsp_lcd.o(i.LCD_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = LCD_Init &rArr; GPIO_PinInit &rArr; GPIO_PinSetInterruptConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELCDIF_UpdateLut
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELCDIF_RgbModeInit
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_InitClock
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_IOMUXC_MUX_Config
+<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELCDIF_UpdateLut
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELCDIF_RgbModeInit
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_InitClock
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_IOMUXC_MUX_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[147]"></a>LCD_InitClock</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_InitClock))
+<P><STRONG><a name="[14c]"></a>LCD_InitClock</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_InitClock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LCD_InitClock
 </UL>
-<BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_InitVideoPll
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_InitVideoPll
 </UL>
-<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
-</UL>
-
-<P><STRONG><a name="[149]"></a>LCD_PXP_Config</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, bsp_lcd.o(i.LCD_PXP_Config))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = LCD_PXP_Config &rArr; PXP_SetProcessSurfaceScaler
-</UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_SetProcessSurfaceScaler
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_SetProcessSurfacePosition
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_SetAlphaSurfacePosition
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PXP_Init
-</UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 </UL>
 
 <P><STRONG><a name="[14e]"></a>LED_GPIO_Config</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, bsp_led.o(i.LED_GPIO_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = LED_GPIO_Config &rArr; GPIO_PinInit &rArr; GPIO_PinSetInterruptConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[132]"></a>LOG_Init</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, fsl_log.o(i.LOG_Init))
+<P><STRONG><a name="[137]"></a>LOG_Init</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, fsl_log.o(i.LOG_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = LOG_Init &rArr; IO_Init &rArr; LPUART_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Init
+<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 
-<P><STRONG><a name="[134]"></a>LOG_Push</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fsl_log.o(i.LOG_Push))
+<P><STRONG><a name="[139]"></a>LOG_Push</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fsl_log.o(i.LOG_Push))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LOG_Push &rArr; IO_Transfer &rArr; LPUART_WriteBlocking
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Transfer
+<BR>[Calls]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Transfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_RelocateLog
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Printf
@@ -1655,13 +1691,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
-<P><STRONG><a name="[111]"></a>LPI2C1_Init</STRONG> (Thumb, 68 bytes, Stack size 40 bytes, lq_mt9v034m.o(i.LPI2C1_Init))
+<P><STRONG><a name="[111]"></a>LPI2C1_Init</STRONG> (Thumb, 78 bytes, Stack size 40 bytes, lq_mt9v034m.o(i.LPI2C1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = LPI2C1_Init &rArr; LPI2C_MasterInit &rArr; LPI2C_MasterSetBaudRate
 </UL>
-<BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPI2C_MasterInit
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPI2C_MasterInit
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPI2C_MasterGetDefaultConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCameraResource
+<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAMCSI_Init
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCameraResource
 </UL>
 
 <P><STRONG><a name="[c1]"></a>LPI2C2_DriverIRQHandler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, fsl_lpi2c.o(i.LPI2C2_DriverIRQHandler))
@@ -1767,18 +1805,18 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(.text)
 </UL>
 <P><STRONG><a name="[15a]"></a>LPUART_ClearStatusFlags</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, fsl_lpuart.o(i.LPUART_ClearStatusFlags))
-<BR><BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_ReadBlocking
+<BR><BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_ReadBlocking
 </UL>
 
 <P><STRONG><a name="[1b2]"></a>LPUART_EnableInterrupts</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, fsl_lpuart.o(i.LPUART_EnableInterrupts))
 <BR><BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
 </UL>
 
-<P><STRONG><a name="[13c]"></a>LPUART_GetDefaultConfig</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_GetDefaultConfig))
+<P><STRONG><a name="[141]"></a>LPUART_GetDefaultConfig</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_GetDefaultConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LPUART_GetDefaultConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Init
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Init
 </UL>
 
 <P><STRONG><a name="[160]"></a>LPUART_GetInstance</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_GetInstance))
@@ -1791,25 +1829,25 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[13d]"></a>LPUART_Init</STRONG> (Thumb, 506 bytes, Stack size 40 bytes, fsl_lpuart.o(i.LPUART_Init))
+<P><STRONG><a name="[142]"></a>LPUART_Init</STRONG> (Thumb, 506 bytes, Stack size 40 bytes, fsl_lpuart.o(i.LPUART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LPUART_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_Init
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Init
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Init
 </UL>
 
-<P><STRONG><a name="[140]"></a>LPUART_ReadBlocking</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_ReadBlocking))
+<P><STRONG><a name="[145]"></a>LPUART_ReadBlocking</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_ReadBlocking))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LPUART_ReadBlocking
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_ClearStatusFlags
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Transfer
+<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Transfer
 </UL>
 
 <P><STRONG><a name="[15c]"></a>LPUART_SendEDMA</STRONG> (Thumb, 112 bytes, Stack size 56 bytes, fsl_lpuart_edma.o(i.LPUART_SendEDMA))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = LPUART_SendEDMA &rArr; EDMA_SubmitTransfer &rArr; EDMA_TcdSetTransferConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_SubmitTransfer
 <LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_StartTransfer
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_PrepareTransfer
 </UL>
@@ -1828,15 +1866,15 @@ Global Symbols
 <P><STRONG><a name="[e4]"></a>LPUART_UserCallback</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, bsp_lpuart.o(i.LPUART_UserCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LPUART_UserCallback &rArr; LPUART_WriteBlocking
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_WriteBlocking
+<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_WriteBlocking
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> bsp_lpuart.o(i.uart_Init)
 </UL>
-<P><STRONG><a name="[13f]"></a>LPUART_WriteBlocking</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_WriteBlocking))
+<P><STRONG><a name="[144]"></a>LPUART_WriteBlocking</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_lpuart.o(i.LPUART_WriteBlocking))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LPUART_WriteBlocking
 </UL>
 <BR>[Called By]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;testSend
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Transfer
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IO_Transfer
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_UserCallback
 </UL>
 
@@ -1848,7 +1886,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAMCSI_Init
 </UL>
 
-<P><STRONG><a name="[164]"></a>PIT_CH0_Int_Init</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, bsp_pit.o(i.PIT_CH0_Int_Init))
+<P><STRONG><a name="[164]"></a>PIT_CH0_Int_Init</STRONG> (Thumb, 114 bytes, Stack size 24 bytes, bsp_pit.o(i.PIT_CH0_Int_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = PIT_CH0_Int_Init &rArr; PIT_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PIT_Init
@@ -1856,7 +1894,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[85]"></a>PIT_IRQHandler</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, bsp_pit.o(i.PIT_IRQHandler))
+<P><STRONG><a name="[85]"></a>PIT_IRQHandler</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, bsp_pit.o(i.PIT_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mimxrt1052.o(RESET)
 </UL>
 <P><STRONG><a name="[165]"></a>PIT_Init</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, fsl_pit.o(i.PIT_Init))
@@ -1865,40 +1903,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PIT_CH0_Int_Init
 </UL>
 
-<P><STRONG><a name="[14a]"></a>PXP_Init</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, fsl_pxp.o(i.PXP_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PXP_Init
-</UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PXP_Config
-</UL>
-
-<P><STRONG><a name="[14b]"></a>PXP_SetAlphaSurfacePosition</STRONG> (Thumb, 46 bytes, Stack size 4 bytes, fsl_pxp.o(i.PXP_SetAlphaSurfacePosition))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = PXP_SetAlphaSurfacePosition
-</UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PXP_Config
-</UL>
-
 <P><STRONG><a name="[117]"></a>PXP_SetOutputBufferConfig</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, fsl_pxp.o(i.PXP_SetOutputBufferConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PXP_SetOutputBufferConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAMCSI_Init
-</UL>
-
-<P><STRONG><a name="[11a]"></a>PXP_SetProcessSurfaceBufferConfig</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, fsl_pxp.o(i.PXP_SetProcessSurfaceBufferConfig))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PXP_SetProcessSurfaceBufferConfig
-</UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
-</UL>
-
-<P><STRONG><a name="[14d]"></a>PXP_SetProcessSurfacePosition</STRONG> (Thumb, 44 bytes, Stack size 4 bytes, fsl_pxp.o(i.PXP_SetProcessSurfacePosition))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = PXP_SetProcessSurfacePosition
-</UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PXP_Config
-</UL>
-
-<P><STRONG><a name="[14c]"></a>PXP_SetProcessSurfaceScaler</STRONG> (Thumb, 186 bytes, Stack size 20 bytes, fsl_pxp.o(i.PXP_SetProcessSurfaceScaler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = PXP_SetProcessSurfaceScaler
-</UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PXP_Config
 </UL>
 
 <P><STRONG><a name="[116]"></a>RT1052_NVIC_SetPriority</STRONG> (Thumb, 94 bytes, Stack size 4 bytes, 1052_nvic.o(i.RT1052_NVIC_SetPriority))
@@ -1917,12 +1925,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MTV_IICWriteReg16
 </UL>
 
-<P><STRONG><a name="[133]"></a>StrFormatPrintf</STRONG> (Thumb, 1766 bytes, Stack size 176 bytes, fsl_str.o(i.StrFormatPrintf))
+<P><STRONG><a name="[138]"></a>StrFormatPrintf</STRONG> (Thumb, 1766 bytes, Stack size 176 bytes, fsl_str.o(i.StrFormatPrintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 392<LI>Call Chain = StrFormatPrintf &rArr; __hardfp_pow &rArr; sqrt
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2d
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2lz
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertRadixNumToString
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ConvertRadixNumToString
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_modf
@@ -1972,7 +1980,7 @@ Global Symbols
 <P><STRONG><a name="[166]"></a>__hardfp_modf</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, modf.o(i.__hardfp_modf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __hardfp_modf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
 </UL>
 
 <P><STRONG><a name="[167]"></a>__hardfp_pow</STRONG> (Thumb, 2140 bytes, Stack size 192 bytes, pow.o(i.__hardfp_pow))
@@ -1990,7 +1998,7 @@ Global Symbols
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
 <LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
 </UL>
 
 <P><STRONG><a name="[177]"></a>__kernel_poly</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, poly.o(i.__kernel_poly))
@@ -2031,6 +2039,20 @@ Global Symbols
 <P><STRONG><a name="[170]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
 <BR><BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
+</UL>
+
+<P><STRONG><a name="[11b]"></a>edge_bw</STRONG> (Thumb, 216 bytes, Stack size 40 bytes, bwlabel.o(i.edge_bw))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = edge_bw
+</UL>
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
+</UL>
+
+<P><STRONG><a name="[11a]"></a>edge_dect</STRONG> (Thumb, 196 bytes, Stack size 32 bytes, bwlabel.o(i.edge_dect))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = edge_dect
+</UL>
+<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
 </UL>
 
 <P><STRONG><a name="[174]"></a>fabs</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, fabs.o(i.fabs))
@@ -2117,7 +2139,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
 
-<P><STRONG><a name="[100]"></a>rt_hw_board_init</STRONG> (Thumb, 130 bytes, Stack size 8 bytes, board.o(i.rt_hw_board_init))
+<P><STRONG><a name="[100]"></a>rt_hw_board_init</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, board.o(i.rt_hw_board_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = rt_hw_board_init &rArr; rt_system_heap_init &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_heap_end_get
@@ -2127,15 +2149,16 @@ Global Symbols
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_components_board_init
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PIT_CH0_Int_Init
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIO_Config
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_PXP_Config
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY_Init
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Campin_Init
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAMCSI_Init
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitCameraResource
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_DebugConsoleSrcFreq
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_ConfigMPU
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2598,7 +2621,7 @@ Global Symbols
 <P><STRONG><a name="[183]"></a>testSend</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, bsp_lpuart.o(i.testSend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = testSend &rArr; LPUART_SendEDMA &rArr; EDMA_SubmitTransfer &rArr; EDMA_TcdSetTransferConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_WriteBlocking
+<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_WriteBlocking
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_SendEDMA
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key_entry
@@ -2607,8 +2630,8 @@ Global Symbols
 <P><STRONG><a name="[18f]"></a>uart_Init</STRONG> (Thumb, 150 bytes, Stack size 48 bytes, bsp_lpuart.o(i.uart_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = uart_Init &rArr; LPUART_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_Init
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_GetDefaultConfig
+<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_Init
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_GetDefaultConfig
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_EnableInterrupts
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_DebugConsoleSrcFreq
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LPUART_TransferCreateHandleEDMA
@@ -2619,26 +2642,29 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_hw_board_init
 </UL>
-
-<P><STRONG><a name="[11c]"></a>wallner</STRONG> (Thumb, 212 bytes, Stack size 36 bytes, bwlabel.o(i.wallner))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = wallner
-</UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAM_DIS
-</UL>
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[129]"></a>CSI_Stop</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_Stop))
-<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStop
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferHandleIRQ
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Reset
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Deinit
+<P><STRONG><a name="[122]"></a>CLOCK_GetPeriphClkFreq</STRONG> (Thumb, 158 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetPeriphClkFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CLOCK_GetPeriphClkFreq &rArr; CLOCK_GetSysPfdFreq &rArr; CLOCK_GetPllFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetSysPfdFreq
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[12d]"></a>CSI_TransferLoadBufferToDevice</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_TransferLoadBufferToDevice))
-<BR><BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferSubmitEmptyBuffer
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStart
+<P><STRONG><a name="[12e]"></a>CSI_Stop</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_Stop))
+<BR><BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStop
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferHandleIRQ
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Reset
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Deinit
+</UL>
+
+<P><STRONG><a name="[132]"></a>CSI_TransferLoadBufferToDevice</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, fsl_csi.o(i.CSI_TransferLoadBufferToDevice))
+<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferSubmitEmptyBuffer
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStart
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferHandleIRQ
 </UL>
 
@@ -2682,17 +2708,17 @@ Local Symbols
 <P><STRONG><a name="[d9]"></a>DbgConsole_RelocateLog</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, fsl_debug_console.o(i.DbgConsole_RelocateLog))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = DbgConsole_RelocateLog &rArr; LOG_Push &rArr; IO_Transfer &rArr; LPUART_WriteBlocking
 </UL>
-<BR>[Calls]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Push
+<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LOG_Push
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_debug_console.o(i.DbgConsole_Printf)
 </UL>
-<P><STRONG><a name="[12e]"></a>ConvertRadixNumToString</STRONG> (Thumb, 198 bytes, Stack size 32 bytes, fsl_str.o(i.ConvertRadixNumToString))
+<P><STRONG><a name="[133]"></a>ConvertRadixNumToString</STRONG> (Thumb, 198 bytes, Stack size 32 bytes, fsl_str.o(i.ConvertRadixNumToString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = ConvertRadixNumToString &rArr; __aeabi_ldivmod &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ldivmod
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
+<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StrFormatPrintf
 </UL>
 
 <P><STRONG><a name="[10d]"></a>CLOCK_SetDiv</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, clock_config.o(i.CLOCK_SetDiv))
@@ -2803,21 +2829,21 @@ Local Symbols
 <P><STRONG><a name="[e6]"></a>CSI_ADAPTER_Deinit</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, fsl_csi_camera_adapter.o(i.CSI_ADAPTER_Deinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_ADAPTER_Deinit &rArr; CSI_Deinit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Deinit
+<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Deinit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_csi_camera_adapter.o(.constdata)
 </UL>
 <P><STRONG><a name="[ea]"></a>CSI_ADAPTER_GetFullBuffer</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, fsl_csi_camera_adapter.o(i.CSI_ADAPTER_GetFullBuffer))
-<BR><BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferGetFullBuffer
+<BR><BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferGetFullBuffer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_csi_camera_adapter.o(.constdata)
 </UL>
 <P><STRONG><a name="[e5]"></a>CSI_ADAPTER_Init</STRONG> (Thumb, 180 bytes, Stack size 48 bytes, fsl_csi_camera_adapter.o(i.CSI_ADAPTER_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = CSI_ADAPTER_Init &rArr; CSI_Init &rArr; CSI_Reset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferCreateHandle
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Init
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_GetDefaultConfig
+<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferCreateHandle
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_Init
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_GetDefaultConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_ADAPTER_InitExt
 </UL>
@@ -2833,21 +2859,21 @@ Local Symbols
 <P><STRONG><a name="[e7]"></a>CSI_ADAPTER_Start</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fsl_csi_camera_adapter.o(i.CSI_ADAPTER_Start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_ADAPTER_Start &rArr; CSI_TransferStart
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStart
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStart
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_csi_camera_adapter.o(.constdata)
 </UL>
 <P><STRONG><a name="[e8]"></a>CSI_ADAPTER_Stop</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fsl_csi_camera_adapter.o(i.CSI_ADAPTER_Stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_ADAPTER_Stop &rArr; CSI_TransferStop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStop
+<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferStop
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_csi_camera_adapter.o(.constdata)
 </UL>
 <P><STRONG><a name="[e9]"></a>CSI_ADAPTER_SubmitEmptyBuffer</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, fsl_csi_camera_adapter.o(i.CSI_ADAPTER_SubmitEmptyBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CSI_ADAPTER_SubmitEmptyBuffer &rArr; CSI_TransferSubmitEmptyBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferSubmitEmptyBuffer
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CSI_TransferSubmitEmptyBuffer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> fsl_csi_camera_adapter.o(.constdata)
 </UL>
@@ -2860,8 +2886,8 @@ Local Symbols
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT9V034_SetFrameResolution
 </UL>
 
-<P><STRONG><a name="[144]"></a>LCD_IOMUXC_MUX_Config</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, bsp_lcd.o(i.LCD_IOMUXC_MUX_Config))
-<BR><BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<P><STRONG><a name="[149]"></a>LCD_IOMUXC_MUX_Config</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, bsp_lcd.o(i.LCD_IOMUXC_MUX_Config))
+<BR><BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 </UL>
 
 <P><STRONG><a name="[16e]"></a>_printf_core</STRONG> (Thumb, 336 bytes, Stack size 88 bytes, printf1.o(i._printf_core), UNUSED)

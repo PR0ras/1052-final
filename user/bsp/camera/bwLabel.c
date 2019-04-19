@@ -6,6 +6,9 @@
 //#define     ELEM(img, r, c) (CV_IMAGE_ELEM(img, unsigned char, r, c))
 #define ONETWO(L, r, c, col) (L[(r) * (col) + c])
 #define total 22560
+#define col 188
+#define row 120
+#define thole 30
 const	uint8_t nr = 120;
 const	uint8_t nc = 188;
 uint16_t prev_gn[188] = {0};
@@ -319,4 +322,109 @@ void wallner_new(uint8_t *input, uint8_t *bin)
 void SecondBW(uint8_t *input, uint8_t *bin)
 {
 	uint8_t  i=0,j=0;
+}
+uint8_t Max(uint8_t A,uint8_t B);
+void edge_dect(uint8_t *byteimage)//quint8 *byteimage//QImage *image1
+{
+    //int r=0,c=0;
+    //int  bytePerLine = ( 188 * 8 + 31)/32 * 4;
+    //bitimage=new QImage(graydata,188,120,bytePerLine,QImage::Format_Grayscale8);
+    //return image;
+    uint16_t NUM=0;
+    uint8_t A,B,C,D,E,max;
+    for (uint8_t r=118;r>=2;r-=2)
+    {
+        for (uint8_t c=186;c>=2;c-=2)
+        {
+            //max=0;
+            NUM=col*r+c;
+            A=byteimage[NUM];
+            B=byteimage[NUM-col-1];
+            C=byteimage[NUM-col];
+            D=byteimage[NUM-col+1];
+            E=byteimage[NUM-1];
+//            max=static_cast<qint8>(image1->pixel(c,r));
+//            B=static_cast<qint8>(image1->pixel(c-1,r-1));
+//            C=static_cast<qint8>(image1->pixel(c,r-1));
+//            D=static_cast<qint8>(image1->pixel(c+1,r-1));
+//            E=static_cast<qint8>(image1->pixel(c-1,r));
+//            F=static_cast<qint8>(image1->pixel(c+1,r));
+//            G=static_cast<qint8>(image1->pixel(c-1,r+1));
+//            H=static_cast<qint8>(image1->pixel(c,r+1));
+//            K=static_cast<qint8>(image1->pixel(c+1,r+1));
+
+            // max=A>B?A-B:B-A;
+            // if(max<(A>C?A-C:C-A))
+            //     max=A>C?A-C:C-A;
+            // if(max<(A>D?A-D:D-A))
+            //     max=A>D?A-D:D-A;
+            // if(max<(A>E?A-E:E-A))
+            //     max=A>E?A-E:E-A;
+
+			max=Max(A,B);
+            if(max<Max(A,C))
+                max=Max(A,C);
+            if(max<Max(A,D))
+                max=Max(A,D);
+            if(max<Max(A,E))
+                max=Max(A,E);
+
+//            qDebug()<<max;
+           if(max>thole)
+            {
+//                //image1->setPixel(c,r,qRgb(255,255,255));
+               byteimage[NUM]=255;
+            }
+        }
+    }
+}
+
+void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image1
+{
+	uint16_t NUM = 0;
+	uint8_t A, B, C, D, E, max;
+	memset(bin, 0, 188*120);
+	for (uint8_t r = 118; r >= 2; r--)
+	{
+		for (uint8_t c = 186; c >= 2; c--)
+		{
+			NUM = col * r + c;
+			A = byteimage[NUM];
+			B = byteimage[NUM - col - 1];
+			C = byteimage[NUM - col];
+			D = byteimage[NUM - col + 1];
+			E = byteimage[NUM - 1];
+
+			max = Max(A, B);
+			if (max < Max(A, C))
+				max = Max(A, C);
+			if (max < Max(A, D))
+				max = Max(A, D);
+			if (max < Max(A, E))
+				max = Max(A, E);
+			if (max > thole)
+			{
+				bin[NUM] = 255;
+			}
+		}
+	}
+	// for (uint8_t r=0;r<120;r++)
+    // {
+    //     for (uint8_t c=0;c<188;c++)
+    //     {
+    //         if(bin[col*r+c])
+    //             byteimage[col*r+c]=bin[col*r+c];
+
+    //     }
+    // }
+}
+
+uint8_t Max(uint8_t A,uint8_t B)
+{
+
+    if(A>B)
+    {
+        return A-B;
+    }
+    return B-A;
 }
