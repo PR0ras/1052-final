@@ -239,9 +239,10 @@ static void run_entry(void* parameter)
 {
   while(1)
 	{
+    // DJ_PWM_Reload(Median);
     rt_thread_delay(20);
     run();
-    //Speedupdate();
+    Speedupdate();
 	}
 }
 
@@ -249,25 +250,6 @@ static void AD7606_entry(void* parameter)
 {
   while(1)
   { 
-
-    // RGB_WHITE_LED_ON;
-    // rt_thread_delay(500);
-    //     RGB_LED_COLOR_RED;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_GREEN;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_BLUE;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_YELLOW;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_PURPLE;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_CYAN;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_WHITE;
-    //     rt_thread_delay(500);
-    //     RGB_LED_COLOR_OFF; 
-
     AD7606_Scan();
     AD7606_Mak();
     rt_thread_delay(500);

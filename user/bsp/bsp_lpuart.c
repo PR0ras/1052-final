@@ -19,6 +19,7 @@ void uart_Init(void)
 	lpuart_config_t config;
 	LPUART_GetDefaultConfig(&config);
 	config.baudRate_Bps = 1382400U;
+	// config.baudRate_Bps = 115200;
 	config.enableTx = true;
 	config.enableRx = true;
 	config.txFifoWatermark = 0;
@@ -213,7 +214,7 @@ void LPUART1_IRQHandler(void)
 					break;
 				case 3:
 					aims_speed=posture.data16[0];
-					//DJ_PWM_Reload(aims_speed);//舵机测试
+					DJ_PWM_Reload(aims_speed);//舵机测试
 					break;
 				}
 				//rxflag = 1;

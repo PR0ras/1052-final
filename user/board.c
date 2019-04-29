@@ -42,6 +42,7 @@
 #include "bsp_FlexPwm.h"
 #include "bsp_Timer.h"
 #include "bsp_ad7606_spi.h"
+#include "power_manager.h"
 
 /*******************************************************************************
  * Variables
@@ -297,7 +298,8 @@ void rt_hw_board_init(void)
 	 
 		PIT_CH0_Int_Init(750000);
         uart_Init();
-        Init_OK();
+       Init_OK();
+        Peripheral_power_ON();
 //		OLEDPinInit();
 //		oled_init();
 /* 将开发板硬件相关的初始化放上面 */
