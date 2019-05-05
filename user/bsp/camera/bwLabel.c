@@ -5,11 +5,12 @@
 //#define     MIN(x, y)       (((x) < (y)) ? (x) : (y))
 //#define     ELEM(img, r, c) (CV_IMAGE_ELEM(img, unsigned char, r, c))
 #define ONETWO(L, r, c, col) (L[(r) * (col) + c])
-#define total IMAGEH*IMAGEW
+#define total 22560
 const	uint8_t nr = 120;
 const	uint8_t nc = 188;
 uint16_t prev_gn[188] = {0};
 uint32_t integralImg[22560]={0}; 
+uint8_t lset[total] = {0};
 int find(uint8_t set[], uint8_t x)
 {
 	int r = x;
@@ -53,7 +54,6 @@ uint8_t bwlabel(uint8_t *img, uint8_t n, uint8_t *labels)
 	memset(labels, 0, total * sizeof(int));
 	uint8_t nobj = 0; // number of objects found in image
 	// other variables
-	static uint8_t lset[total] = {0};
 	//int *lset = new int[total]; // label table
 	memset(lset, 0, total);
 	uint8_t ntable = 0;
@@ -314,4 +314,9 @@ void wallner_new(uint8_t *input, uint8_t *bin)
 				bin[j * nc + i] = 255;
 		}
 	}
+}
+
+void SecondBW(uint8_t *input, uint8_t *bin)
+{
+	uint8_t  i=0,j=0;
 }

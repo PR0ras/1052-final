@@ -14,12 +14,66 @@ const int ParNum=8;
   extern float Kp;
   extern float Ki;
   extern float Kd;
+#include "fsl_debug_console.h"
+#include "board.h"
+
+#include "fsl_lpuart_edma.h"
+#if defined(FSL_FEATURE_SOC_DMAMUX_COUNT) && FSL_FEATURE_SOC_DMAMUX_COUNT
+#include "fsl_dmamux.h"
+#endif
+/*******************************************************************************
+ * Definitions
+ ******************************************************************************/
+#define ECHO_BUFFER_LENGTH 8
+/*******************************************************************************
+ * Variables
+ ******************************************************************************/
+const int ParNum=8;
+uint8_t camaddress=0,rxflag = 0;
+uint16_t camdata=0;
+
+lpuart_transfer_t sendXfer;
+lpuart_edma_handle_t g_lpuartEdmaHandle;
+edma_handle_t g_lpuartTxEdmaHandle;
+edma_handle_t g_lpuartRxEdmaHandle;
+AT_NONCACHEABLE_SECTION_INIT(uint8_t g_tipString[]) =
+    "LPUART EDMA example\r\nSend back received data\r\nEcho every 8 characters\r\n";
+// AT_NONCACHEABLE_SECTION_INIT(uint8_t g_txBuffer[ECHO_BUFFER_LENGTH]) = {0};
+// AT_NONCACHEABLE_SECTION_INIT(uint8_t g_rxBuffer[ECHO_BUFFER_LENGTH]) = {0};
+
+volatile bool txBufferFull = false;
+volatile bool txOnGoing = false;
+
+extern uint8_t img_start[2],img_end[2];
+
+/*******************************************************************************
+ * Prototypes
+ ******************************************************************************/
+/* LPUART user callback */
+void LPUART_UserCallback(LPUART_Type *base, lpuart_edma_handle_t *handle, status_t status, void *userData);
+
+/*******************************************************************************
+ * Code
+ ******************************************************************************/
+/* LPUART user callback */
+void LPUART_UserCallback(LPUART_Type *base, lpuart_edma_handle_t *handle, status_t status, void *userData)
+{
+    userData = userData;
+
+    if (kStatus_LPUART_TxIdle == status)
+    {
+        txBufferFull = false;
+        txOnGoing = false;
+		LPUART_WriteBlocking(LPUART1, img_end, 2);
+    }
+
+}
+
 void uart_Init(void)
 {
 	lpuart_config_t config;
 	LPUART_GetDefaultConfig(&config);
 	config.baudRate_Bps = 1382400U;
-	// config.baudRate_Bps = 115200;
 	config.enableTx = true;
 	config.enableRx = true;
 	config.txFifoWatermark = 0;
@@ -28,8 +82,28 @@ void uart_Init(void)
 	LPUART_EnableInterrupts(LPUART1, kLPUART_RxDataRegFullInterruptEnable);
 	//LPUART_EnableInterrupts(LPUART1, kLPUART_RxDataRegFullInterruptEnable);
 	EnableIRQ(LPUART1_IRQn);
-}
 
+
+	edma_config_t edmaconfig;
+    //lpuart_transfer_t xfer;
+    /* Init DMAMUX */
+    DMAMUX_Init(DMAMUX);
+    /* Set channel for LPUART */
+    DMAMUX_SetSource(DMAMUX, 0U, kDmaRequestMuxLPUART1Tx);
+    DMAMUX_EnableChannel(DMAMUX, 0U);
+    /* Init the EDMA module */
+    EDMA_GetDefaultConfig(&edmaconfig);
+    EDMA_Init(DMA0, &edmaconfig);
+    EDMA_CreateHandle(&g_lpuartTxEdmaHandle, DMA0, 0U);
+    /* Create LPUART DMA handle. */
+    LPUART_TransferCreateHandleEDMA(LPUART1, &g_lpuartEdmaHandle, LPUART_UserCallback, NULL, &g_lpuartTxEdmaHandle,NULL);
+    /* Send g_tipString out. */
+    //xfer.data = g_tipString;
+    //xfer.dataSize = sizeof(g_tipString) - 1;
+    //txOnGoing = true;
+    //LPUART_SendEDMA(LPUART1, &g_lpuartEdmaHandle, &xfer);
+
+}
 
 void uartcontrol(uint8_t *tmp)
 {
@@ -43,20 +117,20 @@ void uartcontrol(uint8_t *tmp)
 
 void uartsend(uint16_t *rxuartdata)
 {
-	static union
-        {
-            uint8_t Serialdata[ParNum];
-            int16_t realdata[ParNum];
-        }int8to16;
-		int8to16.realdata[0]=DisCNT();
-		int8to16.realdata[1]=DisCNT();
-		int8to16.realdata[2]=DisCNT();
-		int8to16.realdata[3]=DisCNT();
-		int8to16.realdata[4]=DisCNT();
-		int8to16.realdata[5]=DisCNT();
-		int8to16.realdata[6]=DisCNT();
-		int8to16.realdata[7]=DisCNT();
-		uartcontrol(int8to16.Serialdata);
+	// static union
+    //     {
+    //         uint8_t Serialdata[ParNum];
+    //         int16_t realdata[ParNum];
+    //     }int8to16;
+	// 	int8to16.realdata[0]=DisCNT();
+	// 	int8to16.realdata[1]=DisCNT();
+	// 	int8to16.realdata[2]=DisCNT();
+	// 	int8to16.realdata[3]=DisCNT();
+	// 	int8to16.realdata[4]=DisCNT();
+	// 	int8to16.realdata[5]=DisCNT();
+	// 	int8to16.realdata[6]=DisCNT();
+	// 	int8to16.realdata[7]=DisCNT();
+	// 	uartcontrol(int8to16.Serialdata);
 }
 
 void Speedupdate(void)
@@ -79,7 +153,6 @@ void Speedupdate(void)
 	LPUART_WriteBlocking(LPUART1, endcontrol, 2);
 		
 }
-
 
 void LPUART1_IRQHandler(void)
 {
@@ -225,4 +298,16 @@ void LPUART1_IRQHandler(void)
 			break;
 		}
 	}
+}
+
+void testSend(void)
+{
+	if(!txOnGoing)
+	{
+	LPUART_WriteBlocking(LPUART1, img_start, 2);
+	LPUART_SendEDMA(LPUART1, &g_lpuartEdmaHandle, &sendXfer);
+	txOnGoing=true;
+	}
+	
+	
 }

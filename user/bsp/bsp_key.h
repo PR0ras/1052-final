@@ -14,6 +14,7 @@
 #define KEY0_PRES 	1  	//KEY0按下后返回值
 #define WKUP_PRES   2	//WKUP按下后返回值
 
+extern uint8_t keypres;
 void KEY_Init(void);
 uint8_t KEY_Scan(uint8_t mode);
 void delay_ms(uint32_t count);

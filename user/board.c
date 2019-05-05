@@ -34,9 +34,12 @@
 #include "fsl_common.h"
 #include "fsl_debug_console.h"
 #include "board.h"
+#include <rthw.h>
+#include <rtthread.h>
 #include "./led/bsp_led.h"
 #include "./lcd/bsp_lcd.h" 
 #include "carmer.h"
+<<<<<<< HEAD
 #include <rthw.h>
 #include <rtthread.h>
 #include "bsp_FlexPwm.h"
@@ -44,6 +47,11 @@
 #include "bsp_ad7606_spi.h"
 #include "power_manager.h"
 
+=======
+#include "bsp_pit.h"
+#include "bsp_lpuart.h"
+#include "bsp_key.h"
+>>>>>>> 00b4bfe05531a4111e967151bb27ae86511aeb9d
 /*******************************************************************************
  * Variables
  ******************************************************************************/
@@ -247,7 +255,11 @@ void CopyAndUseRAMVectorTable(void)
 
 #if defined(RT_USING_USER_MAIN) && defined(RT_USING_HEAP)
 
+<<<<<<< HEAD
 /* 从内部SRAM（即DTCM）里面分配一部分静态内存来作为rtt的堆空间，这里配置为4KB */
+=======
+/* ���ڲ�SRAM����DTCM���������һ���־�̬�ڴ�����Ϊrtt�Ķѿռ䣬��������Ϊ4KB */
+>>>>>>> 00b4bfe05531a4111e967151bb27ae86511aeb9d
 #define RT_HEAP_SIZE 20480
 static uint32_t rt_heap[RT_HEAP_SIZE];
 RT_WEAK void *rt_heap_begin_get(void)
@@ -277,7 +289,11 @@ void rt_hw_board_init(void)
 	  /* 初始化内存管理单元 */
     BOARD_ConfigMPU();
   
+<<<<<<< HEAD
 		/* 初始化开发板引脚 */
+=======
+		/* ��ʼ������������ */
+>>>>>>> 00b4bfe05531a4111e967151bb27ae86511aeb9d
     BOARD_InitPins();
   
 		/* 初始化开发板时钟 */
@@ -289,6 +305,7 @@ void rt_hw_board_init(void)
 		
 		/* 初始化LED引脚 */
 		LCD_Init(LCD_INTERRUPT_ENABLE);
+        LCD_PXP_Config();
 		LED_GPIO_Config();
         BEE_GPIO_Config();
 		//CAMCSI_Init();
@@ -300,6 +317,10 @@ void rt_hw_board_init(void)
         uart_Init();
        Init_OK();
         Peripheral_power_ON();
+		CAMCSI_Init();
+        uart_Init();
+        KEY_Init();
+		PIT_CH0_Int_Init(75000000);
 //		OLEDPinInit();
 //		oled_init();
 /* 将开发板硬件相关的初始化放上面 */

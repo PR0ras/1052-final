@@ -31,6 +31,9 @@ extern pxp_output_buffer_config_t outputBufferConfig;
 extern volatile bool s_frameDone;
 extern void MT9V034_SetFrameResolution(uint16_t height, uint16_t width, uint8_t fps);
 extern uint32_t cnt;
+extern bool txOnGoing;
+extern lpuart_transfer_t sendXfer;
+AT_NONCACHEABLE_SECTION_ALIGN( uint8_t uartimg[94][60], FRAME_BUFFER_ALIGN);
 
 static csi_private_data_t csiPrivateData;
 
@@ -97,7 +100,6 @@ extern void CSI_DriverIRQHandler(void);
 
 void CSI_IRQHandler(void)
 {
-	//LCD_P6x8Str(15, 6, "Success");
 	CSI_DriverIRQHandler();
 }
 
@@ -114,13 +116,20 @@ void CAMCSI_Init(void)
 	{
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, (uint32_t)(csiFrameBuf[i]));
 	}
-	//PRINTF("Camera Start\r\n");
+
+	outputBufferConfig.buffer0Addr = (uint32_t)uartimg;
+	PXP_SetOutputBufferConfig(PXP, &outputBufferConfig);
+	//PRINTF("Camera Start\r\n");//摄像头启动成功
 }
 
 void CAM_DIS(void)
 {
 	
-	
+ 	// sendXfer.data = (uint8_t *)uartimg;
+    // sendXfer.dataSize = sizeof(uartimg);
+	sendXfer.data = (uint8_t *)csiFrameBuf[0];
+    sendXfer.dataSize = sizeof(csiFrameBuf[0]);
+
 	uint8_t curLcdBufferIdx = 1U;
 	CAMERA_RECEIVER_Start(&cameraReceiver);
 
@@ -135,10 +144,8 @@ void CAM_DIS(void)
 	ELCDIF_SetNextBufferAddr(LCDIF, inactiveFrameAddr);
 	ELCDIF_RgbModeStart(LCDIF);
 	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
-	
 	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, inactiveFrameAddr);
 	PRINTF("CAMERA Start Success\r\n");
-	
 //	cnt=0;
 //	wallner(csiFrameBuf[0], Pix_Data);
 //	PRINTF("wallner Time:%d \r\n",cnt);
@@ -162,6 +169,12 @@ void CAM_DIS(void)
 		while (kStatus_Success != CAMERA_RECEIVER_GetFullBuffer(&cameraReceiver, &inactiveFrameAddr))
 		{
 		}
+		sendXfer.data = (uint8_t *)inactiveFrameAddr;
+
+
+		psBufferConfig.bufferAddr = inactiveFrameAddr;    //设置PXP转换源地址
+        PXP_SetProcessSurfaceBufferConfig(PXP, &psBufferConfig); // 对PXP输入进行配置
+		PXP_Start(PXP);
 //		for (int i = 0; i < 120; i++)
 //		{
 //			memcpy(s_frameBuffer[curLcdBufferIdx][i], (uint8_t *)inactiveFrameAddr + i * 188, 188);
@@ -169,11 +182,11 @@ void CAM_DIS(void)
 
 		//		wallner((uint8_t *)inactiveFrameAddr,Pix_Data);
 		//		testSend();
-
+		
 		for (int i = 0; i < 120; i++)
 		{
 			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+40,Pix_Data + i * 188, 188);
-			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
+			//memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
 			memcpy(s_frameBuffer[curLcdBufferIdx][i + 20] + 550, (uint8_t *)inactiveFrameAddr + i * 188, 188);
 		}
 		//memcpy(s_frameBuffer[!curLcdBufferIdx],s_frameBuffer[curLcdBufferIdx],38400);
@@ -181,7 +194,7 @@ void CAM_DIS(void)
 		ELCDIF_SetNextBufferAddr(LCDIF, (uint32_t)s_frameBuffer[curLcdBufferIdx]);
 		s_frameDone = false;
 		wallner((uint8_t *)inactiveFrameAddr, Pix_Data);
-		wallner_new((uint8_t *)inactiveFrameAddr, Lab_Data);
+		//wallner_new((uint8_t *)inactiveFrameAddr, Lab_Data);
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
 		activeFrameAddr = inactiveFrameAddr;
 		//wallner_new((uint8_t *)inactiveFrameAddr, Pix_Data);
@@ -190,20 +203,22 @@ void CAM_DIS(void)
 		{
 		}
 		
-//		sprintf(dispBuff, "FPS = %d ", FPS);
-//		LCD_ClearLine(LINE(6));
+		sprintf(dispBuff, "FPS = %d ", FPS);
+		LCD_ClearLine(LINE(6));
 //		/*然后显示该字符串即可，其它变量也是这样处理*/
-//		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);
+		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);
+
+		while (!(kPXP_CompleteFlag & PXP_GetStatusFlags(PXP)))  //等待pXP转换完成
+            {
+            }
+        PXP_ClearStatusFlags(PXP, kPXP_CompleteFlag);   //清除标志位
+		// if(txOnGoing==false)
+		// {	
+		// 	txOnGoing = true;
+		// 	LPUART_SendEDMA(LPUART1, &g_lpuartEdmaHandle, &xfer);
+		// }
+		
 	}
 }
 
-void testSend(void)
-{
-	//	static union {
-	//		uint8_t img_8bit[2];
-	//		uint16_t img_16bit;
-	//	} img_16to8;
-	LPUART_WriteBlocking(LPUART1, img_start, 2);
-	LPUART_WriteBlocking(LPUART1, Pix_Data, IMAGEW * IMAGEH);
-	LPUART_WriteBlocking(LPUART1, img_end, 2);
-}
+

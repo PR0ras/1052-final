@@ -1,0 +1,1237 @@
+Dependencies for Project 'YH-RT1052', Target 'nor_txt_sdram': (DO NOT MODIFY !)
+F (..\..\libraries\system_MIMXRT1052.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\system_mimxrt1052.o --depend .\nor_txt_sdram\objects\system_mimxrt1052.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\libraries\fsl_device_registers.h)(0x5C7FCE3C)
+I (..\..\libraries\MIMXRT1052.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (..\..\libraries\system_MIMXRT1052.h)(0x5C7FCE3C)
+I (..\..\libraries\MIMXRT1052_features.h)(0x5C7FCE3C)
+F (..\..\libraries\system_MIMXRT1052.h)(0x5C7FCE3C)()
+F (.\startup_MIMXRT1052.s)(0x5C7FCE3C)(--cpu Cortex-M7.fp.dp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 526" --pd "CPU_MIMXRT1052DVL6B SETA 1" --pd "__STARTUP_INITIALIZE_NONCACHEDATA SETA 1"--list .\nor_txt_sdram\listings\startup_mimxrt1052.lst --xref -o .\nor_txt_sdram\objects\startup_mimxrt1052.o --depend .\nor_txt_sdram\objects\startup_mimxrt1052.d)
+F (..\..\libraries\drivers\fsl_clock.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_clock.o --depend .\nor_txt_sdram\objects\fsl_clock.d)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+F (..\..\libraries\drivers\fsl_gpio.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_gpio.o --depend .\nor_txt_sdram\objects\fsl_gpio.d)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_lpuart.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_lpuart.o --depend .\nor_txt_sdram\objects\fsl_lpuart.d)
+I (..\..\libraries\drivers\fsl_lpuart.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_common.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_common.o --depend .\nor_txt_sdram\objects\fsl_common.d)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)()
+F (..\..\libraries\drivers\fsl_csi.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_csi.o --depend .\nor_txt_sdram\objects\fsl_csi.d)
+I (..\..\libraries\drivers\fsl_csi.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_lpi2c.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_lpi2c.o --depend .\nor_txt_sdram\objects\fsl_lpi2c.d)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_elcdif.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_elcdif.o --depend .\nor_txt_sdram\objects\fsl_elcdif.d)
+I (..\..\libraries\drivers\fsl_elcdif.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_pit.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_pit.o --depend .\nor_txt_sdram\objects\fsl_pit.d)
+I (..\..\libraries\drivers\fsl_pit.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_qtmr.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_qtmr.o --depend .\nor_txt_sdram\objects\fsl_qtmr.d)
+I (..\..\libraries\drivers\fsl_qtmr.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\drivers\fsl_pwm.c)(0x5C9A0B0C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_pwm.o --depend .\nor_txt_sdram\objects\fsl_pwm.d)
+I (..\..\libraries\drivers\fsl_pwm.h)(0x5C9A0B0E)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\utilities\fsl_assert.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_assert.o --depend .\nor_txt_sdram\objects\fsl_assert.d)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+F (..\..\libraries\utilities\fsl_notifier.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_notifier.o --depend .\nor_txt_sdram\objects\fsl_notifier.d)
+I (..\..\libraries\utilities\fsl_notifier.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\libraries\utilities\fsl_sbrk.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_sbrk.o --depend .\nor_txt_sdram\objects\fsl_sbrk.d)
+F (..\..\libraries\utilities\fsl_debug_console.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_debug_console.o --depend .\nor_txt_sdram\objects\fsl_debug_console.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EDB3C)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console_conf.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\log\fsl_log.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\str\fsl_str.h)(0x5C7FCE3C)
+F (..\..\libraries\utilities\str\fsl_str.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_str.o --depend .\nor_txt_sdram\objects\fsl_str.d)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (..\..\libraries\utilities\str\fsl_str.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console_conf.h)(0x5C7FCE3C)
+F (..\..\libraries\utilities\log\fsl_log.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_log.o --depend .\nor_txt_sdram\objects\fsl_log.d)
+I (..\..\libraries\utilities\log\fsl_log.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console_conf.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\io\fsl_io.h)(0x5C7FCE3C)
+F (..\..\libraries\utilities\io\fsl_io.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_io.o --depend .\nor_txt_sdram\objects\fsl_io.d)
+I (..\..\libraries\utilities\io\fsl_io.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console_conf.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpuart.h)(0x5C7FCE3C)
+F (..\..\user\board.c)(0x5CC1C020)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\board.o --depend .\nor_txt_sdram\objects\board.d)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+I (..\..\user\board.h)(0x5C7FCE3C)
+I (..\..\user\clock_config.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./led/bsp_led.h)(0x5CA3088D)
+I (..\..\user\bsp\./lcd/bsp_lcd.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./font/fonts.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\carmer.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_csi.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_csi_camera_adapter.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_receiver.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_device.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\LQ_MT9V034M.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\user\bsp\bsp_FlexPwm.h)(0x5CC5F106)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pit.h)(0x5C7FCE3C)
+I (..\..\user\bsp\bsp_Timer.h)(0x5C9B38B8)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_qtmr.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pwm.h)(0x5C9A0B0E)
+I (..\..\user\bsp\bsp_ad7606_spi.h)(0x5C959D65)
+I (..\..\user\pin_mux.h)(0x5C7FCE3C)
+I (..\..\user\bsp\power_manager.h)(0x5CC1BA67)
+F (..\..\user\board.h)(0x5C7FCE3C)()
+F (..\..\user\clock_config.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\clock_config.o --depend .\nor_txt_sdram\objects\clock_config.d)
+I (..\..\user\clock_config.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\user\clock_config.h)(0x5C7FCE3C)()
+F (..\..\user\pin_mux.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\pin_mux.o --depend .\nor_txt_sdram\objects\pin_mux.d)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\user\pin_mux.h)(0x5C7FCE3C)
+F (..\..\user\pin_mux.h)(0x5C7FCE3C)()
+F (..\..\user\main.c)(0x5CC5EA08)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\main.o --depend .\nor_txt_sdram\objects\main.d)
+I (..\..\user\board.h)(0x5C7FCE3C)
+I (..\..\user\clock_config.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./led/bsp_led.h)(0x5CA3088D)
+I (..\..\user\bsp\camera\carmer.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_csi.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_csi_camera_adapter.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_receiver.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_device.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\LQ_MT9V034M.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (..\..\user\bsp\bsp_FlexPwm.h)(0x5CC5F106)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pit.h)(0x5C7FCE3C)
+I (..\..\user\bsp\bsp_Timer.h)(0x5C9B38B8)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_qtmr.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pwm.h)(0x5C9A0B0E)
+I (..\..\user\bsp\bsp_lpuart.h)(0x5C9B658B)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\user\rtconfig.h)(0x5C7FCE3C)()
+F (..\..\user\xip\fire_imxrt1052_sdram_ini_dcd.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fire_imxrt1052_sdram_ini_dcd.o --depend .\nor_txt_sdram\objects\fire_imxrt1052_sdram_ini_dcd.d)
+I (..\..\user\xip\fire_imxrt1052_sdram_ini_dcd.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+F (..\..\user\xip\fire_imxrt1052_spiflash_config.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fire_imxrt1052_spiflash_config.o --depend .\nor_txt_sdram\objects\fire_imxrt1052_spiflash_config.d)
+I (..\..\user\xip\fire_imxrt1052_spiflash_config.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\user\xip\fsl_flexspi_nor_boot.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_flexspi_nor_boot.o --depend .\nor_txt_sdram\objects\fsl_flexspi_nor_boot.d)
+I (..\..\user\xip\fsl_flexspi_nor_boot.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (..\..\user\board.h)(0x5C7FCE3C)
+I (..\..\user\clock_config.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+F (..\..\doc\±Ø¶ÁËµÃ÷.txt)(0x5C7FCE3C)()
+F (..\..\rtthread\3.0.3\src\clock.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\clock.o --depend .\nor_txt_sdram\objects\clock.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\components.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\components.o --depend .\nor_txt_sdram\objects\components.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\device.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\device.o --depend .\nor_txt_sdram\objects\device.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\idle.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\idle.o --depend .\nor_txt_sdram\objects\idle.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\ipc.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\ipc.o --depend .\nor_txt_sdram\objects\ipc.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\irq.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\irq.o --depend .\nor_txt_sdram\objects\irq.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\kservice.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\kservice.o --depend .\nor_txt_sdram\objects\kservice.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\mem.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\mem.o --depend .\nor_txt_sdram\objects\mem.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\memheap.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\memheap.o --depend .\nor_txt_sdram\objects\memheap.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\mempool.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\mempool.o --depend .\nor_txt_sdram\objects\mempool.d)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\object.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\object.o --depend .\nor_txt_sdram\objects\object.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\scheduler.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\scheduler.o --depend .\nor_txt_sdram\objects\scheduler.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\signal.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\signal.o --depend .\nor_txt_sdram\objects\signal.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\thread.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\thread.o --depend .\nor_txt_sdram\objects\thread.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\src\timer.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\timer.o --depend .\nor_txt_sdram\objects\timer.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rthw.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\libcpu\arm\cortex-m7\cpuport.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\cpuport.o --depend .\nor_txt_sdram\objects\cpuport.d)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\rtthread\3.0.3\libcpu\arm\cortex-m7\context_rvds.S)(0x5C7FCE3C)(--cpu Cortex-M7.fp.dp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 526" --pd "CPU_MIMXRT1052DVL6B SETA 1" --pd "__STARTUP_INITIALIZE_NONCACHEDATA SETA 1"--list .\nor_txt_sdram\listings\context_rvds.lst --xref -o .\nor_txt_sdram\objects\context_rvds.o --depend .\nor_txt_sdram\objects\context_rvds.d)
+F (..\..\user\bsp\led\bsp_led.c)(0x5CA30BC2)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bsp_led.o --depend .\nor_txt_sdram\objects\bsp_led.d)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\user\pad_config.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./led/bsp_led.h)(0x5CA3088D)
+F (..\..\user\bsp\1052_NVIC.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\1052_nvic.o --depend .\nor_txt_sdram\objects\1052_nvic.d)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)()
+F (..\..\user\bsp\bsp_ad7606_spi.c)(0x5CA3750D)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bsp_ad7606_spi.o --depend .\nor_txt_sdram\objects\bsp_ad7606_spi.d)
+I (..\..\user\bsp\bsp_ad7606_spi.h)(0x5C959D65)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\user\pin_mux.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtthread.h)(0x5C7FCE3C)
+I (..\..\user\rtconfig.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdebug.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtdef.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599EDB3A)
+I (..\..\rtthread\3.0.3\include\rtlibc.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_stat.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x599EDB3E)
+I (..\..\rtthread\3.0.3\include\libc/libc_errno.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fcntl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_ioctl.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_dirent.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_signal.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\signal.h)(0x599EDB3C)
+I (..\..\rtthread\3.0.3\include\libc/libc_fdset.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtservice.h)(0x5C7FCE3C)
+I (..\..\rtthread\3.0.3\include\rtm.h)(0x5C7FCE3C)
+F (..\..\user\bsp\bsp_FlexPwm.c)(0x5CC5F268)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bsp_flexpwm.o --depend .\nor_txt_sdram\objects\bsp_flexpwm.d)
+I (..\..\user\bsp\bsp_FlexPwm.h)(0x5CC5F106)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pit.h)(0x5C7FCE3C)
+I (..\..\user\bsp\bsp_Timer.h)(0x5C9B38B8)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_qtmr.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pwm.h)(0x5C9A0B0E)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+F (..\..\user\bsp\bsp_Timer.c)(0x5C9F5C73)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bsp_timer.o --depend .\nor_txt_sdram\objects\bsp_timer.d)
+I (..\..\user\bsp\bsp_Timer.h)(0x5C9B38B8)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_qtmr.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pit.h)(0x5C7FCE3C)
+F (..\..\user\bsp\bsp_lpuart.c)(0x5CC539B2)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bsp_lpuart.o --depend .\nor_txt_sdram\objects\bsp_lpuart.d)
+I (..\..\user\bsp\bsp_lpuart.h)(0x5C9B658B)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpuart.h)(0x5C7FCE3C)
+I (..\..\user\bsp\bsp_EnCoder.h)(0x5C959AB4)
+I (..\..\user\bsp\bsp_FlexPwm.h)(0x5CC5F106)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pit.h)(0x5C7FCE3C)
+I (..\..\user\bsp\bsp_Timer.h)(0x5C9B38B8)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_qtmr.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pwm.h)(0x5C9A0B0E)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+I (..\..\user\board.h)(0x5C7FCE3C)
+I (..\..\user\clock_config.h)(0x5C7FCE3C)
+F (..\..\user\bsp\power_manager.c)(0x5CC1BED3)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\power_manager.o --depend .\nor_txt_sdram\objects\power_manager.d)
+I (..\..\user\bsp\power_manager.h)(0x5CC1BA67)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\user\pad_config.h)(0x5C7FCE3C)
+F (..\..\user\bsp\camera\bwLabel.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bwlabel.o --depend .\nor_txt_sdram\objects\bwlabel.d)
+I (..\..\user\bsp\camera\bwLabel.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\LQ_MT9V034M.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (..\..\user\bsp\camera\fsl_camera_device.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+F (..\..\user\bsp\camera\carmer.c)(0x5CB18AD6)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\carmer.o --depend .\nor_txt_sdram\objects\carmer.d)
+I (..\..\user\bsp\camera\carmer.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_csi.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_csi_camera_adapter.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_receiver.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_device.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\LQ_MT9V034M.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (..\..\user\bsp\./lcd/bsp_lcd.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./font/fonts.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\bwLabel.h)(0x5C7FCE3C)
+I (..\..\user\bsp\1052_NVIC.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpuart.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pxp.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_elcdif.h)(0x5C7FCE3C)
+F (..\..\user\bsp\camera\fsl_csi_camera_adapter.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_csi_camera_adapter.o --depend .\nor_txt_sdram\objects\fsl_csi_camera_adapter.d)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera_receiver.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_csi.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_csi_camera_adapter.h)(0x5C7FCE3C)
+F (..\..\user\bsp\camera\fsl_sccb.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_sccb.o --depend .\nor_txt_sdram\objects\fsl_sccb.d)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+F (..\..\user\bsp\camera\fsl_video_common.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_video_common.o --depend .\nor_txt_sdram\objects\fsl_video_common.d)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+F (..\..\user\bsp\camera\fsl_video_i2c.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fsl_video_i2c.o --depend .\nor_txt_sdram\objects\fsl_video_i2c.d)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_i2c.h)(0x5C7FCE3C)
+F (..\..\user\bsp\camera\LQ_MT9V034M.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\lq_mt9v034m.o --depend .\nor_txt_sdram\objects\lq_mt9v034m.d)
+I (..\..\user\bsp\camera\LQ_MT9V034M.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (..\..\user\bsp\camera\fsl_camera_device.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\libraries\utilities\fsl_debug_console.h)(0x5C7FCE3C)
+F (..\..\user\bsp\lcd\bsp_lcd.c)(0x5C80C14E)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\bsp_lcd.o --depend .\nor_txt_sdram\objects\bsp_lcd.d)
+I (..\..\libraries\drivers\fsl_iomuxc.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_common.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x599EDB3A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\fsl_device_registers.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h)(0x5C1A2392)
+I (..\..\libraries\CMSIS\Include\core_cm7.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_version.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_compiler.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\cmsis_armcc.h)(0x5C7FCE3C)
+I (..\..\libraries\CMSIS\Include\mpu_armv7.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\system_MIMXRT1052.h)(0x5C1A2392)
+I (C:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052_features.h)(0x5C1A2392)
+I (..\..\libraries\drivers\fsl_clock.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_gpio.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_elcdif.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_pxp.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\LQ_MT9V034M.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_sccb.h)(0x5C7FCE3C)
+I (..\..\libraries\drivers\fsl_lpi2c.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
+I (..\..\user\bsp\camera\fsl_camera_device.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_camera.h)(0x5C7FCE3C)
+I (..\..\user\bsp\camera\fsl_video_common.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./lcd/bsp_lcd.h)(0x5C7FCE3C)
+I (..\..\user\bsp\./font/fonts.h)(0x5C7FCE3C)
+F (..\..\user\bsp\font\fonts.c)(0x5C7FCE3C)(--c99 -c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\libraries\CMSIS\Include -I ..\..\libraries\drivers -I ..\..\libraries\utilities -I ..\..\libraries\utilities\str -I ..\..\libraries\utilities\log -I ..\..\libraries\utilities\io -I ..\..\libraries\xip -I ..\..\user -I ..\..\user\bsp -I ..\..\rtthread\3.0.3\components\finsh -I ..\..\rtthread\3.0.3\include -I ..\..\rtthread\3.0.3\include\libc -I ..\..\user\bsp\camera --library_interface=armcc --library_type=standardlib --diag_suppress=66,1296,186  -I.\RTE\_nor_txt_sdram-IC:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="526" -DCPU_MIMXRT1052DVL6B -DCPU_MIMXRT1052DVL6B -DXIP_EXTERNAL_FLASH="1" -DXIP_BOOT_HEADER_ENABLE="1" -DXIP_BOOT_HEADER_DCD_ENABLE="1" -DPRINTF_FLOAT_ENABLE="1" -DSCANF_FLOAT_ENABLE="1" -DPRINTF_ADVANCED_ENABLE="1" -DSCANF_ADVANCED_ENABLE="1" -DARM_MATH_CM7 -D__FPU_PRESENT="1" -D__CC_ARM -D__TARGET_FPU_VFP-o .\nor_txt_sdram\objects\fonts.o --depend .\nor_txt_sdram\objects\fonts.d)
+I (..\..\user\bsp\./font/fonts.h)(0x5C7FCE3C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)

@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "bsp_encoder.h": "c",
+        "fsl_pit.h": "c",
+        "fsl_common.h": "c",
+        "fsl_gpio.h": "c",
+        "bsp_pit.h": "c",
+        "bsp_ad7606_spi.h": "c",
+        "bsp_flexpwm.h": "c"
+    }
+}
