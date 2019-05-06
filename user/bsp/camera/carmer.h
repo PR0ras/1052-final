@@ -6,7 +6,7 @@
 #include "fsl_camera.h"
 #include "fsl_camera_receiver.h"
 #include "fsl_camera_device.h"
-#include "LQ_MT9V034M.h"
+//#include "LQ_MT9V034M.h"
 
 #define FRAME_BUFFER_ALIGN 64
 #define CAMERA_WIDTH  IMAGEW
@@ -21,7 +21,8 @@ void CAMCSI_Init(void);
 void Campin_Init(void);
 void test(void);
 void CAM_DIS(void);
-
+#define IMAGEW  376  
+#define IMAGEH  60 
 
 //AT_NONCACHEABLE_SECTION_ALIGN(static uint16_t s_frameBuffer[4][CAMERA_HEIGHT*CAMERA_WIDTH*CAMERA_BPP/sizeof(uint16_t)],
 //                              FRAME_BUFFER_ALIGN);CAMERA_HEIGHT 

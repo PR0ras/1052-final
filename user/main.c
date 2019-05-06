@@ -88,7 +88,7 @@ int main(void)
                                  (void*)1,                    /* 线程入口函数参数 */
                                  LED1_THREAD_STACK_SIZE,     /* 线程栈大小，单位为字节 */
                                  LED1_THREAD_PRIORITY,       /* 线程优先级，数值越大，优先级越小 */                  
-                                 LED1_THREAD_TIMESLICE);     /* 线程时间片 */
+                                 2);     /* 线程时间片 */
 		   
   if (led1_thread != RT_NULL)
   {
@@ -99,11 +99,14 @@ int main(void)
 	led2_thread = rt_thread_create("led2",                     /* 线程名字，字符串形式 */
                                  camera_entry,          /* 线程入口函数 */
                                  (void*)2,                    /* 线程入口函数参数 */
-                                 4096,     /* 线程栈大小，单位为字节 */
+                                 4096*2,     /* 线程栈大小，单位为字节 */
                                  LED1_THREAD_PRIORITY,       /* 线程优先级，数值越大，优先级越小 */                  
-                                 20);     /* 线程时间片 */	
+                                 40);     /* 线程时间片 */	
 	if (led2_thread != RT_NULL)
-    rt_thread_startup(led2_thread);
+  {
+     rt_thread_startup(led2_thread);
+  }
+   
   else
     return -1;
     

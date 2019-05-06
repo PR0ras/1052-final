@@ -289,12 +289,11 @@ void rt_hw_board_init(void)
 		LCD_Init(LCD_INTERRUPT_ENABLE);
         //LCD_PXP_Config();
 		LED_GPIO_Config();
+    uart_Init();
 		CAMCSI_Init();
-        uart_Init();
-        KEY_Init();
+    KEY_Init();
 		PIT_CH0_Int_Init(75000000);
-        BOARD_InitCameraResource();
-        Campin_Init();
+    //Campin_Init();
 //		OLEDPinInit();
 //		oled_init();
 /* 将开发板硬件相关的初始化放上面 */

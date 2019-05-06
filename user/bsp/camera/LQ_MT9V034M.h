@@ -1,18 +1,18 @@
 /*******************************************************************************
-¡¾Æ½    Ì¨¡¿ÁúÇñK66FXÖÇÄÜ³µVDÄ¸°å
-¡¾±à    Ð´¡¿CHIUSIR
-¡¾E-mail  ¡¿chiusir@163.com
-¡¾Èí¼þ°æ±¾¡¿V1.0
-¡¾×îºó¸üÐÂ¡¿2017Äê12ÔÂ22ÈÕ
-¡¾Ïà¹ØÐÅÏ¢²Î¿¼ÏÂÁÐµØÖ·¡¿
-¡¾Íø    Õ¾¡¿http://www.lqist.cn
-¡¾ÌÔ±¦µêÆÌ¡¿http://shop36265907.taobao.com
+ã€å¹³    å°ã€‘é¾™é‚±K66FXæ™ºèƒ½è½¦VDæ¯æ¿
+ã€ç¼–    å†™ã€‘CHIUSIR
+ã€E-mail  ã€‘chiusir@163.com
+ã€è½¯ä»¶ç‰ˆæœ¬ã€‘V1.0
+ã€æœ€åŽæ›´æ–°ã€‘2017å¹´12æœˆ22æ—¥
+ã€ç›¸å…³ä¿¡æ¯å‚è€ƒä¸‹åˆ—åœ°å€ã€‘
+ã€ç½‘    ç«™ã€‘http://www.lqist.cn
+ã€æ·˜å®åº—é“ºã€‘http://shop36265907.taobao.com
 ------------------------------------------------
-¡¾dev.env.¡¿IAR7.80.4¼°ÒÔÉÏ
-¡¾Target  ¡¿K66FX1M0VLQ18
-¡¾Crystal ¡¿ 50.000Mhz
-¡¾busclock¡¿180.000MHz
-¡¾pllclock¡¿180.000MHz
+ã€dev.env.ã€‘IAR7.80.4åŠä»¥ä¸Š
+ã€Target  ã€‘K66FX1M0VLQ18
+ã€Crystal ã€‘ 50.000Mhz
+ã€busclockã€‘180.000MHz
+ã€pllclockã€‘180.000MHz
 ******************************************************************************/
 #ifndef __LQMT9V034M_H__
 #define __LQMT9V034M_H__
@@ -22,24 +22,24 @@
 #include "fsl_camera_device.h"
 
 /*LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-¡¾º¯Êý¹¦ÄÜ¡¿ÁúÇñMT9V034Ä£¿é·Ö±æÂÊ´óÐ¡ÉèÖÃ
-¡¾×÷  Õß¡¿CHIUSIR
-¡¾²ÎÊýÖµ¡¿
-¡¾Èí¼þ°æ±¾¡¿V1.0
-¡¾×îºó¸üÐÂ¡¿2018Äê1ÔÂ8ÈÕ
-¡¾º¯ÊýÃû¡¿void LQMT9V034M_Set_Resolution(uint16_t width,uint16_t height)
-¡¾·µ»ØÖµ¡¿ÎÞ
-¡¾²ÎÊýÖµ¡¿
-uint16_t width£¬×Ô¶¨ÒåÉãÏñÍ·²É¼¯Êý¾ÝµÄºáÏòÁÐÊý
-uint16_t height£¬×Ô¶¨ÒåÉãÏñÍ·²É¼¯Êý¾ÝµÄ×ÝÏòÐÐÊý
-¡¾ÊµÀý¡¿ LQMT9V034M_Set_Resolution(320,240);//×Ô¶¨ÒåÍ¼Ïñ´óÐ¡Îª320*240
-¡¾ÌáÊ¾¡¿ ÖØÐÂ¶¨ÒåÉãÏñÍ··Ö±æÂÊºó£¬ÐèÒªÖØÐÂ¶¨ÒåÃ¿ÐÐ²É¼¯ÏñËØµÄÊýÁ¿Îªwidth£¬ÐÐÊýÎªheight¡£                                             
+ã€å‡½æ•°åŠŸèƒ½ã€‘é¾™é‚±MT9V034æ¨¡å—åˆ†è¾¨çŽ‡å¤§å°è®¾ç½®
+ã€ä½œ  è€…ã€‘CHIUSIR
+ã€å‚æ•°å€¼ã€‘
+ã€è½¯ä»¶ç‰ˆæœ¬ã€‘V1.0
+ã€æœ€åŽæ›´æ–°ã€‘2018å¹´1æœˆ8æ—¥
+ã€å‡½æ•°åã€‘void LQMT9V034M_Set_Resolution(uint16_t width,uint16_t height)
+ã€è¿”å›žå€¼ã€‘æ— 
+ã€å‚æ•°å€¼ã€‘
+uint16_t widthï¼Œè‡ªå®šä¹‰æ‘„åƒå¤´é‡‡é›†æ•°æ®çš„æ¨ªå‘åˆ—æ•°
+uint16_t heightï¼Œè‡ªå®šä¹‰æ‘„åƒå¤´é‡‡é›†æ•°æ®çš„çºµå‘è¡Œæ•°
+ã€å®žä¾‹ã€‘ LQMT9V034M_Set_Resolution(320,240);//è‡ªå®šä¹‰å›¾åƒå¤§å°ä¸º320*240
+ã€æç¤ºã€‘ é‡æ–°å®šä¹‰æ‘„åƒå¤´åˆ†è¾¨çŽ‡åŽï¼Œéœ€è¦é‡æ–°å®šä¹‰æ¯è¡Œé‡‡é›†åƒç´ çš„æ•°é‡ä¸ºwidthï¼Œè¡Œæ•°ä¸ºheightã€‚                                             
 QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ*/
 
-//#define IMAGEH  480 //ÐÐ HEIGHT ´ý²É¼¯ÉãÏñÍ·Í¼Ïñ¸ß¶ÈÐÐÊý
-#define IMAGEW  376  //ÁÐ WIDTH  ´ý²É¼¯ÉãÏñÍ·Í¼Ïñ¿í¶ÈÁÐÊý
-#define IMAGEH  60 //ÐÐ HEIGHT ´ý²É¼¯ÉãÏñÍ·Í¼Ïñ¸ß¶ÈÐÐÊý   
-//#define IMAGEW  752  //ÁÐ WIDTH  ´ý²É¼¯ÉãÏñÍ·Í¼Ïñ¿í¶ÈÁÐÊý
+//#define IMAGEH  480 //è¡Œ HEIGHT å¾…é‡‡é›†æ‘„åƒå¤´å›¾åƒé«˜åº¦è¡Œæ•°
+#define IMAGEW  376  //åˆ— WIDTH  å¾…é‡‡é›†æ‘„åƒå¤´å›¾åƒå®½åº¦åˆ—æ•°
+#define IMAGEH  60 //è¡Œ HEIGHT å¾…é‡‡é›†æ‘„åƒå¤´å›¾åƒé«˜åº¦è¡Œæ•°   
+//#define IMAGEW  752  //åˆ— WIDTH  å¾…é‡‡é›†æ‘„åƒå¤´å›¾åƒå®½åº¦åˆ—æ•°
 typedef struct _LQMT9V034_resource
 {
     sccb_i2c_t sccbI2C;                     //!< I2C for SCCB transfer. 
@@ -61,6 +61,8 @@ void MT9V034_SetFrameResolution(uint16_t height,uint16_t width, uint8_t fps);
 void imgremote(uint8_t address,uint16_t data);
 extern void MT9V034_SetAutoExposure(bool enable);
 void LPI2C1_Init(uint32_t baudrate);
+void MT9V034_daily(void);
+void MT9V034_night(void);
 
 #define BINNING_ROW_A	        4
 #define BINNING_COLUMN_A	4
