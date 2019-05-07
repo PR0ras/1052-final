@@ -27,9 +27,7 @@ Project File Date:  05/07/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'nor_txt_sdram'
-compiling board.c...
-..\..\user\bsp\./led/bsp_led.h(70): warning:  #47-D: incompatible redefinition of macro "BEE"  (declared at line 3089 of "D:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0\MIMXRT1052.h")
-  #define   BEE(a)	if (a)	\
+compiling bsp_lpuart.c...
 ..\..\user\bsp\bsp_Timer.h(14): warning:  #1-D: last line of file ends without a newline
   #endif /* __BSP_TIMER_H */
 ..\..\user\bsp\bsp_FlexPwm.h(23): warning:  #1295-D: Deprecated declaration PWMInit - give arg types
@@ -40,14 +38,12 @@ compiling board.c...
   void diriction();
 ..\..\user\bsp\bsp_FlexPwm.h(28): warning:  #1295-D: Deprecated declaration get_duoji_Kp - give arg types
   float get_duoji_Kp();
-..\..\user\bsp\power_manager.h(8): warning:  #1295-D: Deprecated declaration Peripheral_power_ON - give arg types
-  void Peripheral_power_ON();//外设电源开
-..\..\user\board.c: 7 warnings, 0 errors
+..\..\user\bsp\bsp_lpuart.c: 5 warnings, 0 errors
 linking...
 .\MIMXRT1052xxxxx_nor_txt_sdram.scf(124): warning: L6329W: Pattern *(NonCacheable.init) only matches removed unused sections.
 Program Size: Code=31476 RO-data=10652 RW-data=412 ZI-data=1034924  
 Finished: 0 information, 1 warning and 0 error messages.
-".\nor_txt_sdram\Objects\YH-RT1052.axf" - 0 Error(s), 8 Warning(s).
+".\nor_txt_sdram\Objects\YH-RT1052.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +57,7 @@ Package Vendor: NXP
   D:\Keil_v5\ARM\PACK\NXP\MIMXRT1052_DFP\11.0.0
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
