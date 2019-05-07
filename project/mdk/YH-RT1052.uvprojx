@@ -481,6 +481,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -721,6 +726,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -762,19 +787,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>
@@ -1260,6 +1275,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1500,6 +1520,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1541,19 +1581,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>
@@ -2039,6 +2069,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2279,6 +2314,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2320,19 +2375,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>
@@ -2819,6 +2864,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3059,6 +3109,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3100,19 +3170,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>
@@ -3599,6 +3659,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3839,6 +3904,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3880,19 +3965,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>
@@ -4379,6 +4454,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4619,6 +4699,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4660,19 +4760,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>
@@ -5159,6 +5249,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\libraries\drivers\fsl_qtmr.c</FilePath>
             </File>
+            <File>
+              <FileName>fsl_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\drivers\fsl_pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5399,6 +5494,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_key.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_lpuart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>power_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\power_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_FlexPwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5440,19 +5555,9 @@
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_pit.c</FilePath>
-            </File>
-            <File>
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\font\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_lpuart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
             </File>
             <File>
               <FileName>LQ_MT9V034M.c</FileName>

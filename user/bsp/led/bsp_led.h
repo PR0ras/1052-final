@@ -4,35 +4,43 @@
 #include "fsl_common.h"
 
 /*********************************************************
- * LED GPIO¶Ë¿Ú¡¢Òý½ÅºÅ¼°IOMUXC¸´ÓÃºê¶¨Òå
+ * LED GPIOç«¯å£ã€å¼•è„šå·åŠIOMUXCå¤ç”¨å®å®šä¹‰
  *********************************************************/
-#define CORE_BOARD_LED_GPIO 				    GPIO1
+#define CORE_BOARD_LED_GPIO 				  GPIO1
 #define CORE_BOARD_LED_GPIO_PIN 		    (9U)
 #define CORE_BOARD_LED_IOMUXC			      IOMUXC_GPIO_AD_B0_09_GPIO1_IO09
 
-#define RGB_RED_LED_GPIO 				        GPIO1
-#define RGB_RED_LED_GPIO_PIN 		        (24U)
-#define RGB_RED_LED_IOMUXC			        IOMUXC_GPIO_AD_B1_08_GPIO1_IO24
+#define RGB_RED_LED_GPIO 				      GPIO2
+#define RGB_RED_LED_GPIO_PIN 		        (18U)
+#define RGB_RED_LED_IOMUXC			         IOMUXC_GPIO_B1_02_GPIO2_IO18
 
-#define RGB_GREEN_LED_GPIO 				      GPIO1
-#define RGB_GREEN_LED_GPIO_PIN 		      (25U)
-#define RGB_GREEN_LED_IOMUXC			      IOMUXC_GPIO_AD_B1_09_GPIO1_IO25
+#define RGB_GREEN_LED_GPIO 				      GPIO2
+#define RGB_GREEN_LED_GPIO_PIN 		        (16U)
+#define RGB_GREEN_LED_IOMUXC			      IOMUXC_GPIO_B1_00_GPIO2_IO16
 
-#define RGB_BLUE_LED_GPIO 				      GPIO1
-#define RGB_BLUE_LED_GPIO_PIN 		      (10U)
-#define RGB_BLUE_LED_IOMUXC			        IOMUXC_GPIO_AD_B0_10_GPIO1_IO10
+#define RGB_BLUE_LED_GPIO 				      GPIO2
+#define RGB_BLUE_LED_GPIO_PIN 		        (14U)
+#define RGB_BLUE_LED_IOMUXC			          IOMUXC_GPIO_B0_14_GPIO2_IO14
 
-#define LED_DELAY_COUNT 		            70000000
+#define RGB_WHITE_LED_GPIO 				      GPIO2
+#define RGB_WHITE_LED_GPIO_PIN 		        (12U)
+#define RGB_WHITE_LED_IOMUXC			       IOMUXC_GPIO_B0_12_GPIO2_IO12 
 
-/** ¿ØÖÆLEDµÆÁÁÃðµÄºê£¬
-  * LEDµÍµçÆ½ÁÁ£¬ÉèÖÃON=0£¬OFF=1
-  * ÈôLED¸ßµçÆ½ÁÁ£¬°ÑºêÉèÖÃ³ÉON=1 £¬OFF=0 ¼´¿É
+#define BEE_GPIO 				     		 GPIO2
+#define BEE_GPIO_PIN 		       			 (4U)
+#define BEE_IOMUXC			      			 IOMUXC_GPIO_B0_04_GPIO2_IO04 
+
+#define LED_DELAY_COUNT 		            100
+
+/** æŽ§åˆ¶LEDç¯äº®ç­çš„å®ï¼Œ
+  * LEDä½Žç”µå¹³äº®ï¼Œè®¾ç½®ON=0ï¼ŒOFF=1
+  * è‹¥LEDé«˜ç”µå¹³äº®ï¼ŒæŠŠå®è®¾ç½®æˆON=1 ï¼ŒOFF=0 å³å¯
  */
 #define ON  1
 #define OFF 0
 
-/* Ê¹ÓÃ±ê×¼µÄ¹Ì¼þ¿â¿ØÖÆIO 
-   Ê¹ÓÃ·¶Àý£ºCORE_BOARD_LED(ON); */
+/* ä½¿ç”¨æ ‡å‡†çš„å›ºä»¶åº“æŽ§åˆ¶IO 
+   ä½¿ç”¨èŒƒä¾‹ï¼šCORE_BOARD_LED(ON); */
    
 #define   CORE_BOARD_LED(a)	if (a)	\
 					GPIO_PinWrite(CORE_BOARD_LED_GPIO, CORE_BOARD_LED_GPIO_PIN, 0U);\
@@ -52,16 +60,26 @@
 #define   RGB_BLUE_LED(a)	if (a)	\
 					GPIO_PinWrite(RGB_BLUE_LED_GPIO, RGB_BLUE_LED_GPIO_PIN, 0U);\
 					else		\
-					GPIO_PinWrite(RGB_BLUE_LED_GPIO, RGB_BLUE_LED_GPIO_PIN, 1U);     
+					GPIO_PinWrite(RGB_BLUE_LED_GPIO, RGB_BLUE_LED_GPIO_PIN, 1U);    
+
+#define   RGB_WHITE_LED(a)	if (a)	\
+					GPIO_PinWrite(RGB_WHITE_LED_GPIO, RGB_WHITE_LED_GPIO_PIN, 0U);\
+					else		\
+					GPIO_PinWrite(RGB_WHITE_LED_GPIO, RGB_WHITE_LED_GPIO_PIN, 1U);   
+
+#define   BEE(a)	if (a)	\
+					GPIO_PinWrite(BEE_GPIO, BEE_GPIO_PIN, 1U);\
+					else		\
+					GPIO_PinWrite(BEE_GPIO, BEE_GPIO_PIN, 0U);   
 
 
-/* Ö±½Ó²Ù×÷¼Ä´æÆ÷µÄ·½·¨¿ØÖÆIO */
-#define digitalHi(p,i)		  {p->DR |= (1U << i);}	  //Êä³öÎª¸ßµçÆ½		
-#define digitalLo(p,i)		 	{p->DR &= ~(1U << i);}  //Êä³öµÍµçÆ½
-#define digitalToggle(p,i)  {p->DR ^= (1U<<i);}     //Êä³ö·´×ª×´Ì¬
+/* ç›´æŽ¥æ“ä½œå¯„å­˜å™¨çš„æ–¹æ³•æŽ§åˆ¶IO */
+#define digitalHi(p,i)		  {p->DR |= (1U << i);}	  //è¾“å‡ºä¸ºé«˜ç”µå¹³		
+#define digitalLo(p,i)		 	{p->DR &= ~(1U << i);}  //è¾“å‡ºä½Žç”µå¹³
+#define digitalToggle(p,i)  {p->DR ^= (1U<<i);}     //è¾“å‡ºåè½¬çŠ¶æ€
 
 
-/* ¶¨Òå¿ØÖÆIOµÄºê */
+/* å®šä¹‰æŽ§åˆ¶IOçš„å® */
 #define CORE_BOARD_LED_TOGGLE		    digitalToggle(CORE_BOARD_LED_GPIO,CORE_BOARD_LED_GPIO_PIN)
 #define CORE_BOARD_LED_OFF		      digitalHi(CORE_BOARD_LED_GPIO,CORE_BOARD_LED_GPIO_PIN)
 #define CORE_BOARD_LED_ON			      digitalLo(CORE_BOARD_LED_GPIO,CORE_BOARD_LED_GPIO_PIN)
@@ -78,59 +96,76 @@
 #define RGB_BLUE_LED_OFF		        digitalHi(RGB_BLUE_LED_GPIO,RGB_BLUE_LED_GPIO_PIN)
 #define RGB_BLUE_LED_ON			        digitalLo(RGB_BLUE_LED_GPIO,RGB_BLUE_LED_GPIO_PIN)
 
-/* »ù±¾»ìÉ«£¬ºóÃæ¸ß¼¶ÓÃ·¨Ê¹ÓÃPWM¿É»ì³öÈ«²ÊÑÕÉ«,ÇÒÐ§¹û¸üºÃ */
+#define RGB_WHITE_LED_TOGGLE		      digitalToggle(RGB_WHITE_LED_GPIO,RGB_WHITE_LED_GPIO_PIN)
+#define RGB_WHITE_LED_OFF		        digitalHi(RGB_WHITE_LED_GPIO,RGB_WHITE_LED_GPIO_PIN)
+#define RGB_WHITE_LED_ON			        digitalLo(RGB_WHITE_LED_GPIO,RGB_WHITE_LED_GPIO_PIN)
 
-//ºì
+#define BEE_TOGGLE		      digitalToggle(BEE_GPIO,BEE_GPIO_PIN)
+
+
+/* åŸºæœ¬æ··è‰²ï¼ŒåŽé¢é«˜çº§ç”¨æ³•ä½¿ç”¨PWMå¯æ··å‡ºå…¨å½©é¢œè‰²,ä¸”æ•ˆæžœæ›´å¥½ */
+
+//çº¢
 #define RGB_LED_COLOR_RED  \
 					RGB_RED_LED_ON;\
 					RGB_GREEN_LED_OFF;\
-					RGB_BLUE_LED_OFF
+					RGB_BLUE_LED_OFF;\
+					RGB_WHITE_LED_ON
 
-//ÂÌ
+//ç»¿
 #define RGB_LED_COLOR_GREEN		\
 					RGB_RED_LED_OFF;\
 					RGB_GREEN_LED_ON;\
-					RGB_BLUE_LED_OFF
+					RGB_BLUE_LED_OFF;\
+					RGB_WHITE_LED_ON
 
-//À¶
+//è“
 #define RGB_LED_COLOR_BLUE	\
 					RGB_RED_LED_OFF;\
 					RGB_GREEN_LED_OFF;\
-					RGB_BLUE_LED_ON
+					RGB_BLUE_LED_ON;\
+					RGB_WHITE_LED_ON
 					
-//»Æ(ºì+ÂÌ)					
+//é»„(çº¢+ç»¿)					
 #define RGB_LED_COLOR_YELLOW	\
 					RGB_RED_LED_ON;\
 					RGB_GREEN_LED_ON;\
-					RGB_BLUE_LED_OFF
+					RGB_BLUE_LED_OFF;\
+					RGB_WHITE_LED_ON
           
-//×Ï(ºì+À¶)
+//ç´«(çº¢+è“)
 #define RGB_LED_COLOR_PURPLE	\
-					RGB_RED_LED_ON;\
+				RGB_RED_LED_ON;\
 					RGB_GREEN_LED_OFF;\
-					RGB_BLUE_LED_ON
+					RGB_BLUE_LED_ON;	\
+					RGB_WHITE_LED_ON
 
-//Çà(ÂÌ+À¶)
+//é’(ç»¿+è“)
 #define RGB_LED_COLOR_CYAN \
 					RGB_RED_LED_OFF;\
 					RGB_GREEN_LED_ON;\
-					RGB_BLUE_LED_ON
+					RGB_BLUE_LED_ON;\
+					RGB_WHITE_LED_ON
 					
-//°×(ºì+ÂÌ+À¶)
+//ç™½(çº¢+ç»¿+è“)
 #define RGB_LED_COLOR_WHITE	\
 					RGB_RED_LED_ON;\
 					RGB_GREEN_LED_ON;\
-					RGB_BLUE_LED_ON
+					RGB_BLUE_LED_ON;\
+					RGB_WHITE_LED_ON
 					
-//ºÚ(È«²¿¹Ø±Õ)
+//é»‘(å…¨éƒ¨å…³é—­)
 #define RGB_LED_COLOR_OFF	\
 					RGB_RED_LED_OFF;\
 					RGB_GREEN_LED_OFF;\
-					RGB_BLUE_LED_OFF	
+					RGB_BLUE_LED_OFF;\
+					RGB_WHITE_LED_OFF	
 
 /*******************************************************************************
- * º¯ÊýÉùÃ÷
+ * å‡½æ•°å£°æ˜Ž
  ******************************************************************************/
 void LED_GPIO_Config(void);
-
+void BEE_GPIO_Config(void);
+void Init_OK(void);
+void Init_delay(uint16_t i);
 #endif /* __LED_H */

@@ -4,19 +4,19 @@
   * @author  fire
   * @version V1.0
   * @date    2018-xx-xx
-  * @brief   ÓÃV2.3.1°æ±¾¿â½¨µÄ¹¤³ÌÄ£°å
+  * @brief   ç”¨V2.3.1ç‰ˆæœ¬åº“å»ºçš„å·¥ç¨‹æ¨¡æ¿
   ******************************************************************
   * @attention
   *
-  * ÊµÑéÆ½Ì¨:Ò°»ğ  i.MXRT1052¿ª·¢°å 
-  * ÂÛÌ³    :http://www.firebbs.cn
-  * ÌÔ±¦    :http://firestm32.taobao.com
+  * å®éªŒå¹³å°:é‡ç«  i.MXRT1052å¼€å‘æ¿ 
+  * è®ºå›    :http://www.firebbs.cn
+  * æ·˜å®    :http://firestm32.taobao.com
   *
   ******************************************************************
   */
 /*
 *************************************************************************
-*                             °üº¬µÄÍ·ÎÄ¼ş
+*                             åŒ…å«çš„å¤´æ–‡ä»¶
 *************************************************************************
 */ 
 
@@ -24,16 +24,18 @@
 #include "fsl_debug_console.h"
 #include "./led/bsp_led.h"
 #include "carmer.h"
+#include "bsp_FlexPwm.h"
+#include "bsp_lpuart.h"
+/* RT-Thread å¤´æ–‡ä»¶ */
 
 #include "bsp_lpuart.h"
 #include "LQ_MT9V034M.h"
 #include "bsp_key.h"
-/* RT-Thread Í·ÎÄ¼ş */
 #include "rtthread.h"
 
 /*
 *************************************************************************
-*                               ºê¶¨Òå&±äÁ¿
+*                               å®å®šä¹‰&å˜é‡
 *************************************************************************
 */
 
@@ -41,180 +43,247 @@
 #define LED1_THREAD_STACK_SIZE          512
 #define LED1_THREAD_TIMESLICE           5
 
+
+extern int16_t s_volt[8]; //ADCæ•°æ®ï¼Œ8ä¸ªé€šé“
+extern int16_t speed_now;
+
+
+
+int16_t aims_speed=50;
+
+
 /*
 *************************************************************************
-*                               ±äÁ¿
+*                               å˜é‡
 *************************************************************************
 */
-/* ¶¨ÒåÏß³Ì¿ØÖÆ¿éÖ¸Õë */
+/* å®šä¹‰çº¿ç¨‹æ§åˆ¶å—æŒ‡é’ˆ */
 static  rt_thread_t led1_thread = RT_NULL,
+                    run_thread = RT_NULL,
+                    AD7606_thread = RT_NULL,
 										led2_thread = RT_NULL,
+                    camera_thread = RT_NULL,
                     cmd_thread  = RT_NULL,
                     key_thread  = RT_NULL;
 
-/* Ö¸ÏòĞÅºÅÁ¿µÄÖ¸Õë */
+
+
+/* æŒ‡å‘ä¿¡å·é‡çš„æŒ‡é’ˆ */
 static rt_sem_t sem = RT_NULL;
+
+
+
 
 /*
 *************************************************************************
-*                             º¯ÊıÉùÃ÷
+*                             å‡½æ•°å£°æ˜
 *************************************************************************
 */
 static void led1_thread_entry(void* parameter);
-static void thread1_entry(void* parameter);
-static void thread2_entry(void* parameter);
+// static void thread1_entry(void* parameter);
+// static void thread2_entry(void* parameter);
 static void camera_entry(void* parameter);
+static void run_entry(void* parameter);
+static void AD7606_entry(void* parameter);
 static void cmd_entry(void* parameter);
 static void key_entry(void* parameter);
 /*
 *************************************************************************
-*                             main º¯Êı
+*                             main å‡½æ•°
 *************************************************************************
 */
 /**
-  * @brief  Ö÷º¯Êı
-  * @param  ÎŞ
-  * @retval ÎŞ
+  * @brief  ä¸»å‡½æ•°
+  * @param  æ— 
+  * @retval æ— 
   */
 int main(void)
-{	
-    /* 
-	   * ¿ª·¢°åÓ²¼ş³õÊ¼»¯£¬RTTÏµÍ³³õÊ¼»¯ÒÑ¾­ÔÚmainº¯ÊıÖ®Ç°Íê³É£¬
-	   * ¼´ÔÚcomponent.cÎÄ¼şÖĞµÄrtthread_startup()º¯ÊıÖĞÍê³ÉÁË¡£
-	   * ËùÒÔÔÚmainº¯ÊıÖĞ£¬Ö»ĞèÒª´´½¨Ïß³ÌºÍÆô¶¯Ïß³Ì¼´¿É¡£
+{
+  /* 
+	   * å¼€å‘æ¿ç¡¬ä»¶åˆå§‹åŒ–ï¼ŒRTTç³»ç»Ÿåˆå§‹åŒ–å·²ç»åœ¨mainå‡½æ•°ä¹‹å‰å®Œæˆï¼Œ
+	   * å³åœ¨component.cæ–‡ä»¶ä¸­çš„rtthread_startup()å‡½æ•°ä¸­å®Œæˆäº†ã€‚
+	   * æ‰€ä»¥åœ¨mainå‡½æ•°ä¸­ï¼Œåªéœ€è¦åˆ›å»ºçº¿ç¨‹å’Œå¯åŠ¨çº¿ç¨‹å³å¯ã€‚
 	   */
-	led1_thread = rt_thread_create("led1",                     /* Ïß³ÌÃû×Ö£¬×Ö·û´®ĞÎÊ½ */
-                                 led1_thread_entry,          /* Ïß³ÌÈë¿Úº¯Êı */
-                                 (void*)1,                    /* Ïß³ÌÈë¿Úº¯Êı²ÎÊı */
-                                 LED1_THREAD_STACK_SIZE,     /* Ïß³ÌÕ»´óĞ¡£¬µ¥Î»Îª×Ö½Ú */
-                                 LED1_THREAD_PRIORITY,       /* Ïß³ÌÓÅÏÈ¼¶£¬ÊıÖµÔ½´ó£¬ÓÅÏÈ¼¶Ô½Ğ¡ */                  
-                                 2);     /* Ïß³ÌÊ±¼äÆ¬ */
-		   
-  if (led1_thread != RT_NULL)
+
+  camera_thread = rt_thread_create("camera",               /* çº¿ç¨‹åå­—ï¼Œå­—ç¬¦ä¸²å½¢å¼ */
+                                 camera_entry,         /* çº¿ç¨‹å…¥å£å‡½æ•° */
+                                 (void *)2,            /* çº¿ç¨‹å…¥å£å‡½æ•°å‚æ•° */
+                                 4096 * 2,             /* çº¿ç¨‹æ ˆå¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚ */
+                                 LED1_THREAD_PRIORITY, /* çº¿ç¨‹ä¼˜å…ˆçº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œä¼˜å…ˆçº§è¶Šå° */
+                                 40);                  /* çº¿ç¨‹æ—¶é—´ç‰‡ */
+
+  led1_thread = rt_thread_create("led1",                 /* çº¿ç¨‹åå­—ï¼Œå­—ç¬¦ä¸²å½¢å¼ */
+                                 led1_thread_entry,      /* çº¿ç¨‹å…¥å£å‡½æ•° */
+                                 (void *)1,              /* çº¿ç¨‹å…¥å£å‡½æ•°å‚æ•° */
+                                 LED1_THREAD_STACK_SIZE, /* çº¿ç¨‹æ ˆå¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚ */
+                                 LED1_THREAD_PRIORITY,   /* çº¿ç¨‹ä¼˜å…ˆçº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œä¼˜å…ˆçº§è¶Šå° */
+                                 LED1_THREAD_TIMESLICE); /* çº¿ç¨‹æ—¶é—´ç‰‡ */
+
+  AD7606_thread = rt_thread_create("AD7606",             /* çº¿ç¨‹åå­—ï¼Œå­—ç¬¦ä¸²å½¢å¼ */
+                                   AD7606_entry,         /* çº¿ç¨‹å…¥å£å‡½æ•° */
+                                   (void *)2,            /* çº¿ç¨‹å…¥å£å‡½æ•°å‚æ•° */
+                                   512,                  /* çº¿ç¨‹æ ˆå¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚ */
+                                   LED1_THREAD_PRIORITY, /* çº¿ç¨‹ä¼˜å…ˆçº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œä¼˜å…ˆçº§è¶Šå° */
+                                   2);                   /* çº¿ç¨‹æ—¶é—´ç‰‡ */
+
+  run_thread = rt_thread_create("run",                /* çº¿ç¨‹åå­—ï¼Œå­—ç¬¦ä¸²å½¢å¼ */
+                                run_entry,            /* çº¿ç¨‹å…¥å£å‡½æ•° */
+                                (void *)2,            /* çº¿ç¨‹å…¥å£å‡½æ•°å‚æ•° */
+                                512,                  /* çº¿ç¨‹æ ˆå¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚ */
+                                LED1_THREAD_PRIORITY, /* çº¿ç¨‹ä¼˜å…ˆçº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œä¼˜å…ˆçº§è¶Šå° */
+                                2);                   /* çº¿ç¨‹æ—¶é—´ç‰‡ */
+
+  cmd_thread = rt_thread_create("led2",               /* çº¿ç¨‹åå­—ï¼Œå­—ç¬¦ä¸²å½¢å¼ */
+                                cmd_entry,            /* çº¿ç¨‹å…¥å£å‡½æ•° */
+                                (void *)3,            /* çº¿ç¨‹å…¥å£å‡½æ•°å‚æ•° */
+                                512,                  /* çº¿ç¨‹æ ˆå¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚ */
+                                LED1_THREAD_PRIORITY, /* çº¿ç¨‹ä¼˜å…ˆçº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œä¼˜å…ˆçº§è¶Šå° */
+                                2);                   /* çº¿ç¨‹æ—¶é—´ç‰‡ */
+
+  key_thread = rt_thread_create("led2",               /* çº¿ç¨‹åå­—ï¼Œå­—ç¬¦ä¸²å½¢å¼ */
+                                key_entry,            /* çº¿ç¨‹å…¥å£å‡½æ•° */
+                                (void *)3,            /* çº¿ç¨‹å…¥å£å‡½æ•°å‚æ•° */
+                                512,                  /* çº¿ç¨‹æ ˆå¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚ */
+                                LED1_THREAD_PRIORITY, /* çº¿ç¨‹ä¼˜å…ˆçº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œä¼˜å…ˆçº§è¶Šå° */
+                                2);                   /* çº¿ç¨‹æ—¶é—´ç‰‡ */
+
+  //æ‘„åƒå¤´
+  if (camera_thread != RT_NULL)
   {
-	  rt_thread_startup(led1_thread);
+    rt_thread_startup(camera_thread);
   }
-  else
-    return -1;         
-	led2_thread = rt_thread_create("led2",                     /* Ïß³ÌÃû×Ö£¬×Ö·û´®ĞÎÊ½ */
-                                 camera_entry,          /* Ïß³ÌÈë¿Úº¯Êı */
-                                 (void*)2,                    /* Ïß³ÌÈë¿Úº¯Êı²ÎÊı */
-                                 4096*2,     /* Ïß³ÌÕ»´óĞ¡£¬µ¥Î»Îª×Ö½Ú */
-                                 LED1_THREAD_PRIORITY,       /* Ïß³ÌÓÅÏÈ¼¶£¬ÊıÖµÔ½´ó£¬ÓÅÏÈ¼¶Ô½Ğ¡ */                  
-                                 40);     /* Ïß³ÌÊ±¼äÆ¬ */	
-	if (led2_thread != RT_NULL)
-  {
-     rt_thread_startup(led2_thread);
-  }
-   
   else
     return -1;
-    
-    cmd_thread = rt_thread_create("led2",                     /* Ïß³ÌÃû×Ö£¬×Ö·û´®ĞÎÊ½ */
-                                 cmd_entry,          /* Ïß³ÌÈë¿Úº¯Êı */
-                                 (void*)3,                    /* Ïß³ÌÈë¿Úº¯Êı²ÎÊı */
-                                 512,     /* Ïß³ÌÕ»´óĞ¡£¬µ¥Î»Îª×Ö½Ú */
-                                 LED1_THREAD_PRIORITY,       /* Ïß³ÌÓÅÏÈ¼¶£¬ÊıÖµÔ½´ó£¬ÓÅÏÈ¼¶Ô½Ğ¡ */                  
-                                 2);     /* Ïß³ÌÊ±¼äÆ¬ */	
-	if (cmd_thread != RT_NULL)
+  //LEDç¯
+  if (led1_thread != RT_NULL)
+  {
+    rt_thread_startup(led1_thread);
+  }
+  else
+    return -1;
+
+  // if (run_thread != RT_NULL)
+  //   rt_thread_startup(run_thread);
+  // else
+  //   return -1;
+
+  // if (AD7606_thread != RT_NULL)
+  //   rt_thread_startup(AD7606_thread);
+  // else
+  //   return -1;
+  //æ‘„åƒå¤´å‚æ•°
+  if (cmd_thread != RT_NULL)
     rt_thread_startup(cmd_thread);
   else
     return -1;
-    key_thread = rt_thread_create("led2",                     /* Ïß³ÌÃû×Ö£¬×Ö·û´®ĞÎÊ½ */
-                                 key_entry,          /* Ïß³ÌÈë¿Úº¯Êı */
-                                 (void*)3,                    /* Ïß³ÌÈë¿Úº¯Êı²ÎÊı */
-                                 512,     /* Ïß³ÌÕ»´óĞ¡£¬µ¥Î»Îª×Ö½Ú */
-                                 LED1_THREAD_PRIORITY,       /* Ïß³ÌÓÅÏÈ¼¶£¬ÊıÖµÔ½´ó£¬ÓÅÏÈ¼¶Ô½Ğ¡ */                  
-                                 2);     /* Ïß³ÌÊ±¼äÆ¬ */	
-	if (key_thread != RT_NULL)
+  //æŒ‰é”®
+  if (key_thread != RT_NULL)
     rt_thread_startup(key_thread);
   else
     return -1;
-	return 0;
 
+  return 0;
 }
-
 
 /*
 *************************************************************************
-*                             Ïß³Ì¶¨Òå
+*                             çº¿ç¨‹å®šä¹‰
 *************************************************************************
 */
 
 static void led1_thread_entry(void* parameter)
 {	
 		rt_uint32_t count = 0;
-    rt_uint32_t no = (rt_uint32_t) parameter; /* »ñµÃÏß³ÌµÄÈë¿Ú²ÎÊı */
+    rt_uint32_t no = (rt_uint32_t) parameter; /* è·å¾—çº¿ç¨‹çš„å…¥å£å‚æ•° */
     while (1)
     {
         CORE_BOARD_LED_ON;
-        rt_thread_delay(500);   /* ÑÓÊ±£¬µ¥Î»Îªtick */
-        
-        CORE_BOARD_LED_OFF;     
-        rt_thread_delay(500);   /* ÑÓÊ±£¬µ¥Î»Îªtick */
-      
-//        PRINTF("*****»¶Ó­Ê¹ÓÃ Ò°»ği.MX RT1052 ¿ª·¢°å*****\r\n"); 
-//		PRINTF("thread%d count: %d\r\n", no, count ++);
-		//Dis_num(80,no,count);
-		//rt_thread_delay(1000);
+        rt_thread_delay(500);   /* å»¶æ—¶ï¼Œå•ä½ä¸ºtick */
+      //PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmA,4000);
+     // PWMx_SMx_DutySet(PWM2,kPWM_Module_1,kPWM_Control_Module_1,kPWM_PwmA,2000+5000);
+        CORE_BOARD_LED_OFF;        
+        rt_thread_delay(500);   /* å»¶æ—¶ï¼Œå•ä½ä¸ºtick */
     }
 }
 
-static void thread1_entry(void* parameter)
-{
-    rt_uint32_t count = 0;
 
-    while (1)
-    {
-        /* Ïß³Ì1²ÉÓÃµÍÓÅÏÈ¼¶ÔËĞĞ£¬Ò»Ö±´òÓ¡¼ÆÊıÖµ */
-        PRINTF("thread count: %d\r\n", count++ );
-				//LCD_P6x8Str(100,0,"s0");
-				//LCD_P6x8Str(15,1,"s1");
-				//Dis_num(80,2,count++);
-				rt_thread_delay(2000);
+ static void thread1_entry(void* parameter)
+ {
+     rt_uint32_t count = 0;
 
-    }
-}
+     while (1)
+     {
+         /* çº¿ç¨‹1é‡‡ç”¨ä½ä¼˜å…ˆçº§è¿è¡Œï¼Œä¸€ç›´æ‰“å°è®¡æ•°å€¼ */
+         PRINTF("thread count: %d\r\n", count++ );
+ 				//LCD_P6x8Str(100,0,"s0");
+ 				//LCD_P6x8Str(15,1,"s1");
+ 				//Dis_num(80,2,count++);
+ 				rt_thread_delay(2000);
 
-static void thread2_entry(void* parameter)
-{
-    /* Ïß³Ì2ÓµÓĞ½Ï¸ßµÄÓÅÏÈ¼¶£¬ÒÔÇÀÕ¼Ïß³Ì1¶ø»ñµÃÖ´ĞĞ */
+     }
+ }
 
-    /* Ïß³Ì2Æô¶¯ºóÏÈË¯Ãß10¸öOS Tick */
-    rt_thread_delay(200);
+ static void thread2_entry(void* parameter)
+ {
+     /* çº¿ç¨‹2æ‹¥æœ‰è¾ƒé«˜çš„ä¼˜å…ˆçº§ï¼Œä»¥æŠ¢å çº¿ç¨‹1è€Œè·å¾—æ‰§è¡Œ */
 
-    /*
-     * Ïß³Ì2»½ĞÑºóÖ±½ÓÉ¾³ıÏß³Ì1£¬É¾³ıÏß³Ì1ºó£¬Ïß³Ì1×Ô¶¯ÍÑÀë¾ÍĞ÷Ïß³Ì
-     * ¶ÓÁĞ
-     */
-    rt_thread_suspend(led1_thread);
-   
+     /* çº¿ç¨‹2å¯åŠ¨åå…ˆç¡çœ 10ä¸ªOS Tick */
+     rt_thread_delay(200);
+     /*
+      * çº¿ç¨‹2å”¤é†’åç›´æ¥åˆ é™¤çº¿ç¨‹1ï¼Œåˆ é™¤çº¿ç¨‹1åï¼Œçº¿ç¨‹1è‡ªåŠ¨è„±ç¦»å°±ç»ªçº¿ç¨‹
+      * é˜Ÿåˆ—
+      */
+     rt_thread_suspend(led1_thread);
+     /*
+      * çº¿ç¨‹2ç»§ç»­ä¼‘çœ 10ä¸ªOS Tickç„¶åé€€å‡ºï¼Œçº¿ç¨‹2ä¼‘çœ ååº”åˆ‡æ¢åˆ°idleçº¿ç¨‹
+      * idleçº¿ç¨‹å°†æ‰§è¡ŒçœŸæ­£çš„çº¿ç¨‹1æ§åˆ¶å—å’Œçº¿ç¨‹æ ˆçš„åˆ é™¤
+      */
+     rt_thread_delay(500);
 
-    /*
-     * Ïß³Ì2¼ÌĞøĞİÃß10¸öOS TickÈ»ºóÍË³ö£¬Ïß³Ì2ĞİÃßºóÓ¦ÇĞ»»µ½idleÏß³Ì
-     * idleÏß³Ì½«Ö´ĞĞÕæÕıµÄÏß³Ì1¿ØÖÆ¿éºÍÏß³ÌÕ»µÄÉ¾³ı
-     */
-    rt_thread_delay(500);
+     /*
+      * çº¿ç¨‹2è¿è¡Œç»“æŸåä¹Ÿå°†è‡ªåŠ¨è¢«åˆ é™¤(çº¿ç¨‹æ§åˆ¶å—å’Œçº¿ç¨‹æ ˆä¾ç„¶åœ¨idleçº¿
+      * ç¨‹ä¸­é‡Šæ”¾)
+      */
+ 		 rt_thread_resume(led1_thread);
+ 		 rt_thread_delay(500);
+ 		  while (1)
+ 			{
+ 				;
+ //				rt_thread_delay(200);
+ //				rt_thread_suspend(led1_thread);
+ //				rt_thread_delay(500);
+ 				rt_thread_resume(led1_thread);
+ 			}
+ } 
 
-    /*
-     * Ïß³Ì2ÔËĞĞ½áÊøºóÒ²½«×Ô¶¯±»É¾³ı(Ïß³Ì¿ØÖÆ¿éºÍÏß³ÌÕ»ÒÀÈ»ÔÚidleÏß
-     * ³ÌÖĞÊÍ·Å)
-     */
-		 rt_thread_resume(led1_thread);
-		 rt_thread_delay(500);
-		  while (1)
-			{
-				;
-//				rt_thread_delay(200);
-//				rt_thread_suspend(led1_thread);
-//				rt_thread_delay(500);
-//				rt_thread_resume(led1_thread);
-			}
-}
+
 
 static void camera_entry(void* parameter)
 {
+
 	CAM_DIS();
+}
+
+
+static void run_entry(void* parameter)
+{
+  while(1)
+	{
+    // DJ_PWM_Reload(Median);
+    rt_thread_delay(20);
+    run();
+    Speedupdate();
+	}
+}
+
+static void AD7606_entry(void* parameter)
+{
+  while(1)
+  { 
+//    AD7606_Scan();
+//    AD7606_Mak();
+    rt_thread_delay(500);
+  } 
 }
 
 static void cmd_entry(void* parameter)
@@ -253,7 +322,7 @@ static void key_entry(void* parameter)
     {
       testSend();
     }
-    rt_thread_delay(80);
+    rt_thread_delay(100);
   }
   
   

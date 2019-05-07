@@ -8,25 +8,25 @@ void KEY_Init(void)
 {
 		gpio_pin_config_t key_config;
 	
-	//IO¹¦ÄÜÉèÖÃ
-	IOMUXC_SetPinMux(IOMUXC_SNVS_WAKEUP_GPIO5_IO00,0);	        //SNVS_WAKEUPÅäÖÃÎªALT5,¼´GPIO5_00
-  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_05_GPIO1_IO05,0);	    //GPIO_AD_B0_05ÅäÖÃÎªALT5,¼´GPIO1_IO05
+	//IOåŠŸèƒ½è®¾ç½®
+	IOMUXC_SetPinMux(IOMUXC_SNVS_WAKEUP_GPIO5_IO00,0);	        //SNVS_WAKEUPé…ç½®ä¸ºALT5,å³GPIO5_00
+  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B0_05_GPIO1_IO05,0);	    //GPIO_AD_B0_05é…ç½®ä¸ºALT5,å³GPIO1_IO05
 	IOMUXC_SetPinConfig(IOMUXC_SNVS_WAKEUP_GPIO5_IO00,0xF080);      
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B0_05_GPIO1_IO05,0xF080);    
-	key_config.direction=kGPIO_DigitalInput;	//ÊäÈë
-	key_config.interruptMode=kGPIO_IntLowLevel;	//²»Ê¹ÓÃÖĞ¶Ï¹¦ÄÜ
-	key_config.outputLogic=1;					//Ä¬ÈÏ¸ßµçÆ½
-	GPIO_PinInit(GPIO5,0,&key_config); 			//³õÊ¼»¯GPIO5_00 
-	GPIO_PinInit(GPIO1,5,&key_config); 			//³õÊ¼»¯GPIO1_05
+	key_config.direction=kGPIO_DigitalInput;	//è¾“å…¥
+	key_config.interruptMode=kGPIO_IntLowLevel;	//ä¸ä½¿ç”¨ä¸­æ–­åŠŸèƒ½
+	key_config.outputLogic=1;					//é»˜è®¤é«˜ç”µå¹³
+	GPIO_PinInit(GPIO5,0,&key_config); 			//åˆå§‹åŒ–GPIO5_00 
+	GPIO_PinInit(GPIO1,5,&key_config); 			//åˆå§‹åŒ–GPIO1_05
 	
-	/* ¿ªIOMUXC_SNVS Ê±ÖÓ */
+	/* å¼€IOMUXC_SNVS æ—¶é’Ÿ */
   CLOCK_EnableClock(kCLOCK_IomuxcSnvs);    
 
-  /* ¿ªÆôGPIO¶Ë¿ÚÖĞ¶Ï */
+  /* å¼€å¯GPIOç«¯å£ä¸­æ–­ */
   EnableIRQ(GPIO5_Combined_0_15_IRQn);
   EnableIRQ(GPIO1_Combined_0_15_IRQn);
   
-  /* ¿ªÆôGPIO¶Ë¿ÚÄ³¸öÒı½ÅµÄÖĞ¶Ï */
+  /* å¼€å¯GPIOç«¯å£æŸä¸ªå¼•è„šçš„ä¸­æ–­ */
   GPIO_PortEnableInterrupts(GPIO5,1U << 0U);        
   GPIO_PortEnableInterrupts(GPIO1,1U << 5U);  
 
@@ -39,15 +39,15 @@ void delay_ms(uint32_t count)
 		for(j=0;j<100000;++j)
 			for (i = 0; i < count; i++)
 			{			
-					__asm("NOP"); /* µ÷ÓÃnop¿ÕÖ¸Áî */
+					__asm("NOP"); /* è°ƒç”¨nopç©ºæŒ‡ä»¤ */
 			}
 }
 
 void GPIO5_Combined_0_15_IRQHandler(void)
 {
-	/* Çå³ıÖĞ¶Ï±êÖ¾Î» */
+	/* æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½ */
 	GPIO_PortClearInterruptFlags(GPIO5,1U << 0U);
-	/* ÉèÖÃ°´¼üÖĞ¶Ï±êÖ¾ */
+	/* è®¾ç½®æŒ‰é”®ä¸­æ–­æ ‡å¿— */
 		keypres = WKUP_PRES;;
 #if defined __CORTEX_M && (__CORTEX_M == 4U)
 	__DSB();
@@ -56,9 +56,9 @@ void GPIO5_Combined_0_15_IRQHandler(void)
 
 void GPIO1_Combined_0_15_IRQHandler(void)
 {
-	/* Çå³ıÖĞ¶Ï±êÖ¾Î» */
+	/* æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½ */
 	GPIO_PortClearInterruptFlags(GPIO1,1U << 5U);
-	/* ÉèÖÃ°´¼üÖĞ¶Ï±êÖ¾ */
+	/* è®¾ç½®æŒ‰é”®ä¸­æ–­æ ‡å¿— */
 	keypres = KEY0_PRES;
 #if defined __CORTEX_M && (__CORTEX_M == 4U)
 	__DSB();

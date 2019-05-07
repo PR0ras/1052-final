@@ -1,6 +1,18 @@
 #include "bsp_lpuart.h"
 #include "fsl_lpuart.h"
-#include "bsp_EnCoder.h"
+#include "bsp_Timer.h"
+#include "bsp_FlexPwm.h"
+#include "board.h"
+  extern int16_t err;
+  extern int16_t l_err;
+  extern int16_t ll_err;
+  extern int16_t actual_speed; 
+  extern int16_t now_PWM;
+
+  extern int16_t aims_speed;
+  extern float Kp;
+  extern float Ki;
+  extern float Kd;
 #include "fsl_debug_console.h"
 #include "board.h"
 
@@ -124,14 +136,19 @@ void Speedupdate(void)
 {
 	static union
         {
-            uint8_t Serialdata[2];
-            int16_t realdata[1];
+            uint8_t Serialdata[12];
+            int16_t realdata[6];
         }Speednumdata;
 	static uint8_t startcontrol[2]={0x0d,0x0a};
 	static uint8_t endcontrol[2]={0x0a,0x0d};
-	//Speednumdata.realdata[0]=DisCNT();
+	Speednumdata.realdata[0]=DisCNT();
+    Speednumdata.realdata[1]=err;
+	Speednumdata.realdata[2]=l_err;
+	Speednumdata.realdata[3]=ll_err;
+	Speednumdata.realdata[4]=actual_speed;
+	Speednumdata.realdata[5]=now_PWM;
 	LPUART_WriteBlocking(LPUART1, startcontrol, 2);
-	LPUART_WriteBlocking(LPUART1, Speednumdata.Serialdata, 2);
+	LPUART_WriteBlocking(LPUART1, Speednumdata.Serialdata, 12);
 	LPUART_WriteBlocking(LPUART1, endcontrol, 2);
 		
 }
@@ -192,11 +209,11 @@ void LPUART1_IRQHandler(void)
 				break;
 			case 2:
 				/* code */
-				rxindex += 2;
+				rxindex++;
 				break;
 			case 3:
 				/* code */
-				rxindex += 2;
+				rxindex++;
 				break;
 			default:
 				rxindex = 0;
@@ -214,6 +231,20 @@ void LPUART1_IRQHandler(void)
 				/* code */
 				posture.data[datainx++] = data;
 				if (datainx >= 3)
+				{
+					rxindex++;
+				}
+				break;
+			case 2:
+				posture.data[datainx++] = data;
+				if (datainx >= 12)
+				{
+					rxindex++;
+				}
+				break;
+			case 3:
+				posture.data[datainx++] = data;
+				if (datainx >= 2)
 				{
 					rxindex++;
 				}
@@ -241,16 +272,20 @@ void LPUART1_IRQHandler(void)
 					/* code */
 					break;
 				case 1:
-					/* code */
 					camaddress = posture.data[2];
-					//camdata=posture.data[0];
 					camdata = (posture.data[0] << 8) | posture.data[1];
-					//PRINTF("camaddress: %x\r\n", camaddress);
-					//PRINTF("camdata: %x\r\n", camdata);
+					break;
+				case 2:
+					Kp = posture.ActVal[0];
+					Ki = posture.ActVal[1];
+					Kd = posture.ActVal[2];
+					break;
+				case 3:
+					aims_speed = posture.data16[0];
+					DJ_PWM_Reload(aims_speed); //舵机测试
 					break;
 				}
 				rxflag = 1;
-				// digitalLo(GPIO1,9);
 			}
 			cmd_num = 0;
 			rxindex = 0;
@@ -267,6 +302,4 @@ void testSend(void)
 	LPUART_SendEDMA(LPUART1, &g_lpuartEdmaHandle, &sendXfer);
 	txOnGoing=true;
 	}
-	
-	
 }

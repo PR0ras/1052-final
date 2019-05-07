@@ -675,7 +675,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 		
 		if (oLX == L_X && oLY == L_Y)
 		{
-			if(tlabel>2)
+			if(tlabel++>2)
 				break;
 		}
 			
