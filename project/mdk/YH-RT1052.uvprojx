@@ -757,11 +757,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -780,6 +775,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1536,11 +1536,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -1559,6 +1554,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2315,11 +2315,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -2338,6 +2333,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3095,11 +3095,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -3118,6 +3113,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3875,11 +3875,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -3898,6 +3893,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4655,11 +4655,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -4678,6 +4673,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5435,11 +5435,6 @@
               <FilePath>..\..\user\bsp\camera\fsl_video_i2c.c</FilePath>
             </File>
             <File>
-              <FileName>LQ_MT9V034M.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\lcd\bsp_lcd.c</FilePath>
@@ -5458,6 +5453,11 @@
               <FileName>bsp_lpuart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_lpuart.c</FilePath>
+            </File>
+            <File>
+              <FileName>LQ_MT9V034M.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\camera\LQ_MT9V034M.c</FilePath>
             </File>
           </Files>
         </Group>

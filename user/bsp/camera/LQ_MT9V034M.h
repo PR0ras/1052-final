@@ -63,6 +63,8 @@ extern void MT9V034_SetAutoExposure(bool enable);
 void LPI2C1_Init(uint32_t baudrate);
 void MT9V034_daily(void);
 void MT9V034_night(void);
+void MT9V034_Default_Settings(void);
+void MT9V034_night_lv(void);
 
 #define BINNING_ROW_A	        4
 #define BINNING_COLUMN_A	4

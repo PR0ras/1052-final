@@ -32,7 +32,6 @@ char dispBuff[100];
 extern pxp_ps_buffer_config_t psBufferConfig;
 extern pxp_output_buffer_config_t outputBufferConfig;
 extern volatile bool s_frameDone;
-extern uint8_t mid_NUM;
 //extern void MT9V034_SetFrameResolution(uint16_t height, uint16_t width, uint8_t fps);
 extern uint32_t cnt;
 extern bool txOnGoing;
@@ -111,12 +110,15 @@ void CSI_IRQHandler(void)
 void CAMCSI_Init(void)
 {
 	Campin_Init();
-	//MT9V034_Init();
+	//MT9V034_Default_Settings();
 	BOARD_InitCameraResource();
 	memset(csiFrameBuf, 0, sizeof(csiFrameBuf));
 	CAMERA_RECEIVER_Init(&cameraReceiver, &cameraConfig, NULL, NULL);
 	//CAMERA_DEVICE_Init(&cameraDevice, &cameraConfig);
-	MT9V034_SetFrameResolution(480, 752, 60);
+	//MT9V034_SetFrameResolution(480, 752, 60);
+	// MT9V034_night();
+	MT9V034_night_lv();
+	// MT9V034_daily();
 	RT1052_NVIC_SetPriority(CSI_IRQn,3,0);
 	for (uint32_t i = 0; i < 4; i++)
 	{
@@ -161,7 +163,7 @@ void CAM_DIS(void)
 //	PRINTF("wallner_new Time:%d \r\n",cnt);
 	cnt=0;
 //	edge_dect(csiFrameBuf[0]);
-	edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data);
+	edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data,Lab_Data);
 	// bwlabel(Pix_Data,8,Lab_Data);
 //	//testSend();
 	PRINTF("bwlabel Time :%d \r\n",cnt);
@@ -189,12 +191,12 @@ void CAM_DIS(void)
 			sendXfer.data = (uint8_t *)inactiveFrameAddr;
 		// edge_dect((uint8_t *)inactiveFrameAddr);
 		// wallner((uint8_t *)inactiveFrameAddr, Pix_Data);
-		edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data);
+		edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data,Lab_Data);
 		
 		for (int i = 0; i < 120; i++)
 		{
 			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+40,Pix_Data + i * 188, 188);
-			//memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
+			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
 			memcpy(s_frameBuffer[curLcdBufferIdx][i + 20] + 550, (uint8_t *)inactiveFrameAddr + i * 188, 188);
 		}
 		//memcpy(s_frameBuffer[!curLcdBufferIdx],s_frameBuffer[curLcdBufferIdx],38400);
@@ -207,7 +209,7 @@ void CAM_DIS(void)
 		while (!s_frameDone)
 		{
 		}	
-		sprintf(dispBuff, "FPS = %d MID_NUM = %d", FPS,mid_NUM);
+		sprintf(dispBuff, "FPS = %d MID_NUM = %d tmp_img= %d", FPS,mid_NUM,temp_img);
 		LCD_ClearLine(LINE(6));
 //		/*然后显示该字符串即可，其它变量也是这样处理*/
 		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);	

@@ -19,6 +19,7 @@ uint8_t correct_par[120]={16,17,18,19,20,21,22,23,25,26,27,28,29,30,31,32,33,34,
 71,72,72,73,74,74,75,76,77,77,78,79,79,80,81,81,82,83,84,84,85,86,87,88,88,89,89,90,90,91,91,91,92,92,
 92,92,93,93,93,93,94,94,94,94,95,95,95,95,96,96,96,96,97,97,97,97,98,98,98,98};
 uint8_t mid_NUM=0;
+uint8_t temp_img=0;
 int find(uint8_t set[], uint8_t x)
 {
 	int r = x;
@@ -303,12 +304,16 @@ void edge_dect(uint8_t *byteimage)//quint8 *byteimage//QImage *image1
     }
 }
 
-void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image1
+uint8_t Min(uint8_t A,uint8_t B);
+uint8_t MAx(uint8_t A,uint8_t B);
+void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage//QImage *image1
 {
 	uint16_t NUM = 0;
 	uint8_t A, B, C, D, E, max,L_minY=0,L_minX=0,R_minY=0,R_minX=0;
 	memset(bin, 0, 188*120);
 	memset(graydata, 0, 188*120);
+	memset(labels, 0, 188*120);
+	memset(bin1, 0, 188*120);
 
 	uint8_t LFX[800]={0},LFY[800]={0},RTX[800]={0},RTY[800]={0},tlabel=0;
 	// memset(labels, 0, 188*120);
@@ -496,17 +501,17 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
 		}
 	}
 	
-	// for (uint8_t r=0;r<120;r++)
-    // {
-    //     for (uint8_t c=0;c<188;c++)
-    //     {
-    //         if(graydata[col*r+c])
-	// 		{
-	// 			// bin[col*r+c]=255;
-	// 			byteimage[col*r+c]=255;
-	// 		}
-    //     }
-    // }
+	for (uint8_t r=0;r<120;r++)
+    {
+        for (uint8_t c=0;c<188;c++)
+        {
+            if(graydata[col*r+c])
+			{
+				bin1[col*r+c]=255;
+				// byteimage[col*r+c]=255;
+			}
+        }
+    }
 
 	uint8_t O_Lxtmp=0,O_Lytmp=0,O_Rxtmp=0,O_Rytmp=0,L_first=0,R_first=0;
 	uint16_t L_cnt=0,R_cnt=0;
@@ -519,7 +524,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
 			NUM = col * r + c;
 			if (graydata[NUM])
 			{
-				if((Max(O_Lxtmp,c)+Max(O_Lytmp,r))>4)
+				if((Max(O_Lxtmp,c)+Max(O_Lytmp,r))>7)
                 {
 					L_first = 0;
 					L_cnt = 0;
@@ -537,7 +542,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
                 break;
 			}
 		}
-		if (L_cnt > 10)
+		if (L_cnt > 20)
 			break;
 	}
 	//右边界标号
@@ -548,7 +553,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
             NUM=col*r+c;
             if(graydata[NUM])
             {
-               if((Max(O_Rxtmp,c)+Max(O_Rytmp,r))>4)
+               if((Max(O_Rxtmp,c)+Max(O_Rytmp,r))>7)
                 {
                     R_first=0;
                     R_cnt=0;
@@ -566,7 +571,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
                 break;
             }
         }
-        if(R_cnt>10)
+        if(R_cnt>20)
             break;
     }
 
@@ -667,8 +672,13 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
 			dir = 0;
 			break;
 		}
+		
 		if (oLX == L_X && oLY == L_Y)
-			break;
+		{
+			if(tlabel>2)
+				break;
+		}
+			
 		oLX = L_X;
 		oLY = L_Y;
 		if (L_Y < 3 || CNT_L > 700)
@@ -778,98 +788,179 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
 	}
 
 
-	// for(uint16_t r=0;r<CNT_L;r++)
+	for(uint16_t r=0;r<CNT_L;r++)
+	{
+		bin[LFX[r]+LFY[r]*188]=255;
+	}
+	for(uint16_t r=0;r<CNT_R;r++)
+	{
+		bin[RTX[r]+RTY[r]*188]=255;
+	}
+	
+	for(uint16_t r=0;r<CNT_L;r++)
+	{
+		labels[LFX[r]+LFY[r]*188]=1;
+	}
+	for(uint16_t r=0;r<CNT_R;r++)
+	{
+		labels[RTX[r]+RTY[r]*188]=2;
+	}
+
+	// for(uint8_t r=0;r<120;r++)
 	// {
-	// 	bin[LFX[r]+LFY[r]*188]=255;
+	// 	for(uint8_t c=0;c<188;c++)
+	// 	{
+	// 		if(labels[r*col+c])
+	// 		bin[r*col+c]=255;
+	// 	}
 	// }
-	// for(uint16_t r=0;r<CNT_R;r++)
-	// {
-	// 	bin[RTX[r]+RTY[r]*188]=255;
-	// }
+
+
+	
 
 	NUM=0;
     uint8_t TESTLFX[240]={0},TESTLFY[240]={0},TESTRTX[240]={0},TESTRTY[240]={0};
     uint8_t cntL=0;
     uint8_t cntR=0;
-	//细化边缘像北科一样
-    for(uint16_t r=1;r<CNT_L-1;r++)
-    {
-        if(LFY[r]>LFY[r-1])
-        {
-            TESTLFX[cntL]=LFX[r];
-            TESTLFY[cntL++]=LFY[r];
-        }
-        if(LFY[r+1]<LFY[r])
-        {
-            TESTLFX[cntL]=LFX[r];
-            TESTLFY[cntL++]=LFY[r];
-        }
-    }
-
-    for(uint16_t r=1;r<CNT_R-1;r++)
-    {
-        if(RTY[r]>RTY[r-1])
-        {
-            TESTRTX[cntR]=RTX[r];
-            TESTRTY[cntR++]=RTY[r];
-        }
-        if(RTY[r+1]<RTY[r])
-        {
-            TESTRTX[cntR]=RTX[r];
-            TESTRTY[cntR++]=RTY[r];
-        }
-    }
-
-
-	for(uint16_t r=0;r<cntL;r++)
-	{
-		bin[TESTLFX[r]+TESTLFY[r]*188]=255;
-	}
-	for(uint16_t r=0;r<cntR;r++)
-	{
-		bin[TESTRTX[r]+TESTRTY[r]*188]=255;
-	}
-
-
-
-    // for(uint16_t r=0;r<cntL;r++)
-    // {
-    //     test1[TESTLFX[r]+TESTLFY[r]*188]=1;
-    // }
-
-    // for(uint16_t r=0;r<cntR;r++)
-    // {
-    //     test1[TESTRTX[r]+TESTRTY[r]*188]=2;
-    // }
-
+	L_first =0;
+	R_first=0;
 	uint8_t L_maxY=120,R_maxY=120;
+
+	for(uint8_t r=119;r>0;r--)
+	{
+		for(uint8_t c=0;c<188;c++)
+		{
+			if(labels[r*col+c]==1)
+			{
+				TESTLFX[r]=c;
+				L_maxY=r;
+				if(!L_first)
+				{
+					L_minY=r;
+					L_first=1;
+				}
+				break;
+			}
+		}
+	}
+	for(uint8_t r=119;r>0;r--)
+	{
+		for(uint8_t c=187;c>0;c--)
+		{
+			if(labels[r*col+c]==2)
+			{
+				TESTRTX[r]=c;
+				R_maxY=r;
+				if(!R_first)
+				{
+					R_minY=r;
+					R_first=1;
+				}
+				break;
+			}
+		}
+	}
+
+	// for(uint16_t r=L_minY;r>L_maxY;r--)
+	// {
+	// 	bin[TESTLFX[r]+r*188]=255;
+	// }
+	// for(uint16_t r=R_minY;r>R_maxY;r--)
+	// {
+	// 	bin[TESTRTX[r]+r*188]=255;
+	// }
+
+	// //细化边缘像北科一样
+    // for(uint16_t r=1;r<CNT_L-1;r++)
+    // {
+    //     if(LFY[r]>LFY[r-1])
+    //     {
+    //         TESTLFX[cntL]=LFX[r];
+    //         TESTLFY[cntL++]=LFY[r];
+    //     }
+    //     if(LFY[r+1]<LFY[r])
+    //     {
+    //         TESTLFX[cntL]=LFX[r];
+    //         TESTLFY[cntL++]=LFY[r];
+    //     }
+    // }
+
+    // for(uint16_t r=1;r<CNT_R-1;r++)
+    // {
+    //     if(RTY[r]>RTY[r-1])
+    //     {
+    //         TESTRTX[cntR]=RTX[r];
+    //         TESTRTY[cntR++]=RTY[r];
+    //     }
+    //     if(RTY[r+1]<RTY[r])
+    //     {
+    //         TESTRTX[cntR]=RTX[r];
+    //         TESTRTY[cntR++]=RTY[r];
+    //     }
+    // }
+
+
+	// for(uint16_t r=0;r<cntL;r++)
+	// {
+	// 	bin[TESTLFX[r]+TESTLFY[r]*188]=255;
+	// }
+	// for(uint16_t r=0;r<cntR;r++)
+	// {
+	// 	bin[TESTRTX[r]+TESTRTY[r]*188]=255;
+	// }
+
+	
     uint8_t mid_l[120]={0},mid_r[120]={0},mid_m[120]={0},cnt=0;
 
-	for(uint8_t r=0;r<cntL;r++)
+	for(uint16_t r=119;r>0;r--)
 	{
-		mid_l[TESTLFY[r]]=TESTLFX[r];
+		mid_m[r]=(TESTRTX[r]+TESTLFX[r])/2;
 	}
-	for(uint8_t r=0;r<cntR;r++)
-	{
-		mid_r[TESTRTY[r]]=TESTRTX[r];		
-	}
+
+	for(uint16_t r=Min(L_minY,R_minY);r>MAX(L_maxY,R_maxY);r--)
+    {
+        bin[mid_m[r]+r*188]=255;
+    }
+
 
 	// for(uint8_t r=0;r<120;r++)
 	// {
 	// 	mid_m[r]=(mid_l[r]+mid_r[r])/2;		
 	// }
 
-	//找出最高的Y
-    for(uint16_t r=0;r<cntL;r++)
-    {
-       if(TESTLFY[r]<L_maxY)
-           L_maxY=TESTLFY[r];
-    }
-    for(uint16_t r=0;r<cntR;r++)
-    {
-        if(TESTRTY[r]<R_maxY)
-            R_maxY=TESTRTY[r];
-    }
+	// //找出最高的Y R_minY
+    // for(uint16_t r=0;r<cntL;r++)
+    // {
+    //    if(TESTLFY[r]<L_maxY)
+    //        L_maxY=TESTLFY[r];
+    // }
+    // for(uint16_t r=0;r<cntR;r++)
+    // {
+    //     if(TESTRTY[r]<R_maxY)
+    //         R_maxY=TESTRTY[r];
+    // }
+	// L_minY=0;
+	// R_minY=0;
+	// //找出最低的Y
+	// for(uint16_t r=0;r<cntL;r++)
+    // {
+    //    if(TESTLFY[r]>L_minY)
+    //        L_minY=TESTLFY[r];
+    // }
+    // for(uint16_t r=0;r<cntR;r++)
+    // {
+    //     if(TESTRTY[r]>R_minY)
+    //         R_minY=TESTRTY[r];
+    // }
+
+	// for(uint8_t r=0;r<cntL;r++)
+	// {
+	// 	mid_l[TESTLFY[r]]=TESTLFX[r];
+	// }
+	// for(uint8_t r=0;r<cntR;r++)
+	// {
+	// 	mid_r[TESTRTY[r]]=TESTRTX[r];		
+	// }
 
 	// for(uint16_t r=0;r<cntL;r++)
 	// {
@@ -879,43 +970,75 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin) //quint8 *byteimage//QImage *image
 	// {
 	// 	bin[mid_r[TESTRTY[r]]+TESTRTY[r]*188]=255;
 	// }
-	for (uint16_t r = 0; r < 120; r++)
-	{
-		if(mid_l[r])
-		{
-			if(mid_r[r])
-			{
-				mid_m[r]=(mid_l[r]+mid_r[r])/2;	
-			}
-			else
-			{
-				mid_m[r]=mid_l[r]+correct_par[r];
-			}
+	// temp_img=MAX(L_maxY,R_maxY);
+	// for (uint16_t r = 119; r > MAX(L_maxY,R_maxY); r--)
+	// {
+	// 	if(mid_l[r])
+	// 	{
+	// 		if(mid_r[r])
+	// 		{
+	// 			mid_m[r]=(mid_l[r]+mid_r[r])/2;	
+	// 		}
+	// 		else
+	// 		{
+	// 			mid_m[r]=mid_l[r]+correct_par[r];
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		if(mid_r[r])
+	// 		{
+	// 			mid_m[r]=mid_r[r]-correct_par[r];
+	// 		}
+	// 		else
+	// 		{
+	// 			mid_m[r]=0;
+	// 		}
 			
-		}
-		else
-		{
-			if(mid_r[r])
-			{
-				mid_m[r]=mid_r[r]-correct_par[r];
-			}
-			else
-			{
-				mid_m[r]=0;
-			}
+	// 	}
+	// }
+
+	//第一段找线
+	// for (uint16_t r = 119; r > MAX(L_minY,R_minY); r++)
+	// {
+	// 	if(mid_l[r])
+	// 	{
+	// 		if(mid_r[r])
+	// 		{
+	// 			mid_m[r]=(mid_l[r]+mid_r[r])/2;	
+	// 		}
+	// 		else
+	// 		{
+	// 			mid_m[r]=mid_l[r]+correct_par[r];
+	// 		}
 			
-		}
-	}
+	// 	}
+	// 	else
+	// 	{
+	// 		if(mid_r[r])
+	// 		{
+	// 			mid_m[r]=mid_r[r]-correct_par[r];
+	// 		}
+	// 		else
+	// 		{
+	// 			mid_m[r]=0;
+	// 		}
+			
+	// 	}
+	// }
+
 	// for (uint16_t r = 0; r < 120; r++)
 	// {
 	// 	if(mid_r[r])
 	// }
+
 	uint16_t temp_sum=0,cnttt=0;
-	for(uint16_t r=0;r<120;r++)
-    {
-        bin[mid_m[r]+r*188]=255;
-    }
-	for(uint16_t r=50;r<70;r++)
+	// for(uint16_t r=0;r<120;r++)
+    // {
+    //     bin[mid_m[r]+r*188]=255;
+    // }
+	
+	for(uint16_t r=65;r<85;r++)
 	{
 		if(mid_m[r])
 		{
@@ -964,4 +1087,22 @@ uint8_t Max(uint8_t A,uint8_t B)
         return A-B;
     }
     return B-A;
+}
+
+uint8_t Min(uint8_t A,uint8_t B)
+{
+    if(A>B)
+    {
+        return B;
+    }
+    return A;
+}
+
+uint8_t MAx(uint8_t A,uint8_t B)
+{
+	    if(A<B)
+    {
+        return B;
+    }
+    return A;
 }
