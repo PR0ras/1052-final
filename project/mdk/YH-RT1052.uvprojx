@@ -399,6 +399,56 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>startup</GroupName>
           <Files>
             <File>
@@ -1193,6 +1243,56 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>startup</GroupName>
           <Files>
             <File>
@@ -1983,6 +2083,56 @@
               <FileName>system_MIMXRT1052.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\libraries\system_MIMXRT1052.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2782,6 +2932,56 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>startup</GroupName>
           <Files>
             <File>
@@ -3577,6 +3777,56 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>startup</GroupName>
           <Files>
             <File>
@@ -4284,8 +4534,8 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
-            <oTime>0</oTime>
+            <Optim>3</Optim>
+            <oTime>1</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
             <Strict>0</Strict>
@@ -4312,7 +4562,7 @@
 --diag_suppress=66,1296,186 
  
 </MiscControls>
-              <Define>CPU_MIMXRT1052DVL6B,XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE =1,XIP_BOOT_HEADER_DCD_ENABLE =1,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,USE_RAM_VECTOR_TABLE,ARM_MATH_CM7,__FPU_PRESENT=1,  __CC_ARM,__TARGET_FPU_VFP</Define>
+              <Define>CPU_MIMXRT1052DVL6B,XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE =1,XIP_BOOT_HEADER_DCD_ENABLE =1,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,USE_RAM_VECTOR_TABLE,__FPU_PRESENT=1,ARM_MATH_CM7,__TARGET_FPU_VFP,USE_LCD=1</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\libraries\CMSIS\Include;..\..\libraries\drivers;..\..\libraries\utilities;..\..\libraries\utilities\str;..\..\libraries\utilities\log;..\..\libraries\utilities\io;..\..\libraries\xip;..\..\user;..\..\user\bsp;..\..\rtthread\3.0.3\components\finsh;..\..\rtthread\3.0.3\include;..\..\rtthread\3.0.3\include\libc;..\..\user\bsp\camera</IncludePath>
             </VariousControls>
@@ -4368,6 +4618,56 @@
               <FileName>system_MIMXRT1052.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\libraries\system_MIMXRT1052.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5163,6 +5463,56 @@
               <FileName>system_MIMXRT1052.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\libraries\system_MIMXRT1052.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DSP</GroupName>
+          <Files>
+            <File>
+              <FileName>arm_abs_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_abs_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_add_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_add_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_dot_prod_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_dot_prod_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_mult_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_mult_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_negate_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_negate_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_offset_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_offset_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_scale_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_scale_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_shift_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_shift_q31.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_sub_q31.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\libraries\CMSIS\DSP_Lib\BasicMathFunctions\arm_sub_q31.c</FilePath>
             </File>
           </Files>
         </Group>

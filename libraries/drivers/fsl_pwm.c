@@ -294,7 +294,7 @@ status_t PWM_SetupPwm(PWM_Type *base,
     for (i = 0; i < numOfChnls; i++)
     {
         /* Calculate pulse width */
-        pwmHighPulse = (pulseCnt * chnlParams->dutyCyclePercent) / 100;
+        pwmHighPulse = (pulseCnt * chnlParams->dutyCyclePercent) / 10000;
 
         /* Setup the different match registers to generate the PWM signal */
         switch (mode)

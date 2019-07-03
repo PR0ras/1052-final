@@ -37,7 +37,9 @@
 #include <rthw.h>
 #include <rtthread.h>
 #include "./led/bsp_led.h"
+#if defined  (USE_LCD) && (USE_LCD == 1U)
 #include "./lcd/bsp_lcd.h" 
+#endif
 #include "carmer.h"
 #include "bsp_FlexPwm.h"
 #include "bsp_Timer.h"
@@ -287,11 +289,15 @@ void rt_hw_board_init(void)
 		/* 初始化调试串口 */
 	BOARD_InitDebugConsole();
     //PRINTF("*****欢迎使用 野火i.MX RT1052 开发板*****\r\n");
+    // PRINTF
 		
-		/* 初始化LED引脚 */
+		
+        #if defined  (USE_LCD) && (USE_LCD == 1U)
 		LCD_Init(LCD_INTERRUPT_ENABLE);
         //LCD_PXP_Config();
-//		LED_GPIO_Config();
+        #endif
+        /* 初始化LED引脚 */
+		LED_GPIO_Config();
         // BEE_GPIO_Config();
 		//CAMCSI_Init();
         // PWMInit();

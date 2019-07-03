@@ -108,9 +108,9 @@ int main(void)
   camera_thread = rt_thread_create("camera",               /* 线程名字，字符串形式 */
                                  camera_entry,         /* 线程入口函数 */
                                  (void *)2,            /* 线程入口函数参数 */
-                                 4096 * 2,             /* 线程栈大小，单位为字节 */
+                                 4096 * 3,             /* 线程栈大小，单位为字节 */
                                  LED1_THREAD_PRIORITY, /* 线程优先级，数值越大，优先级越小 */
-                                 40);                  /* 线程时间片 */
+                                 10);                  /* 线程时间片 */
 
   led1_thread = rt_thread_create("led1",                 /* 线程名字，字符串形式 */
                                  led1_thread_entry,      /* 线程入口函数 */

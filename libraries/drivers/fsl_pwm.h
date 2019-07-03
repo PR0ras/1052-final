@@ -265,7 +265,7 @@ typedef enum _pwm_module_control
 typedef struct _pwm_signal_param
 {
     pwm_channels_t pwmChannel; /*!< PWM channel being configured; PWM A or PWM B */
-    uint8_t dutyCyclePercent;  /*!< PWM pulse width, value should be between 0 to 100
+    uint16_t dutyCyclePercent;  /*!< PWM pulse width, value should be between 0 to 100
                                     0=inactive signal(0% duty cycle)...
                                     100=always active signal (100% duty cycle)*/
     pwm_level_select_t level;  /*!< PWM output active level select */

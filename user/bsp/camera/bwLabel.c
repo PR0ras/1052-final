@@ -9,17 +9,18 @@
 #define col 188
 #define row 120
 #define thole 30
-const	uint8_t nr = 120;
-const	uint8_t nc = 188;
+const uint8_t nr = 120;
+const uint8_t nc = 188;
 uint16_t prev_gn[188] = {0};
-uint8_t graydata[188*120]={0},bP[800]={0},wP[800]={0},labels[188*120]={0};
+uint8_t graydata[188 * 120] = {0}, bP[800] = {0}, wP[800] = {0};
 uint8_t lset[800] = {0};
-uint8_t correct_par[120]={16,17,18,19,20,21,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,
-42,43,44,45,45,46,47,48,49,50,51,51,52,53,54,55,56,57,58,58,59,60,61,62,63,64,64,65,66,67,68,68,69,70,
-71,72,72,73,74,74,75,76,77,77,78,79,79,80,81,81,82,83,84,84,85,86,87,88,88,89,89,90,90,91,91,91,92,92,
-92,92,93,93,93,93,94,94,94,94,95,95,95,95,96,96,96,96,97,97,97,97,98,98,98,98};
-uint8_t mid_NUM=0;
-uint8_t temp_img=0;
+uint8_t correct_par[120] = {16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+							42, 43, 44, 45, 45, 46, 47, 48, 49, 50, 51, 51, 52, 53, 54, 55, 56, 57, 58, 58, 59, 60, 61, 62, 63, 64, 64, 65, 66, 67, 68, 68, 69, 70,
+							71, 72, 72, 73, 74, 74, 75, 76, 77, 77, 78, 79, 79, 80, 81, 81, 82, 83, 84, 84, 85, 86, 87, 88, 88, 89, 89, 90, 90, 91, 91, 91, 92, 92,
+							92, 92, 93, 93, 93, 93, 94, 94, 94, 94, 95, 95, 95, 95, 96, 96, 96, 96, 97, 97, 97, 97, 98, 98, 98, 98};
+uint8_t mid_NUM = 0;
+uint8_t temp_img = 0, temp_img1 = 0, temp_img2 = 0, temp_img3 = 0;
+uint16_t labels[22560] = {0};
 int find(uint8_t set[], uint8_t x)
 {
 	int r = x;
@@ -56,8 +57,8 @@ uint8_t bwlabel(uint8_t *img, uint8_t n, uint8_t *labels)
 {
 	if (n != 4 && n != 8)
 		n = 4;
-//	uint16_t nr = IMAGEH*2;
-//	uint16_t nc = IMAGEW/2;
+	//	uint16_t nr = IMAGEH*2;
+	//	uint16_t nc = IMAGEW/2;
 	//uint16_t total = nr * nc;
 	// results
 	memset(labels, 0, total * sizeof(int));
@@ -213,13 +214,13 @@ void wallner(uint8_t *src, uint8_t *dst)
 	/*
 	* pn = 当前点的灰度值
 	* s = 图片宽度/n （n = 8时效果最好）
-	* t = 比例阈值
+	* t = 比例阈值+
 	* 公式：g(n) = g(n-1) * (1-1/s) + p(n)
 	*/
 
 	static uint16_t t = 15;
-//	uint16_t nr = 120;
-//	uint16_t nc = 188;
+	//	uint16_t nr = 120;
+	//	uint16_t nc = 188;
 	uint16_t s = nc >> 3;
 	const uint8_t S = 9;
 	const uint16_t power2S = 1 << S; //加速因子
@@ -228,9 +229,9 @@ void wallner(uint8_t *src, uint8_t *dst)
 	这次算法优化为与当前点越相邻对其影响越大的思路*/
 	uint32_t gn = 127 * s;
 	uint32_t q = power2S - power2S / s;
-	uint8_t pn=0;
-	uint32_t hn=0;
-//	uint8_t prev_gn[188] = {0}; //前一行各点像素值
+	uint8_t pn = 0;
+	uint32_t hn = 0;
+	//	uint8_t prev_gn[188] = {0}; //前一行各点像素值
 	//Mat dst = Mat::zeros(src.size(), CV_8UC1);
 	for (uint32_t i = 0; i < nc; i++)
 		prev_gn[i] = gn;
@@ -242,7 +243,7 @@ void wallner(uint8_t *src, uint8_t *dst)
 			gn = ((gn * q) >> S) + pn;
 			hn = (gn + prev_gn[j]) >> 1;
 			prev_gn[j] = gn;
-			if (pn<((hn * factor)>> S))
+			if (pn < ((hn * factor) >> S))
 				dst[i * nc + j] = 0;
 			else
 				dst[i * nc + j] = 0xff;
@@ -257,7 +258,7 @@ void wallner(uint8_t *src, uint8_t *dst)
 			gn = ((gn * q) >> S) + pn;
 			hn = (gn + prev_gn[j]) >> 1;
 			prev_gn[j] = gn;
-			if (pn<((hn * factor)>> S))
+			if (pn < ((hn * factor) >> S))
 				dst[i * nc + j] = 0;
 			else
 				dst[i * nc + j] = 0xff;
@@ -267,124 +268,127 @@ void wallner(uint8_t *src, uint8_t *dst)
 
 void SecondBW(uint8_t *input, uint8_t *bin)
 {
-	uint8_t  i=0,j=0;
+	uint8_t i = 0, j = 0;
 }
-uint8_t Max(uint8_t A,uint8_t B);
-void edge_dect(uint8_t *byteimage)//quint8 *byteimage//QImage *image1
+uint8_t Max(uint8_t A, uint8_t B);
+void edge_dect(uint8_t *byteimage) //quint8 *byteimage//QImage *image1
 {
-    //int r=0,c=0;
-    //int  bytePerLine = ( 188 * 8 + 31)/32 * 4;
-    //bitimage=new QImage(graydata,188,120,bytePerLine,QImage::Format_Grayscale8);
-    //return image;
-    uint16_t NUM=0;
-    uint8_t A,B,C,D,E,max;
-    for (uint8_t r=118;r>=1;r-=1)
-    {
-        for (uint8_t c=186;c>=1;c-=1)
-        {
-            NUM=col*r+c;
-            A=byteimage[NUM];
-            B=byteimage[NUM-col-1];
-            C=byteimage[NUM-col];
-            D=byteimage[NUM-col+1];
-            E=byteimage[NUM-1];
+	//int r=0,c=0;
+	//int  bytePerLine = ( 188 * 8 + 31)/32 * 4;
+	//bitimage=new QImage(graydata,188,120,bytePerLine,QImage::Format_Grayscale8);
+	//return image;
+	uint16_t NUM = 0;
+	uint8_t A, B, C, D, E, max;
+	for (uint8_t r = 118; r >= 1; r -= 1)
+	{
+		for (uint8_t c = 186; c >= 1; c -= 1)
+		{
+			NUM = col * r + c;
+			A = byteimage[NUM];
+			B = byteimage[NUM - col - 1];
+			C = byteimage[NUM - col];
+			D = byteimage[NUM - col + 1];
+			E = byteimage[NUM - 1];
 
-			max=Max(A,B);
-            if(max<Max(A,C))
-                max=Max(A,C);
-            if(max<Max(A,D))
-                max=Max(A,D);
-            if(max<Max(A,E))
-                max=Max(A,E);
-           if(max>thole)
-            {
-               graydata[NUM]=255;
-            }
-        }
-    }
+			max = Max(A, B);
+			if (max < Max(A, C))
+				max = Max(A, C);
+			if (max < Max(A, D))
+				max = Max(A, D);
+			if (max < Max(A, E))
+				max = Max(A, E);
+			if (max > thole)
+			{
+				graydata[NUM] = 255;
+			}
+		}
+	}
 }
 
-uint8_t Min(uint8_t A,uint8_t B);
-uint8_t MAx(uint8_t A,uint8_t B);
-void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage//QImage *image1
+uint8_t Min(uint8_t A, uint8_t B);
+uint8_t MAx(uint8_t A, uint8_t B);
+void edge_bw(uint8_t *byteimage, uint8_t *bin, uint8_t *bin1) //quint8 *byteimage//QImage *image1
 {
 	uint16_t NUM = 0;
-	uint8_t A, B, C, D, E, max,L_minY=0,L_minX=0,R_minY=0,R_minX=0;
-	memset(bin, 0, 188*120);
-	memset(graydata, 0, 188*120);
-	memset(labels, 0, 188*120);
-	memset(bin1, 0, 188*120);
+	uint8_t A, B, C, D, E, max, L_minY = 0, L_minX = 0, R_minY = 0, R_minX = 0;
+	uint8_t find_err = 0;
+	;
+	// uint8_t labels[22560]={0};
+	memset(bin, 0, 188 * 120);
+	memset(graydata, 0, 188 * 120);
+	memset(labels, 0, 188 * 120);
+	memset(bin1, 0, 188 * 120);
 
-	uint8_t LFX[800]={0},LFY[800]={0},RTX[800]={0},RTY[800]={0},tlabel=0;
+	uint8_t LFX[800] = {0}, LFY[800] = {0}, RTX[800] = {0}, RTY[800] = {0}, tlabel = 0;
 	// memset(labels, 0, 188*120);
 	// uint32_t avrb=0,avrw=0,avrg=0,ntable=0,cnt=0;
 	// for (int r=118;r>=1;r-=1)//二值化
-    // {
+	// {
 	// 	for (int c=186;c>=1;c-=1)
-    //     {
-    //         //max=0;
-    //         NUM=col*r+c;
-    //         A=byteimage[NUM];
-    //         B=byteimage[NUM-col-1];
-    //         C=byteimage[NUM-col];
-    //         D=byteimage[NUM-col+1];
-    //         E=byteimage[NUM-1];
-    //         max=Max(A,B);
-    //         if(A>B){
-    //             bP[cnt]=B;
-    //             wP[cnt]=A;
-    //         }
-    //         else{
-    //             bP[cnt]=A;
-    //             wP[cnt]=B;
-    //         }
-    //         if(max<Max(A,C)){
-    //             max=Max(A,C);
-    //             if(A>C){
-    //                 bP[cnt]=C;
-    //                 wP[cnt]=A;
-    //             }
-    //             else{
-    //                 bP[cnt]=A;
-    //                 wP[cnt]=C;
-    //             }
-    //         }
-    //         if(max<Max(A,D)){
-    //             max=Max(A,D);
-    //             if(A>D){
-    //                 bP[cnt]=D;
-    //                 wP[cnt]=A;
-    //             }
-    //             else{
-    //                 bP[cnt]=A;
-    //                 wP[cnt]=D;
-    //             }
-    //         }
-    //         if(max<Max(A,E)){
-    //             max=Max(A,E);
-    //             if(A>E){
-    //                 bP[cnt]=E;
-    //                 wP[cnt]=A;
-    //             }
-    //             else{
-    //                 bP[cnt]=A;
-    //                 wP[cnt]=E;
-    //             }
-    //         }
-    //        if(max>thole)
-    //         {
-    //             cnt++;
-    //            graydata[NUM]=255;
-    //         }
-    //     }
-    // }
-    // for (int i=0;i<cnt+1;i++) {
-    //     avrb+=bP[i];
-    //     avrw+=wP[i];
-    // }
-    // avrb=(avrb/(cnt+1));
-    // avrw=(avrw/(cnt+1));
-    // avrg=(avrw+avrb)/2;
+	//     {
+	//         //max=0;
+	//         NUM=col*r+c;
+	//         A=byteimage[NUM];
+	//         B=byteimage[NUM-col-1];
+	//         C=byteimage[NUM-col];
+	//         D=byteimage[NUM-col+1];
+	//         E=byteimage[NUM-1];
+	//         max=Max(A,B);
+	//         if(A>B){
+	//             bP[cnt]=B;
+	//             wP[cnt]=A;
+	//         }
+	//         else{
+	//             bP[cnt]=A;
+	//             wP[cnt]=B;
+	//         }
+	//         if(max<Max(A,C)){
+	//             max=Max(A,C);
+	//             if(A>C){
+	//                 bP[cnt]=C;
+	//                 wP[cnt]=A;
+	//             }
+	//             else{
+	//                 bP[cnt]=A;
+	//                 wP[cnt]=C;
+	//             }
+	//         }
+	//         if(max<Max(A,D)){
+	//             max=Max(A,D);
+	//             if(A>D){
+	//                 bP[cnt]=D;
+	//                 wP[cnt]=A;
+	//             }
+	//             else{
+	//                 bP[cnt]=A;
+	//                 wP[cnt]=D;
+	//             }
+	//         }
+	//         if(max<Max(A,E)){
+	//             max=Max(A,E);
+	//             if(A>E){
+	//                 bP[cnt]=E;
+	//                 wP[cnt]=A;
+	//             }
+	//             else{
+	//                 bP[cnt]=A;
+	//                 wP[cnt]=E;
+	//             }
+	//         }
+	//        if(max>thole)
+	//         {
+	//             cnt++;
+	//            graydata[NUM]=255;
+	//         }
+	//     }
+	// }
+	// for (int i=0;i<cnt+1;i++) {
+	//     avrb+=bP[i];
+	//     avrw+=wP[i];
+	// }
+	// avrb=(avrb/(cnt+1));
+	// avrw=(avrw/(cnt+1));
+	// avrg=(avrw+avrb)/2;
 
 	// // for (int r = 0; r < 120; r++)
 	// // {
@@ -396,73 +400,73 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// // }
 
 	// for (uint8_t r=0;r<119;r++)
-    // {
-    //     for (uint8_t c=0;c<187;c++)
-    //     {
-    //         //max=0;
-    //         NUM=col*r+c;
-    //         if(byteimage[col*r+c]>avrg)
-    //         {
-    //             B=find(lset,labels[NUM-col-1]);
-    //             C=find(lset,labels[NUM-col]);
-    //             D=find(lset,labels[NUM-col-1]);
-    //             E=find(lset,labels[NUM-1]);
-    //             if (B || C || D || E)
-    //             {
-    //                 tlabel = B;
-    //                 if (B)
-    //                     tlabel = B;
-    //                 else if (C)
-    //                     tlabel = C;
-    //                 else if (D)
-    //                     tlabel = D;
-    //                 else if (E)
-    //                     tlabel = E;
-    //                 labels[NUM]= tlabel;
-    //                 if (B && B != tlabel)
-    //                     lset[B] = tlabel;
-    //                 if (C && C != tlabel)
-    //                     lset[C] = tlabel;
-    //                 if (D && D != tlabel)
-    //                     lset[D] = tlabel;
-    //                 if (E && E != tlabel)
-    //                     lset[E] = tlabel;
-    //             }
-    //             else
-    //             {
-    //                 //   label and put into table
-    //                 ntable++;
-    //                 labels[c+r*col] = lset[ntable] = ntable;
-    //             }
-    //         }
-    //     }
-    // }
-    // for (uint16_t i = 0; i <= ntable; i++)
-    //         lset[i] = find(lset, i);
-    // for (uint16_t r = 0; r < row; r++)
-    //     for (uint16_t c = 0; c < col; c++)
-    //         labels[c+r*col] = lset[labels[c+r*col]];
-    // // count up the objects in the image
-    // for (uint16_t i = 0; i <= ntable; i++)
-    //     lset[i] = 0;
-    // for (uint8_t r = 0; r < row; r++)
-    //     for (uint8_t c = 0; c < col; c++)
-    //         lset[labels[c+r*col]]++;
-    // // number the objects from 1 through n objects
-    // int nobj = 0;
-    // lset[0] = 0;
-    // for (uint16_t i = 1; i <= ntable; i++)
-    // {
-    //     if (lset[i] > 0)
-    //         lset[i] = ++nobj;
-    //     else {
-    //         lset[i] = 0;
-    //     }
-    // }
-    // // run through the look-up table again
-    // for (uint16_t r = 0; r < row; r++)
-    //     for (uint16_t c = 0; c < col; c++)
-    //         labels[c+r*col] = lset[labels[c+r*col]];
+	// {
+	//     for (uint8_t c=0;c<187;c++)
+	//     {
+	//         //max=0;
+	//         NUM=col*r+c;
+	//         if(byteimage[col*r+c]>avrg)
+	//         {
+	//             B=find(lset,labels[NUM-col-1]);
+	//             C=find(lset,labels[NUM-col]);
+	//             D=find(lset,labels[NUM-col-1]);
+	//             E=find(lset,labels[NUM-1]);
+	//             if (B || C || D || E)
+	//             {
+	//                 tlabel = B;
+	//                 if (B)
+	//                     tlabel = B;
+	//                 else if (C)
+	//                     tlabel = C;
+	//                 else if (D)
+	//                     tlabel = D;
+	//                 else if (E)
+	//                     tlabel = E;
+	//                 labels[NUM]= tlabel;
+	//                 if (B && B != tlabel)
+	//                     lset[B] = tlabel;
+	//                 if (C && C != tlabel)
+	//                     lset[C] = tlabel;
+	//                 if (D && D != tlabel)
+	//                     lset[D] = tlabel;
+	//                 if (E && E != tlabel)
+	//                     lset[E] = tlabel;
+	//             }
+	//             else
+	//             {
+	//                 //   label and put into table
+	//                 ntable++;
+	//                 labels[c+r*col] = lset[ntable] = ntable;
+	//             }
+	//         }
+	//     }
+	// }
+	// for (uint16_t i = 0; i <= ntable; i++)
+	//         lset[i] = find(lset, i);
+	// for (uint16_t r = 0; r < row; r++)
+	//     for (uint16_t c = 0; c < col; c++)
+	//         labels[c+r*col] = lset[labels[c+r*col]];
+	// // count up the objects in the image
+	// for (uint16_t i = 0; i <= ntable; i++)
+	//     lset[i] = 0;
+	// for (uint8_t r = 0; r < row; r++)
+	//     for (uint8_t c = 0; c < col; c++)
+	//         lset[labels[c+r*col]]++;
+	// // number the objects from 1 through n objects
+	// int nobj = 0;
+	// lset[0] = 0;
+	// for (uint16_t i = 1; i <= ntable; i++)
+	// {
+	//     if (lset[i] > 0)
+	//         lset[i] = ++nobj;
+	//     else {
+	//         lset[i] = 0;
+	//     }
+	// }
+	// // run through the look-up table again
+	// for (uint16_t r = 0; r < row; r++)
+	//     for (uint16_t c = 0; c < col; c++)
+	//         labels[c+r*col] = lset[labels[c+r*col]];
 
 	// uint8_t yu = labels[95 + 100 * col];
 	// for (int r = 0; r < 120; r++)
@@ -479,7 +483,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	//边缘检测
 	for (uint8_t r = 1; r < 119; r++)
 	{
-		for (uint8_t c = 1; c <187; c++)
+		for (uint8_t c = 1; c < 187; c++)
 		{
 			NUM = col * r + c;
 			A = byteimage[NUM];
@@ -500,23 +504,23 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 			}
 		}
 	}
-	
-	for (uint8_t r=0;r<120;r++)
-    {
-        for (uint8_t c=0;c<188;c++)
-        {
-            if(graydata[col*r+c])
+
+	for (uint8_t r = 0; r < 120; r++)
+	{
+		for (uint8_t c = 0; c < 188; c++)
+		{
+			if (graydata[col * r + c])
 			{
-				bin1[col*r+c]=255;
+				bin1[col * r + c] = 255;
 				// byteimage[col*r+c]=255;
 			}
-        }
-    }
+		}
+	}
 
-	uint8_t O_Lxtmp=0,O_Lytmp=0,O_Rxtmp=0,O_Rytmp=0,L_first=0,R_first=0;
-	uint16_t L_cnt=0,R_cnt=0;
+	uint8_t O_Lxtmp = 0, O_Lytmp = 0, O_Rxtmp = 0, O_Rytmp = 0, L_first = 0, R_first = 0;
+	uint16_t L_cnt = 0, R_cnt = 0;
 
-    //左边界标号
+	//左边界标号
 	for (uint8_t r = 118; r >= 65; r -= 1)
 	{
 		for (uint8_t c = 60; c > 1; c--)
@@ -524,60 +528,60 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 			NUM = col * r + c;
 			if (graydata[NUM])
 			{
-				if((Max(O_Lxtmp,c)+Max(O_Lytmp,r))>7)
-                {
+				if ((Max(O_Lxtmp, c) + Max(O_Lytmp, r)) > 7)
+				{
 					L_first = 0;
 					L_cnt = 0;
-                }
-                L_cnt++;
-                if(!L_first)
-                {
+				}
+				L_cnt++;
+				if (!L_first)
+				{
 					L_minY = r;
 					L_minX = c;
 					L_first = 1;
-                }
-				O_Lxtmp=c;
-				O_Lytmp=r;
-                // left=labels[NUM];
-                break;
+				}
+				O_Lxtmp = c;
+				O_Lytmp = r;
+				// left=labels[NUM];
+				break;
 			}
 		}
 		if (L_cnt > 20)
 			break;
 	}
 	//右边界标号
-    for (uint8_t r=118;r>=65;r-=1)
-    {
-        for (uint8_t c=130;c<187;c++)
-        {
-            NUM=col*r+c;
-            if(graydata[NUM])
-            {
-               if((Max(O_Rxtmp,c)+Max(O_Rytmp,r))>7)
-                {
-                    R_first=0;
-                    R_cnt=0;
-                }
-                // right=labels[NUM];
-                R_cnt++;
-                if(!R_first)
-                {
-                    R_minY=r;
-                    R_minX=c;
-                    R_first=1;
-                }
-				O_Rxtmp=c;
-				O_Rytmp=r;
-                break;
-            }
-        }
-        if(R_cnt>20)
-            break;
-    }
+	for (uint8_t r = 118; r >= 65; r -= 1)
+	{
+		for (uint8_t c = 130; c < 187; c++)
+		{
+			NUM = col * r + c;
+			if (graydata[NUM])
+			{
+				if ((Max(O_Rxtmp, c) + Max(O_Rytmp, r)) > 7)
+				{
+					R_first = 0;
+					R_cnt = 0;
+				}
+				// right=labels[NUM];
+				R_cnt++;
+				if (!R_first)
+				{
+					R_minY = r;
+					R_minX = c;
+					R_first = 1;
+				}
+				O_Rxtmp = c;
+				O_Rytmp = r;
+				break;
+			}
+		}
+		if (R_cnt > 20)
+			break;
+	}
 
-	uint8_t L_Y=L_minY,L_X=L_minX,oLX=0,oLY=0,dir=0;
-	uint8_t R_Y=R_minY,R_X=R_minX,oRX=0,oRY=0;
-	uint16_t CNT_L=0,CNT_R=0;
+	uint8_t L_Y = L_minY, L_X = L_minX, oLX = 0, oLY = 0, dir = 0;
+	uint8_t R_Y = R_minY, R_X = R_minX, oRX = 0, oRY = 0;
+	uint16_t CNT_L = 0, CNT_R = 0;
 	//边界追踪
 	// if(left)
 	while (true)
@@ -672,13 +676,13 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 			dir = 0;
 			break;
 		}
-		
+
 		if (oLX == L_X && oLY == L_Y)
 		{
-			if(tlabel++>2)
+			if (tlabel++ > 2)
 				break;
 		}
-			
+
 		oLX = L_X;
 		oLY = L_Y;
 		if (L_Y < 3 || CNT_L > 700)
@@ -787,24 +791,23 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 			break;
 	}
 
+	// for(uint16_t r=0;r<CNT_L;r++)
+	// {
+	// 	bin[LFX[r]+LFY[r]*188]=255;
+	// }
+	// for(uint16_t r=0;r<CNT_R;r++)
+	// {
+	// 	bin[RTX[r]+RTY[r]*188]=255;
+	// }
 
-	for(uint16_t r=0;r<CNT_L;r++)
-	{
-		bin[LFX[r]+LFY[r]*188]=255;
-	}
-	for(uint16_t r=0;r<CNT_R;r++)
-	{
-		bin[RTX[r]+RTY[r]*188]=255;
-	}
-	
-	for(uint16_t r=0;r<CNT_L;r++)
-	{
-		labels[LFX[r]+LFY[r]*188]=1;
-	}
-	for(uint16_t r=0;r<CNT_R;r++)
-	{
-		labels[RTX[r]+RTY[r]*188]=2;
-	}
+	// for(uint16_t r=0;r<CNT_L;r++)
+	// {
+	// 	labels[LFX[r]+LFY[r]*188]=1;
+	// }
+	// for(uint16_t r=0;r<CNT_R;r++)
+	// {
+	// 	labels[RTX[r]+RTY[r]*188]=2;
+	// }
 
 	// for(uint8_t r=0;r<120;r++)
 	// {
@@ -815,90 +818,127 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 	}
 	// }
 
+	temp_img = R_Y;
+	temp_img3 = R_minY;
+	//temp_img1=L_Y;
+	temp_img2 = L_minY;
+	// mid_NUM=L_X;
 
-	
-
-	NUM=0;
-    uint8_t TESTLFX[240]={0},TESTLFY[240]={0},TESTRTX[240]={0},TESTRTY[240]={0};
-    uint8_t cntL=0;
-    uint8_t cntR=0;
-	L_first =0;
-	R_first=0;
-	uint8_t L_maxY=120,R_maxY=120;
-
-	for(uint8_t r=119;r>0;r--)
+	for (uint16_t r = 0; r < CNT_L; r++)
 	{
-		for(uint8_t c=0;c<188;c++)
+		labels[LFX[r] + LFY[r] * 188] = 1;
+	}
+	for (uint16_t r = 0; r < CNT_R; r++)
+	{
+		if (labels[RTX[r] + RTY[r] * 188] == 1)
 		{
-			if(labels[r*col+c]==1)
+			find_err = 1;
+			break;
+		}
+		labels[RTX[r] + RTY[r] * 188] = 2;
+	}
+
+	if (find_err)
+	{
+		memset(labels, 0, 188 * 120);
+		if (L_minY > R_minY)
+		{
+			for (uint16_t r = 0; r < CNT_L; r++)
 			{
-				TESTLFX[r]=c;
-				L_maxY=r;
-				if(!L_first)
+				labels[LFX[r] + LFY[r] * 188] = 1;
+			}
+		}
+		else
+		{
+			for (uint16_t r = 0; r < CNT_R; r++)
+			{
+
+				labels[RTX[r] + RTY[r] * 188] = 2;
+			}
+		}
+	}
+	temp_img1 = find_err;
+
+	NUM = 0;
+	uint8_t TESTLFX[240] = {0}, TESTLFY[240] = {0}, TESTRTX[240] = {0}, TESTRTY[240] = {0};
+	uint8_t cntL = 0;
+	uint8_t cntR = 0;
+	L_first = 0;
+	R_first = 0;
+	uint8_t L_maxY = 120, R_maxY = 120;
+
+	for (uint8_t r = 119; r > 0; r--)
+	{
+		for (uint8_t c = 0; c < 188; c++)
+		{
+			if (labels[r * col + c] == 1)
+			{
+				TESTLFX[r] = c;
+				L_maxY = r;
+				if (!L_first)
 				{
-					L_minY=r;
-					L_first=1;
+					L_minY = r;
+					L_first = 1;
 				}
 				break;
 			}
 		}
 	}
-	for(uint8_t r=119;r>0;r--)
+	for (uint8_t r = 119; r > 0; r--)
 	{
-		for(uint8_t c=187;c>0;c--)
+		for (uint8_t c = 187; c > 0; c--)
 		{
-			if(labels[r*col+c]==2)
+			if (labels[r * col + c] == 2)
 			{
-				TESTRTX[r]=c;
-				R_maxY=r;
-				if(!R_first)
+				TESTRTX[r] = c;
+				R_maxY = r;
+				if (!R_first)
 				{
-					R_minY=r;
-					R_first=1;
+					R_minY = r;
+					R_first = 1;
 				}
 				break;
 			}
 		}
 	}
 
-	// for(uint16_t r=L_minY;r>L_maxY;r--)
-	// {
-	// 	bin[TESTLFX[r]+r*188]=255;
-	// }
-	// for(uint16_t r=R_minY;r>R_maxY;r--)
-	// {
-	// 	bin[TESTRTX[r]+r*188]=255;
-	// }
+	for (uint16_t r = L_minY; r > L_maxY; r--)
+	{
+		bin[TESTLFX[r] + r * 188] = 255;
+	}
+	for (uint16_t r = R_minY; r > R_maxY; r--)
+	{
+		bin[TESTRTX[r] + r * 188] = 255;
+	}
 
 	// //细化边缘像北科一样
-    // for(uint16_t r=1;r<CNT_L-1;r++)
-    // {
-    //     if(LFY[r]>LFY[r-1])
-    //     {
-    //         TESTLFX[cntL]=LFX[r];
-    //         TESTLFY[cntL++]=LFY[r];
-    //     }
-    //     if(LFY[r+1]<LFY[r])
-    //     {
-    //         TESTLFX[cntL]=LFX[r];
-    //         TESTLFY[cntL++]=LFY[r];
-    //     }
-    // }
+	// for(uint16_t r=1;r<CNT_L-1;r++)
+	// {
+	//     if(LFY[r]>LFY[r-1])
+	//     {
+	//         TESTLFX[cntL]=LFX[r];
+	//         TESTLFY[cntL++]=LFY[r];
+	//     }
+	//     if(LFY[r+1]<LFY[r])
+	//     {
+	//         TESTLFX[cntL]=LFX[r];
+	//         TESTLFY[cntL++]=LFY[r];
+	//     }
+	// }
 
-    // for(uint16_t r=1;r<CNT_R-1;r++)
-    // {
-    //     if(RTY[r]>RTY[r-1])
-    //     {
-    //         TESTRTX[cntR]=RTX[r];
-    //         TESTRTY[cntR++]=RTY[r];
-    //     }
-    //     if(RTY[r+1]<RTY[r])
-    //     {
-    //         TESTRTX[cntR]=RTX[r];
-    //         TESTRTY[cntR++]=RTY[r];
-    //     }
-    // }
-
+	// for(uint16_t r=1;r<CNT_R-1;r++)
+	// {
+	//     if(RTY[r]>RTY[r-1])
+	//     {
+	//         TESTRTX[cntR]=RTX[r];
+	//         TESTRTY[cntR++]=RTY[r];
+	//     }
+	//     if(RTY[r+1]<RTY[r])
+	//     {
+	//         TESTRTX[cntR]=RTX[r];
+	//         TESTRTY[cntR++]=RTY[r];
+	//     }
+	// }
 
 	// for(uint16_t r=0;r<cntL;r++)
 	// {
@@ -909,49 +949,73 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 	bin[TESTRTX[r]+TESTRTY[r]*188]=255;
 	// }
 
-	
-    uint8_t mid_l[120]={0},mid_r[120]={0},mid_m[120]={0},cnt=0;
+	uint8_t mid_l[120] = {0}, mid_r[120] = {0}, mid_m[120] = {0}, cnt = 0;
 
-	for(uint16_t r=119;r>0;r--)
+	// for(uint16_t r=119;r>0;r--)
+	// {
+	// 	mid_m[r]=(TESTRTX[r]+TESTLFX[r])/2;
+	// }
+
+	for (uint16_t r = MAX(L_minY, R_minY); r > Min(L_maxY, R_maxY); r--)
 	{
-		mid_m[r]=(TESTRTX[r]+TESTLFX[r])/2;
+		if (TESTLFX[r])
+		{
+			if (TESTRTX[r])
+			{
+				mid_m[r] = (TESTRTX[r] + TESTLFX[r]) / 2;
+			}
+			else
+			{
+				mid_m[r] = TESTLFX[r] + correct_par[r];
+			}
+		}
+		else
+		{
+			if (TESTRTX[r])
+			{
+				mid_m[r] = TESTRTX[r] - correct_par[r];
+			}
+			else
+			{
+				mid_m[r] = 0;
+			}
+		}
 	}
 
-	for(uint16_t r=Min(L_minY,R_minY);r>MAX(L_maxY,R_maxY);r--)
-    {
-        bin[mid_m[r]+r*188]=255;
-    }
-
+	for (uint16_t r = Min(L_minY, R_minY); r > MAX(L_maxY, R_maxY); r--)
+	{
+		bin[mid_m[r] + r * 188] = 255;
+	}
 
 	// for(uint8_t r=0;r<120;r++)
 	// {
-	// 	mid_m[r]=(mid_l[r]+mid_r[r])/2;		
+	// 	mid_m[r]=(mid_l[r]+mid_r[r])/2;
 	// }
 
 	// //找出最高的Y R_minY
-    // for(uint16_t r=0;r<cntL;r++)
-    // {
-    //    if(TESTLFY[r]<L_maxY)
-    //        L_maxY=TESTLFY[r];
-    // }
-    // for(uint16_t r=0;r<cntR;r++)
-    // {
-    //     if(TESTRTY[r]<R_maxY)
-    //         R_maxY=TESTRTY[r];
-    // }
+	// for(uint16_t r=0;r<cntL;r++)
+	// {
+	//    if(TESTLFY[r]<L_maxY)
+	//        L_maxY=TESTLFY[r];
+	// }
+	// for(uint16_t r=0;r<cntR;r++)
+	// {
+	//     if(TESTRTY[r]<R_maxY)
+	//         R_maxY=TESTRTY[r];
+	// }
 	// L_minY=0;
 	// R_minY=0;
 	// //找出最低的Y
 	// for(uint16_t r=0;r<cntL;r++)
-    // {
-    //    if(TESTLFY[r]>L_minY)
-    //        L_minY=TESTLFY[r];
-    // }
-    // for(uint16_t r=0;r<cntR;r++)
-    // {
-    //     if(TESTRTY[r]>R_minY)
-    //         R_minY=TESTRTY[r];
-    // }
+	// {
+	//    if(TESTLFY[r]>L_minY)
+	//        L_minY=TESTLFY[r];
+	// }
+	// for(uint16_t r=0;r<cntR;r++)
+	// {
+	//     if(TESTRTY[r]>R_minY)
+	//         R_minY=TESTRTY[r];
+	// }
 
 	// for(uint8_t r=0;r<cntL;r++)
 	// {
@@ -959,7 +1023,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// }
 	// for(uint8_t r=0;r<cntR;r++)
 	// {
-	// 	mid_r[TESTRTY[r]]=TESTRTX[r];		
+	// 	mid_r[TESTRTY[r]]=TESTRTX[r];
 	// }
 
 	// for(uint16_t r=0;r<cntL;r++)
@@ -977,7 +1041,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 	{
 	// 		if(mid_r[r])
 	// 		{
-	// 			mid_m[r]=(mid_l[r]+mid_r[r])/2;	
+	// 			mid_m[r]=(mid_l[r]+mid_r[r])/2;
 	// 		}
 	// 		else
 	// 		{
@@ -994,7 +1058,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 		{
 	// 			mid_m[r]=0;
 	// 		}
-			
+
 	// 	}
 	// }
 
@@ -1005,13 +1069,13 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 	{
 	// 		if(mid_r[r])
 	// 		{
-	// 			mid_m[r]=(mid_l[r]+mid_r[r])/2;	
+	// 			mid_m[r]=(mid_l[r]+mid_r[r])/2;
 	// 		}
 	// 		else
 	// 		{
 	// 			mid_m[r]=mid_l[r]+correct_par[r];
 	// 		}
-			
+
 	// 	}
 	// 	else
 	// 	{
@@ -1023,7 +1087,7 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 		{
 	// 			mid_m[r]=0;
 	// 		}
-			
+
 	// 	}
 	// }
 
@@ -1032,23 +1096,22 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 	if(mid_r[r])
 	// }
 
-	uint16_t temp_sum=0,cnttt=0;
+	uint16_t temp_sum = 0, cnttt = 0;
 	// for(uint16_t r=0;r<120;r++)
-    // {
-    //     bin[mid_m[r]+r*188]=255;
-    // }
-	
-	for(uint16_t r=65;r<85;r++)
+	// {
+	//     bin[mid_m[r]+r*188]=255;
+	// }
+
+	for (uint16_t r = 65; r < 85; r++)
 	{
-		if(mid_m[r])
+		if (mid_m[r])
 		{
-			temp_sum+=mid_m[r];
+			temp_sum += mid_m[r];
 			cnttt++;
 		}
 	}
-	if(cnttt)
-		mid_NUM=temp_sum/cnttt;
-	
+	if (cnttt)
+		mid_NUM = temp_sum / cnttt;
 
 	// //if(L_first)
 	// if(R_first)
@@ -1065,44 +1128,647 @@ void edge_bw(uint8_t *byteimage,uint8_t *bin,uint8_t *bin1) //quint8 *byteimage/
 	// 		mid_m[r]=mid_l[r]+correct_par[r];
 	// 	}
 	// }
-		
+
 	// }
-    // if(L_maxY<R_maxY-4)
-    // {
-    //     for (uint16_t r=0;r<cntL;r++) {
-    //         if(TESTLFY[r]<R_maxY)
-    //             break;
-    //         mid_l[r]=(TESTLFX[r]+TESTRTX[r])/2;
-    //         cnt++;
-    //     }
-    // }
+	// if(L_maxY<R_maxY-4)
+	// {
+	//     for (uint16_t r=0;r<cntL;r++) {
+	//         if(TESTLFY[r]<R_maxY)
+	//             break;
+	//         mid_l[r]=(TESTLFX[r]+TESTRTX[r])/2;
+	//         cnt++;
+	//     }
+	// }
 }
 
-
-uint8_t Max(uint8_t A,uint8_t B)
+//计算连通标号
+void tag_label(uint8_t *byteimage, uint16_t *labels)
 {
-
-    if(A>B)
-    {
-        return A-B;
-    }
-    return B-A;
+	/*labeling scheme
+	+-+-+-+
+	|D|C|E|
+	+-+-+-+
+	|B|A| |
+	+-+-+-+
+	| | | |
+	+-+-+-+*/
+	memset(labels, 0, 22560 * 2);
+	uint16_t B = 0, C = 0, D = 0, E = 0, F = 0, min_1 = 0, tlabel = 0, tmp_1 = 0, tmp_2 = 0;
+	uint16_t lset[1000] = {0}, ntable = 0;
+	uint16_t NUM = 0;
+	for (uint8_t r = 1; r < 119; r++)
+	{
+		for (uint8_t c = 1; c < 187; c++)
+		{
+			NUM = r * col + c;
+			if (byteimage[NUM])
+			{
+				B = labels[NUM - 1];
+				C = labels[NUM - 188];
+				D = labels[NUM - 189];
+				E = labels[NUM - 187];
+				if (B | C | D | E)
+				{
+					if (B)
+						tlabel = B;
+					else if (C)
+						tlabel = C;
+					else if (D)
+						tlabel = D;
+					else if (E)
+						tlabel = E;
+					min_1 = tlabel;
+					if (B)
+						min_1 = Min(B, min_1);
+					if (C)
+						min_1 = Min(C, min_1);
+					if (D)
+						min_1 = Min(D, min_1);
+					if (E)
+						min_1 = Min(E, min_1);
+					labels[NUM] = min_1;
+					if (B && (B != min_1))
+					{
+						tmp_1 = min_1;
+						while (lset[tmp_1] != tmp_1)
+							tmp_1 = lset[tmp_1];
+						tmp_2 = B;
+						while (lset[tmp_2] != tmp_2)
+							tmp_2 = lset[tmp_2];
+						if (lset[tmp_2] < lset[tmp_1])
+							lset[tmp_1] = lset[tmp_2];
+						else
+							lset[tmp_2] = lset[tmp_1];
+					}
+					if (C && (C != min_1))
+					{
+						tmp_1 = min_1;
+						while (lset[tmp_1] != tmp_1)
+							tmp_1 = lset[tmp_1];
+						tmp_2 = C;
+						while (lset[tmp_2] != tmp_2)
+							tmp_2 = lset[tmp_2];
+						if (lset[tmp_2] < lset[tmp_1])
+							lset[tmp_1] = lset[tmp_2];
+						else
+							lset[tmp_2] = lset[tmp_1];
+					}
+					if (D && (D != min_1))
+					{
+						tmp_1 = min_1;
+						while (lset[tmp_1] != tmp_1)
+							tmp_1 = lset[tmp_1];
+						tmp_2 = D;
+						while (lset[tmp_2] != tmp_2)
+							tmp_2 = lset[tmp_2];
+						if (lset[tmp_2] < lset[tmp_1])
+							lset[tmp_1] = lset[tmp_2];
+						else
+							lset[tmp_2] = lset[tmp_1];
+					}
+					if (E && (E != min_1))
+					{
+						tmp_1 = min_1;
+						while (lset[tmp_1] != tmp_1)
+							tmp_1 = lset[tmp_1];
+						tmp_2 = E;
+						while (lset[tmp_2] != tmp_2)
+							tmp_2 = lset[tmp_2];
+						if (lset[tmp_2] < lset[tmp_1])
+							lset[tmp_1] = lset[tmp_2];
+						else
+							lset[tmp_2] = lset[tmp_1];
+					}
+				}
+				else
+				{
+					ntable++;
+					labels[NUM] = ntable;
+					lset[ntable] = ntable;
+				}
+			}
+		}
+	}
+	//查表更新所有标号
+	for (uint16_t c = ntable; c > 0; c--)
+	{
+		uint16_t j = c, minLabel = 0;
+		while (lset[j] != j)
+		{
+			minLabel = lset[j];
+			j = minLabel;
+		}
+		j = c;
+		while (lset[j] != j)
+		{
+			lset[j] = minLabel;
+			j = lset[j];
+		}
+	}
+	for (uint8_t r = 0; r < 120; r++)
+		for (uint8_t c = 0; c < 188; c++)
+		{
+			labels[r * col + c] = lset[labels[r * col + c]];
+		}
 }
 
-uint8_t Min(uint8_t A,uint8_t B)
+void edge_thr(uint8_t *byteimage, uint8_t *bin, uint8_t *bin1)
 {
-    if(A>B)
-    {
-        return B;
-    }
-    return A;
+	uint16_t NUM = 0;
+	uint8_t A, B, C, D, E, max, L_minY = 0, L_minX = 0, R_minY = 0, R_minX = 0;
+	uint8_t find_err = 0;
+	uint8_t LFX[800] = {0}, LFY[800] = {0}, RTX[800] = {0}, RTY[800] = {0}, tlabel = 0;
+	// uint8_t labels[22560]={0};
+	memset(bin, 0, 188 * 120);
+	memset(graydata, 0, 188 * 120);
+	memset(bin1, 0, 188 * 120);
+	//边缘检测
+	for (uint8_t r = 1; r < 119; r++)
+	{
+		for (uint8_t c = 1; c < 187; c++)
+		{
+			NUM = col * r + c;
+			A = byteimage[NUM];
+			B = byteimage[NUM - col - 1];
+			C = byteimage[NUM - col];
+			D = byteimage[NUM - col + 1];
+			E = byteimage[NUM - 1];
+			max = Max(A, B);
+			if (max < Max(A, C))
+				max = Max(A, C);
+			if (max < Max(A, D))
+				max = Max(A, D);
+			if (max < Max(A, E))
+				max = Max(A, E);
+			if (max > thole)
+			{
+				graydata[NUM] = 255;
+			}
+		}
+	}
+
+	for (uint8_t r = 0; r < 120; r++)
+	{
+		for (uint8_t c = 0; c < 188; c++)
+		{
+			if (graydata[col * r + c])
+			{
+				bin1[col * r + c] = 255;
+				// byteimage[col*r+c]=255;
+			}
+		}
+	}
+
+	tag_label(graydata, labels);
+
+	for (uint8_t r = 0; r < 120; r++)
+	{
+		for (uint8_t c = 0; c < 188; c++)
+		{
+			if (graydata[col * r + c])
+			{
+				bin1[col * r + c] = labels[col * r + c];
+				// byteimage[col*r+c]=255;
+			}
+		}
+	}
+
+	uint8_t O_Lxtmp = 0, O_Lytmp = 0, O_Rxtmp = 0, O_Rytmp = 0, L_first = 0, R_first = 0;
+	uint16_t L_cnt = 0, R_cnt = 0, left, right;
+	uint8_t L_cross = 0, R_cross = 0, left_up = 0, right_up = 0;
+	//图像下部左边界标号
+	for (uint8_t r = 118; r >= 65; r -= 1)
+	{
+		for (uint8_t c = 60; c > 1; c--)
+		{
+			NUM = col * r + c;
+			if (graydata[NUM])
+			{
+				if ((Max(O_Lxtmp, c) + Max(O_Lytmp, r)) > 7)
+				{
+					L_first = 0;
+					L_cnt = 0;
+				}
+				L_cnt++;
+				if (!L_first)
+				{
+					L_minY = r;
+					L_minX = c;
+					L_first = 1;
+				}
+				O_Lxtmp = c;
+				O_Lytmp = r;
+				left = labels[NUM];
+				break;
+			}
+		}
+		if (L_cnt > 20)
+			break;
+	}
+	//图像下部右边界标号
+	for (uint8_t r = 118; r >= 65; r -= 1)
+	{
+		for (uint8_t c = 130; c < 187; c++)
+		{
+			NUM = col * r + c;
+			if (graydata[NUM])
+			{
+				if ((Max(O_Rxtmp, c) + Max(O_Rytmp, r)) > 7)
+				{
+					R_first = 0;
+					R_cnt = 0;
+				}
+				right = labels[NUM];
+				R_cnt++;
+				if (!R_first)
+				{
+					R_minY = r;
+					R_minX = c;
+					R_first = 1;
+				}
+				O_Rxtmp = c;
+				O_Rytmp = r;
+				break;
+			}
+		}
+		if (R_cnt > 20)
+			break;
+	}
+	uint8_t LBP[2][4] = {{0}}, RBP[2][4] = {{0}}; //一个线段的最左最右最上最下四个点 X Y
+	R_first = 0;
+	L_first = 0;
+	//左边界的最值点
+	if (left)
+		for (uint8_t r = 119; r > 10; r--)
+		{
+			for (uint8_t c = 187; c > 0; c--)
+			{
+				if (labels[c + r * col] == left)
+				{
+					if (!L_first)
+					{
+						LBP[0][0] = c;
+						LBP[0][1] = c;
+						LBP[0][2] = c;
+						LBP[0][3] = c;
+						LBP[1][0] = r;
+						LBP[1][1] = r;
+						LBP[1][2] = r;
+						LBP[1][3] = r;
+						L_first = 1;
+					}
+					//最左
+					if (LBP[0][0] >= c)
+					{
+						LBP[0][0] = c;
+						LBP[1][0] = r;
+					}
+					//最右
+					if (LBP[0][1] <= c)
+					{
+						LBP[0][1] = c;
+						LBP[1][1] = r;
+					}
+					//最上
+					if (LBP[1][2] >= r)
+					{
+						LBP[0][2] = c;
+						LBP[1][2] = r;
+					}
+					//最下
+					if (LBP[1][3] <= r)
+					{
+						LBP[0][3] = c;
+						LBP[1][3] = r;
+					}
+				}
+			}
+		}
+
+	//右边界的最值点
+	if (right)
+		for (uint8_t r = 119; r > 10; r--)
+		{
+			for (uint8_t c = 0; c < 187; c++)
+			{
+				if (labels[c + r * col] == right)
+				{
+					if (!R_first)
+					{
+						RBP[0][0] = c;
+						RBP[0][1] = c;
+						RBP[0][2] = c;
+						RBP[0][3] = c;
+						RBP[1][0] = r;
+						RBP[1][1] = r;
+						RBP[1][2] = r;
+						RBP[1][3] = r;
+						R_first = 1;
+					}
+					//最左
+					if (RBP[0][0] >= c)
+					{
+						RBP[0][0] = c;
+						RBP[1][0] = r;
+					}
+					//最右
+					if (RBP[0][1] <= c)
+					{
+						RBP[0][1] = c;
+						RBP[1][1] = r;
+					}
+					//最上
+					if (RBP[1][2] >= r)
+					{
+						RBP[0][2] = c;
+						RBP[1][2] = r;
+					}
+					//最下
+					if (RBP[1][3] <= r)
+					{
+						RBP[0][3] = c;
+						RBP[1][3] = r;
+					}
+				}
+			}
+		}
+	if (left == right)
+	{
+		//判断是右边界还是左边界
+		//先判断是否为右边界
+		if ((RBP[0][3] < 60) || (LBP[0][1] > (LBP[0][3] + 5)))
+		{
+			right = 0;
+			for (uint8_t c = 0; c < 4; c++)
+			{
+				RBP[0][c] = 0;
+				RBP[1][c] = 0;
+			}
+		}
+		if (LBP[0][3] > 150)
+		{
+			left = 0;
+			for (uint8_t c = 0; c < 4; c++)
+			{
+				LBP[0][c] = 0;
+				LBP[1][c] = 0;
+			}
+		}
+	}
+
+	//左边界是否闭合到右边
+	if (LBP[0][1] > 140) //左边界最左大于140
+	{
+		if (RBP[1][2]) //右边界存在
+		{
+			if (LBP[1][2] < RBP[1][2])
+				L_cross = 1;
+		}
+		else
+			L_cross = 1;
+	}
+
+	//右边界是否闭合到左边
+	if ((RBP[0][0] < 50) && (RBP[0][0] != 0))
+	{
+		if (LBP[1][2])
+		{
+			if (RBP[1][2] < LBP[1][2])
+				R_cross = 1;
+		}
+		else
+			R_cross = 1;
+	}
+
+	//继续向上搜索右边界
+	if (L_cross)
+	{
+	}
+	else
+	{
+		if (RBP[1][2] > 30)
+		{
+			for (uint8_t r = RBP[1][2] - 2; r >= 20; r -= 1)
+			{
+				NUM = col * r + RBP[0][0];
+				if (graydata[NUM])
+				{
+					right_up = labels[NUM];
+					break;
+				}
+			}
+		}
+		else if (RBP[1][2] == 0) //如果下边界未搜索到则继续向上搜索
+		{
+			R_cnt = 0;
+			R_first = 0;
+			for (uint8_t r = 65; r >= 30; r -= 1)
+			{
+				for (uint8_t c = 130; c < 187; c++)
+				{
+					NUM = col * r + c;
+					if (graydata[NUM])
+					{
+						if ((Max(O_Rxtmp, c) + Max(O_Rytmp, r)) > 7)
+						{
+							R_first = 0;
+							R_cnt = 0;
+						}
+						right_up = labels[NUM];
+						R_cnt++;
+						if (!R_first)
+						{
+							R_minY = r;
+							R_minX = c;
+							R_first = 1;
+						}
+						O_Rxtmp = c;
+						O_Rytmp = r;
+						break;
+					}
+				}
+				if (R_cnt > 20)
+					break;
+			}
+		}
+	}
+
+	//继续向上搜索左边界
+	if (R_cross)
+	{
+	}
+	else
+	{
+		if (LBP[1][2] > 30)
+		{
+			for (uint8_t r = LBP[1][2] - 2; r >= 20; r -= 1)
+			{
+				NUM = col * r + LBP[0][1];
+				if (graydata[NUM])
+				{
+					left_up = labels[NUM];
+					break;
+				}
+			}
+		}
+		else if (LBP[1][2] == 0) //如果下边界未搜索到则继续向上搜索
+		{
+			L_cnt = 0;
+			L_first = 0;
+			for (uint8_t r = 65; r >= 30; r -= 1)
+			{
+				for (uint8_t c = 60; c > 1; c--)
+				{
+					NUM = col * r + c;
+					if (graydata[NUM])
+					{
+						if ((Max(O_Lxtmp, c) + Max(O_Lytmp, r)) > 7)
+						{
+							L_first = 0;
+							L_cnt = 0;
+						}
+						L_cnt++;
+						if (!L_first)
+						{
+							L_minY = r;
+							L_minX = c;
+							L_first = 1;
+						}
+						O_Lxtmp = c;
+						O_Lytmp = r;
+						left_up = labels[NUM];
+						break;
+					}
+				}
+				if (L_cnt > 20)
+					break;
+			}
+		}
+	}
+
+	uint8_t TESTLFX[240] = {0}, TESTLFY[240] = {0}, TESTRTX[240] = {0}, TESTRTY[240] = {0};
+	uint8_t cntL = 0;
+	uint8_t cntR = 0;
+	L_first = 0;
+	R_first = 0;
+	NUM = 0;
+	uint8_t L_maxY = 120, R_maxY = 120;
+	//将左边界装入数组
+	if (left)
+		for (uint8_t r = 119; r > 0; r--)
+		{
+			for (uint8_t c = 187; c > 0; c--)
+			{
+				if (labels[c + r * col] == left)
+				{
+					TESTLFX[r] = c;
+					L_maxY = r;
+					if (!L_first)
+					{
+						L_minY = r;
+						L_first = 1;
+					}
+					break;
+				}
+			}
+		}
+	//将右边界装入数组
+	if (right)
+		for (uint8_t r = 119; r > 0; r--)
+		{
+			for (uint8_t c = 0; c < 188; c++)
+			{
+				if (labels[c + r * col] == right)
+				{
+					TESTRTX[r] = c;
+					R_maxY = r;
+					if (!R_first)
+					{
+						R_minY = r;
+						R_first = 1;
+					}
+					break;
+				}
+			}
+		}
+
+	//将左上边界装入数组
+	if (left_up)
+		for (uint8_t r = 119; r > 0; r--)
+		{
+			for (uint8_t c = 187; c > 0; c--)
+			{
+				if (labels[c + r * col] == left_up)
+				{
+					TESTLFX[r] = c;
+					L_maxY = r;
+					if (!L_first)
+					{
+						L_minY = r;
+						L_first = 1;
+					}
+					break;
+				}
+			}
+		}
+	//将右上边界装入数组
+	if (right_up)
+		for (uint8_t r = 119; r > 0; r--)
+		{
+			for (uint8_t c = 0; c < 188; c++)
+			{
+				if (labels[c + r * col] == right_up)
+				{
+					TESTRTX[r] = c;
+					R_maxY = r;
+					if (!R_first)
+					{
+						R_minY = r;
+						R_first = 1;
+					}
+					break;
+				}
+			}
+		}
+
+	temp_img = left;
+	mid_NUM = right;
+	// for (uint8_t r = 1; r < 119; r++)
+	// {
+	// 	for (uint8_t c = 1; c <187; c++)
+	// 	{
+	// 		if(labels[c+r*188]==left)
+	// 			bin1[c+r*188]=255;
+	// 		if(labels[c+r*188]==right)
+	// 			bin1[c+r*188]=255;
+	// 	}
+	// }
 }
 
-uint8_t MAx(uint8_t A,uint8_t B)
+uint8_t Max(uint8_t A, uint8_t B)
 {
-	    if(A<B)
-    {
-        return B;
-    }
-    return A;
+
+	if (A > B)
+	{
+		return A - B;
+	}
+	return B - A;
+}
+
+uint8_t Min(uint8_t A, uint8_t B)
+{
+	if (A > B)
+	{
+		return B;
+	}
+	return A;
+}
+
+uint8_t MAx(uint8_t A, uint8_t B)
+{
+	if (A < B)
+	{
+		return B;
+	}
+	return A;
 }

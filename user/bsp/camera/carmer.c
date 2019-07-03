@@ -1,7 +1,9 @@
 #include "carmer.h"
 //#include "oled2.h"
+#if defined(USE_LCD) && (USE_LCD == 1U)
 #include "./lcd/bsp_lcd.h"
 #include "./font/fonts.h"
+#endif
 #include "bwLabel.h"
 #include "1052_NVIC.h"
 //#include "ALEX_MT9V034.h"
@@ -27,6 +29,7 @@ uint32_t inactiveFrameAddr = (uint32_t)&csiFrameBuf[0];
 uint8_t img_start[2] = {0xaa, 0x55};
 uint8_t img_end[2] = {0x55, 0xaa};
 char dispBuff[100];
+char dispBuff1[100];
 
 extern pxp_ps_buffer_config_t psBufferConfig;
 extern pxp_output_buffer_config_t outputBufferConfig;
@@ -35,7 +38,7 @@ extern volatile bool s_frameDone;
 extern uint32_t cnt;
 extern bool txOnGoing;
 extern lpuart_transfer_t sendXfer;
-AT_NONCACHEABLE_SECTION_ALIGN( uint8_t uartimg[94][60], FRAME_BUFFER_ALIGN);
+AT_NONCACHEABLE_SECTION_ALIGN(uint8_t uartimg[94][60], FRAME_BUFFER_ALIGN);
 
 static csi_private_data_t csiPrivateData;
 
@@ -73,9 +76,9 @@ const camera_config_t cameraConfig = {
 
 void Campin_Init(void)
 {
-	IOMUXC_SetPinMux(IOMUXC_GPIO_B1_12_CSI_PIXCLK, 0U);   /* GPIO_AD_B1_04 is configured as CSI_PIXCLK */
-	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_06_CSI_VSYNC, 0U); /* GPIO_AD_B1_06 is configured as CSI_VSYNC */
-	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_07_CSI_HSYNC, 0U);
+	IOMUXC_SetPinMux(IOMUXC_GPIO_B1_12_CSI_PIXCLK, 0U); /* GPIO_AD_B1_04 is configured as CSI_PIXCLK */
+	IOMUXC_SetPinMux(IOMUXC_GPIO_B1_13_CSI_VSYNC, 0U);  /* GPIO_AD_B1_06 is configured as CSI_VSYNC */
+	IOMUXC_SetPinMux(IOMUXC_GPIO_B1_14_CSI_HSYNC, 0U);
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_08_CSI_DATA09, 0U);
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_09_CSI_DATA08, 0U);
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_10_CSI_DATA07, 0U);
@@ -89,9 +92,9 @@ void Campin_Init(void)
 	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_01_LPI2C1_SDA, 1U);
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_00_LPI2C1_SCL, 0xD8B0u);
 	IOMUXC_SetPinConfig(IOMUXC_GPIO_AD_B1_01_LPI2C1_SDA, 0xD8B0u);
-	
-//	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_00_GPIO1_IO16, 1U);	// MT9V034 GPIO~TWI~SCL
-//  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_01_GPIO1_IO17, 1U);	// MT9V034 GPIO~TWI~SDA
+
+	//	IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_00_GPIO1_IO16, 1U);	// MT9V034 GPIO~TWI~SCL
+	//  IOMUXC_SetPinMux(IOMUXC_GPIO_AD_B1_01_GPIO1_IO17, 1U);	// MT9V034 GPIO~TWI~SDA
 }
 
 void BOARD_InitCameraResource(void)
@@ -116,10 +119,10 @@ void CAMCSI_Init(void)
 	//CAMERA_DEVICE_Init(&cameraDevice, &cameraConfig);
 	//MT9V034_SetFrameResolution(480, 752, 60);
 	// MT9V034_night();
-	MT9V034_night_lv();
-	// MT9V034_daily();
-	RT1052_NVIC_SetPriority(CSI_IRQn,3,0);
-	for (uint32_t i = 0; i < 4; i++)
+	// MT9V034_night_lv();
+	MT9V034_daily();
+	RT1052_NVIC_SetPriority(CSI_IRQn, 3, 0);
+	for (uint32_t i = 0; i < CAMERA_FRAME_BUFFER_COUNT; i++)
 	{
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, (uint32_t)(csiFrameBuf[i]));
 	}
@@ -130,11 +133,11 @@ void CAMCSI_Init(void)
 
 void CAM_DIS(void)
 {
-	
- 	// sendXfer.data = (uint8_t *)uartimg;
-    // sendXfer.dataSize = sizeof(uartimg);
+	uint16_t tmp11 = 0;
+	// sendXfer.data = (uint8_t *)uartimg;
+	// sendXfer.dataSize = sizeof(uartimg);
 	sendXfer.data = (uint8_t *)csiFrameBuf[0];
-  sendXfer.dataSize = sizeof(csiFrameBuf[0]);
+	sendXfer.dataSize = sizeof(csiFrameBuf[0]);
 
 	uint8_t curLcdBufferIdx = 1U;
 	CAMERA_RECEIVER_Start(&cameraReceiver);
@@ -143,41 +146,42 @@ void CAM_DIS(void)
 	{
 		;
 	}
-	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
+	// CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
 	while (kStatus_Success != CAMERA_RECEIVER_GetFullBuffer(&cameraReceiver, &inactiveFrameAddr))
 	{
 		;
 	}
-	LCDIF->CUR_BUF=activeFrameAddr;
+#if defined(USE_LCD) && (USE_LCD == 1U)
+	LCDIF->CUR_BUF = activeFrameAddr;
 	ELCDIF_SetNextBufferAddr(LCDIF, inactiveFrameAddr);
 	ELCDIF_RgbModeStart(LCDIF);
+#endif
 	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
 	CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, inactiveFrameAddr);
 	PRINTF("CAMERA Start Success\r\n");
-//	cnt=0;
-//	wallner(csiFrameBuf[0], Pix_Data);
-//	PRINTF("wallner Time:%d \r\n",cnt);
-//	cnt=0;
-//	wallner_new(csiFrameBuf[0], Lab_Data);
-//	PRINTF("wallner_new Time:%d \r\n",cnt);
-	cnt=0;
-//	edge_dect(csiFrameBuf[0]);
-	edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data,Lab_Data);
+	//	cnt=0;
+	//	wallner(csiFrameBuf[0], Pix_Data);
+	//	PRINTF("wallner Time:%d \r\n",cnt);
+	//	cnt=0;
+	//	wallner_new(csiFrameBuf[0], Lab_Data);
+	//	PRINTF("wallner_new Time:%d \r\n",cnt);
+	cnt = 0;
+	//	edge_dect(csiFrameBuf[0]);
+	edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data, Lab_Data);
 	// bwlabel(Pix_Data,8,Lab_Data);
-//	//testSend();
-	PRINTF("bwlabel Time :%d \r\n",cnt);
-	
+	//	//testSend();
+	PRINTF("bwlabel Time :%d \r\n", cnt);
+
 	while (1)
 	{
 		FPStmp++;
 		curLcdBufferIdx ^= 1U;
 		// Return the camera buffer to camera queue.
 
-
-//		for (int i = 0; i < 120; i++)
-//		{
-//			memcpy(s_frameBuffer[curLcdBufferIdx][i], (uint8_t *)inactiveFrameAddr + i * 188, 188);
-//		}
+		//		for (int i = 0; i < 120; i++)
+		//		{
+		//			memcpy(s_frameBuffer[curLcdBufferIdx][i], (uint8_t *)inactiveFrameAddr + i * 188, 188);
+		//		}
 
 		//		wallner((uint8_t *)inactiveFrameAddr,Pix_Data);
 		//		testSend();
@@ -186,16 +190,23 @@ void CAM_DIS(void)
 		{
 		}
 
-		if(!txOnGoing)
-			sendXfer.data = (uint8_t *)inactiveFrameAddr;
+		// if(!txOnGoing)
+		// 	sendXfer.data = (uint8_t *)inactiveFrameAddr;
 		// edge_dect((uint8_t *)inactiveFrameAddr);
 		// wallner((uint8_t *)inactiveFrameAddr, Pix_Data);
-		edge_bw((uint8_t *)inactiveFrameAddr, Pix_Data,Lab_Data);
-		
+
+		cnt = 0;
+		edge_thr((uint8_t *)inactiveFrameAddr, Pix_Data, Lab_Data);
+		tmp11 = cnt;
+// LPUART_WriteBlocking(LPUART1, img_start, 2);
+// LPUART_WriteBlocking(LPUART1, Lab_Data, 188*120);
+// LPUART_WriteBlocking(LPUART1, img_end, 2);
+//是否使用LCD
+#if defined(USE_LCD) && (USE_LCD == 1U)
 		for (int i = 0; i < 120; i++)
 		{
-			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+40,Pix_Data + i * 188, 188);
-			memcpy(s_frameBuffer[curLcdBufferIdx][i+20]+300,Lab_Data + i * 188, 188);
+			memcpy(s_frameBuffer[curLcdBufferIdx][i + 20] + 40, Pix_Data + i * 188, 188);
+			memcpy(s_frameBuffer[curLcdBufferIdx][i + 20] + 300, Lab_Data + i * 188, 188);
 			memcpy(s_frameBuffer[curLcdBufferIdx][i + 20] + 550, (uint8_t *)inactiveFrameAddr + i * 188, 188);
 		}
 		//memcpy(s_frameBuffer[!curLcdBufferIdx],s_frameBuffer[curLcdBufferIdx],38400);
@@ -207,15 +218,15 @@ void CAM_DIS(void)
 		//bwlabel(Pix_Data, 8, Lab_Data);
 		while (!s_frameDone)
 		{
-		}	
-		sprintf(dispBuff, "FPS = %d MID_NUM = %d tmp_img= %d", FPS,mid_NUM,temp_img);
+		}
+		sprintf(dispBuff, "FPS = %d MID_NUM = %03d tmp_img= %03d", FPS, mid_NUM, temp_img);
+		sprintf(dispBuff1, "Runtime = %d", tmp11);
 		LCD_ClearLine(LINE(6));
-//		/*然后显示该字符串即可，其它变量也是这样处理*/
-		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);	
-		
+		LCD_ClearLine(LINE(14));
+		//		/*然后显示该字符串即可，其它变量也是这样处理*/
+		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);
+		LCD_DisplayStringLine(LINE(14), (uint8_t *)dispBuff1);
+#endif
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, inactiveFrameAddr);
 	}
 }
-
-
-

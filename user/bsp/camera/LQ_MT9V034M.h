@@ -65,6 +65,8 @@ void MT9V034_daily(void);
 void MT9V034_night(void);
 void MT9V034_Default_Settings(void);
 void MT9V034_night_lv(void);
+void MT9V034_set_AFAE(void);
+void MT9V034_SetResolution(void);
 
 #define BINNING_ROW_A	        4
 #define BINNING_COLUMN_A	4

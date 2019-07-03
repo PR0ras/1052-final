@@ -437,11 +437,7 @@ void MT9V034_Default_Settings(void) //神眼摄像头默认配置
 
      SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_HDR_ENABLE_REG, 0x0101);
 
-     MTV_IICWriteReg16(MT9V034_READ_MODE, 0x003A);                      //写寄存器，配置行分频
-     MTV_IICWriteReg16(MT9V034_WINDOW_WIDTH, 752);                    //读取图像的列数  改变此处也可改变图像输出大小，不过会丢失视角
-     MTV_IICWriteReg16(MT9V034_WINDOW_HEIGHT, 480);                  //读取图像的行数  改变此处也可改变图像输出大小，不过会丢失视角
-     MTV_IICWriteReg16(MT9V034_COLUMN_START, MT9V034_COLUMN_START_MIN); //列开始
-     MTV_IICWriteReg16(MT9V034_ROW_START, MT9V034_ROW_START_MIN);       //行开始
+     MT9V034_SetResolution();
      MTV_IICWriteReg16(MT9V034_AEC_AGC_ENABLE, 0x0000);                 //AEC
 
      //MTV_IICWriteReg16(MT9V034_MAX_GAIN_REG, 50);
@@ -460,6 +456,9 @@ void MT9V034_Default_Settings(void) //神眼摄像头默认配置
      MTV_IICWriteReg16(0x33, 0x0010); //V3_CONTROL_CONTEXTA 0x0005
      MTV_IICWriteReg16(0x34, 0x0003); //V4_CONTROL_CONTEXTA 0x0003
 
+     MT9V034_SetResolution();
+     MTV_IICWriteReg16(MT9V034_AEC_AGC_ENABLE, 0x0000);                 //AEC
+
      SCCB_RegWrite(MT9V034_I2C_ADDR, 0x13, 0x2D2E);                                     //We also recommended using R0x13 = 0x2D2E with this setting for better column FPN.
      SCCB_RegWrite(MT9V034_I2C_ADDR, 0x20, 0x01C7);                                     //0x01C7对比度差，发白；0x03C7对比度提高 Recommended by design to improve performance in HDR mode and when frame rate is low.
      SCCB_RegWrite(MT9V034_I2C_ADDR, 0x24, 0x001B);                                     //Corrects pixel negative dark offset when global reset in R0x20[9] is enabled.
@@ -471,12 +470,19 @@ void MT9V034_Default_Settings(void) //神眼摄像头默认配置
      //SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_AGC_AEC_PIXEL_COUNT_REG, 188 * 120); //0xB0  用于AEC/AGC直方图像素数目,最大44000   IMAGEH*IMAGEW
      SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_ADC_RES_CTRL_REG, 0x0303); //0x1C  here is the way to regulate darkness :)
 
-     SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_HDR_ENABLE_REG, 0x0101);
-
-     MTV_IICWriteReg16(MT9V034_READ_MODE, 0x003A);                      //写寄存器，配置行分频
-     MTV_IICWriteReg16(MT9V034_WINDOW_WIDTH, 752);                    //读取图像的列数  改变此处也可改变图像输出大小，不过会丢失视角
-     MTV_IICWriteReg16(MT9V034_WINDOW_HEIGHT, 480);                  //读取图像的行数  改变此处也可改变图像输出大小，不过会丢失视角
-     MTV_IICWriteReg16(MT9V034_COLUMN_START, MT9V034_COLUMN_START_MIN); //列开始
-     MTV_IICWriteReg16(MT9V034_ROW_START, MT9V034_ROW_START_MIN);       //行开始
-     MTV_IICWriteReg16(MT9V034_AEC_AGC_ENABLE, 0x0000);                 //AEC
+     SCCB_RegWrite(MT9V034_I2C_ADDR, MT9V034_HDR_ENABLE_REG, 0x0101); 
  }
+
+  void MT9V034_set_AFAE(void)
+  {
+      MT9V034_SetResolution();
+      
+  }
+  void MT9V034_SetResolution(void)
+  {
+      MTV_IICWriteReg16(MT9V034_READ_MODE, 0x003A);                      //写寄存器，配置行分频
+      MTV_IICWriteReg16(MT9V034_WINDOW_WIDTH, 752);                      //读取图像的列数  改变此处也可改变图像输出大小，不过会丢失视角
+      MTV_IICWriteReg16(MT9V034_WINDOW_HEIGHT, 480);                     //读取图像的行数  改变此处也可改变图像输出大小，不过会丢失视角
+      MTV_IICWriteReg16(MT9V034_COLUMN_START, MT9V034_COLUMN_START_MIN); //列开始
+      MTV_IICWriteReg16(MT9V034_ROW_START, MT9V034_ROW_START_MIN);       //行开始
+  }
