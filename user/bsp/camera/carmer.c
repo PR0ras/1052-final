@@ -9,6 +9,9 @@
 //#include "ALEX_MT9V034.h"
 #include "LQ_MT9V034M.h"
 
+/* RT-Thread 头文件 */
+#include "rtthread.h"
+
 #include "fsl_iomuxc.h"
 #include "fsl_gpio.h"
 #include "fsl_debug_console.h"
@@ -19,17 +22,28 @@
 
 uint8_t Pix_Data[22560] = {0};
 uint8_t Lab_Data[22560] = {0};
+uint8_t Uart_Data[22560] = {0};
 //uint8_t Buffer_Data[600]={0};
 //uint8_t cmos[60][80]={0,0};
 //uint8_t oledcmos[60][80]={0};
 
-uint8_t camover = 0, FPStmp = 0, FPS = 0;
+uint8_t camover = 0, FPStmp = 0, FPS = 0,imgpro_running=0;
 uint32_t activeFrameAddr = (uint32_t)&csiFrameBuf[0];
 uint32_t inactiveFrameAddr = (uint32_t)&csiFrameBuf[0];
 uint8_t img_start[2] = {0xaa, 0x55};
 uint8_t img_end[2] = {0x55, 0xaa};
-char dispBuff[100];
-char dispBuff1[100];
+uint16_t tmp11=0;
+
+char dispBuff[50];
+char dispBuff1[50];
+char dispBuff2[50];
+char dispBuff3[50];
+char dispBuff4[50];
+char dispBuff5[50];
+char dispBuff6[50];
+char dispBuff7[50];
+char OLEDdispBuff1[20];
+char OLEDdispBuff2[20];
 
 extern pxp_ps_buffer_config_t psBufferConfig;
 extern pxp_output_buffer_config_t outputBufferConfig;
@@ -119,34 +133,27 @@ void CAMCSI_Init(void)
 	//CAMERA_DEVICE_Init(&cameraDevice, &cameraConfig);
 	//MT9V034_SetFrameResolution(480, 752, 60);
 	// MT9V034_night();
-	// MT9V034_night_lv();
-	MT9V034_daily();
+	MT9V034_night_lv();
+	// MT9V034_daily();
 	RT1052_NVIC_SetPriority(CSI_IRQn, 3, 0);
 	for (uint32_t i = 0; i < CAMERA_FRAME_BUFFER_COUNT; i++)
 	{
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, (uint32_t)(csiFrameBuf[i]));
 	}
-	// outputBufferConfig.buffer0Addr = (uint32_t)uartimg;
-	// PXP_SetOutputBufferConfig(PXP, &outputBufferConfig);
 	//PRINTF("Camera Start\r\n");//摄像头启动成功
 }
 
 void CAM_DIS(void)
 {
-	uint16_t tmp11 = 0;
-	// sendXfer.data = (uint8_t *)uartimg;
-	// sendXfer.dataSize = sizeof(uartimg);
 	sendXfer.data = (uint8_t *)csiFrameBuf[0];
 	sendXfer.dataSize = sizeof(csiFrameBuf[0]);
 
 	uint8_t curLcdBufferIdx = 1U;
 	CAMERA_RECEIVER_Start(&cameraReceiver);
-
 	while (kStatus_Success != CAMERA_RECEIVER_GetFullBuffer(&cameraReceiver, &activeFrameAddr))
 	{
 		;
 	}
-	// CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, activeFrameAddr);
 	while (kStatus_Success != CAMERA_RECEIVER_GetFullBuffer(&cameraReceiver, &inactiveFrameAddr))
 	{
 		;
@@ -177,30 +184,24 @@ void CAM_DIS(void)
 		FPStmp++;
 		curLcdBufferIdx ^= 1U;
 		// Return the camera buffer to camera queue.
-
-		//		for (int i = 0; i < 120; i++)
-		//		{
-		//			memcpy(s_frameBuffer[curLcdBufferIdx][i], (uint8_t *)inactiveFrameAddr + i * 188, 188);
-		//		}
-
-		//		wallner((uint8_t *)inactiveFrameAddr,Pix_Data);
-		//		testSend();
-
 		while (kStatus_Success != CAMERA_RECEIVER_GetFullBuffer(&cameraReceiver, &inactiveFrameAddr))
 		{
 		}
 
-		// if(!txOnGoing)
-		// 	sendXfer.data = (uint8_t *)inactiveFrameAddr;
+		if(!txOnGoing)
+			sendXfer.data = (uint8_t *)inactiveFrameAddr;
 		// edge_dect((uint8_t *)inactiveFrameAddr);
 		// wallner((uint8_t *)inactiveFrameAddr, Pix_Data);
-
 		cnt = 0;
-		edge_thr((uint8_t *)inactiveFrameAddr, Pix_Data, Lab_Data);
+		rt_enter_critical();
+		edge_thr((uint8_t *)inactiveFrameAddr, Lab_Data, Pix_Data,Uart_Data);
+		rt_exit_critical();
 		tmp11 = cnt;
-// LPUART_WriteBlocking(LPUART1, img_start, 2);
-// LPUART_WriteBlocking(LPUART1, Lab_Data, 188*120);
-// LPUART_WriteBlocking(LPUART1, img_end, 2);
+
+		LPUART_WriteBlocking(LPUART1, img_start, 2);
+		LPUART_WriteBlocking(LPUART1, Uart_Data, 188*120);
+		LPUART_WriteBlocking(LPUART1, img_end, 2);
+
 //是否使用LCD
 #if defined(USE_LCD) && (USE_LCD == 1U)
 		for (int i = 0; i < 120; i++)
@@ -219,13 +220,29 @@ void CAM_DIS(void)
 		while (!s_frameDone)
 		{
 		}
-		sprintf(dispBuff, "FPS = %d MID_NUM = %03d tmp_img= %03d", FPS, mid_NUM, temp_img);
-		sprintf(dispBuff1, "Runtime = %d", tmp11);
+		sprintf(dispBuff, "FPS = %02d MID_NUM = %03d tmp_img= %03d EFF=%d", FPS, mid_NUM, temp_img,Effective_line);
+		sprintf(dispBuff1, "Runtime = %d HD=%d", tmp11,HD_first_flag);
+		sprintf(dispBuff2, "L_corss = %d R_corss = %d L_UP=%d R_UP=%d", temp_img1,temp_img2,temp_img3,temp_img4);
+		// sprintf(dispBuff3, "L_L=%03d L_R=%03d L_U=%03d %03d L_D = %03d %03d",tmp_BP[0][0][0],tmp_BP[0][0][1],tmp_BP[0][0][2],tmp_BP[0][1][2],tmp_BP[0][0][3],tmp_BP[0][1][3]);
+		// sprintf(dispBuff4, "R_L=%03d R_R=%03d %03d R_U=%03d %03d R_D = %03d %03d",tmp_BP[1][0][0],tmp_BP[1][0][1],tmp_BP[1][1][1],tmp_BP[1][0][2],tmp_BP[1][1][2],tmp_BP[1][0][3],tmp_BP[1][1][3]);
+		// sprintf(dispBuff5, "L_L=%03d L_R=%03d L_U=%03d %03d L_D = %03d %03d",tmp_BP[2][0][0],tmp_BP[2][0][1],tmp_BP[2][0][2],tmp_BP[2][1][2],tmp_BP[2][0][3],tmp_BP[2][1][3]);
+		// sprintf(dispBuff6, "R_L=%03d R_R=%03d R_U=%03d %03d R_D = %03d %03d",tmp_BP[3][0][0],tmp_BP[3][0][1],tmp_BP[3][0][2],tmp_BP[3][1][2],tmp_BP[3][0][3],tmp_BP[3][1][3]);
+		//sprintf(dispBuff7, "HD = %d ", HD_first_flag);
 		LCD_ClearLine(LINE(6));
+		LCD_ClearLine(LINE(7));
+		// LCD_ClearLine(LINE(8));
+		// LCD_ClearLine(LINE(9));
+		// LCD_ClearLine(LINE(10));
+		// LCD_ClearLine(LINE(11));
 		LCD_ClearLine(LINE(14));
 		//		/*然后显示该字符串即可，其它变量也是这样处理*/
 		LCD_DisplayStringLine(LINE(6), (uint8_t *)dispBuff);
 		LCD_DisplayStringLine(LINE(14), (uint8_t *)dispBuff1);
+		LCD_DisplayStringLine(LINE(7), (uint8_t *)dispBuff2);
+		// LCD_DisplayStringLine(LINE(8), (uint8_t *)dispBuff3);
+		// LCD_DisplayStringLine(LINE(9), (uint8_t *)dispBuff4);
+		// LCD_DisplayStringLine(LINE(10), (uint8_t *)dispBuff5);
+		// LCD_DisplayStringLine(LINE(11), (uint8_t *)dispBuff6);
 #endif
 		CAMERA_RECEIVER_SubmitEmptyBuffer(&cameraReceiver, inactiveFrameAddr);
 	}

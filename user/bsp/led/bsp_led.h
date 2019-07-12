@@ -67,7 +67,7 @@
 					else		\
 					GPIO_PinWrite(RGB_WHITE_LED_GPIO, RGB_WHITE_LED_GPIO_PIN, 1U);   
 
-#define   BEE(a)	if (a)	\
+#define   BEE1(a)	if (a)	\
 					GPIO_PinWrite(BEE_GPIO, BEE_GPIO_PIN, 1U);\
 					else		\
 					GPIO_PinWrite(BEE_GPIO, BEE_GPIO_PIN, 0U);   

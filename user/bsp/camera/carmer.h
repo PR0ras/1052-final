@@ -28,4 +28,8 @@ void CAM_DIS(void);
 //                              FRAME_BUFFER_ALIGN);CAMERA_HEIGHT 
 AT_NONCACHEABLE_SECTION_ALIGN(static uint8_t csiFrameBuf[CAMERA_FRAME_BUFFER_COUNT][CAMERA_HEIGHT*CAMERA_WIDTH],FRAME_BUFFER_ALIGN); //定义摄像头数据缓存区
 
+extern uint8_t FPS,imgpro_running;
+extern uint16_t tmp11;
+extern char OLEDdispBuff1[20],OLEDdispBuff2[20];
+
 #endif /* __CARMER_H */

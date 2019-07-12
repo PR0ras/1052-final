@@ -282,7 +282,7 @@ void LPUART1_IRQHandler(void)
 					break;
 				case 3:
 					aims_speed = posture.data16[0];
-					DJ_PWM_Reload(aims_speed); //舵机测试
+					// DJ_PWM_Reload(aims_speed); //舵机测试
 					break;
 				}
 				rxflag = 1;

@@ -5,7 +5,7 @@
 #include "fsl_common.h"
 
 
-void Peripheral_power_ON();//外设电源开
+void Peripheral_power_ON(void);//外设电源开
 
 
 #endif

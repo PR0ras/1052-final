@@ -1,5 +1,9 @@
 #include "bsp_Timer.h"
-
+#include "1052_NVIC.h"
+#include "fsl_iomuxc.h"
+#include "fsl_gpio.h"  
+#include "fsl_qtmr.h"
+#include "fsl_pit.h"
 pit_config_t pit_config;
 int16_t speed_now,speed_tmp;
 uint8_t count_pit=0;

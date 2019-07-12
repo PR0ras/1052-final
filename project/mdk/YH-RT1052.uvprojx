@@ -796,6 +796,31 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
             </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1184,7 +1209,7 @@
 --diag_suppress=66,1296,186 
  
 </MiscControls>
-              <Define>CPU_MIMXRT1052DVL6B,SKIP_SYSCLK_INIT,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,ARM_MATH_CM7,__FPU_PRESENT=1,  __CC_ARM,__TARGET_FPU_VFP</Define>
+              <Define>CPU_MIMXRT1052DVL6B,SKIP_SYSCLK_INIT,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,ARM_MATH_CM7,__FPU_PRESENT=1,  __CC_ARM,__TARGET_FPU_VFP,USE_LCD=1</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\libraries\CMSIS\Include;..\..\libraries\drivers;..\..\libraries\utilities;..\..\libraries\utilities\str;..\..\libraries\utilities\log;..\..\libraries\utilities\io;..\..\libraries\xip;..\..\user;..\..\user\bsp;..\..\rtthread\3.0.3\components\finsh;..\..\rtthread\3.0.3\include;..\..\rtthread\3.0.3\include\libc;..\..\user\bsp\camera</IncludePath>
             </VariousControls>
@@ -1639,6 +1664,31 @@
               <FileName>bsp_FlexPwm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2483,6 +2533,31 @@
               <FileName>bsp_FlexPwm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3329,6 +3404,31 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
             </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3717,7 +3817,7 @@
 --diag_suppress=66,1296,186 
  
 </MiscControls>
-              <Define>CPU_MIMXRT1052DVL6B,XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE =1,XIP_BOOT_HEADER_DCD_ENABLE =1,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,ARM_MATH_CM7,__FPU_PRESENT=1,  __CC_ARM,__TARGET_FPU_VFP</Define>
+              <Define>CPU_MIMXRT1052DVL6B,XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE =1,XIP_BOOT_HEADER_DCD_ENABLE =1,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,ARM_MATH_CM7,__FPU_PRESENT=1,  __CC_ARM,__TARGET_FPU_VFP,USE_LCD=0</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\libraries\CMSIS\Include;..\..\libraries\drivers;..\..\libraries\utilities;..\..\libraries\utilities\str;..\..\libraries\utilities\log;..\..\libraries\utilities\io;..\..\libraries\xip;..\..\user;..\..\user\bsp;..\..\rtthread\3.0.3\components\finsh;..\..\rtthread\3.0.3\include;..\..\rtthread\3.0.3\include\libc;..\..\user\bsp\camera</IncludePath>
             </VariousControls>
@@ -4174,6 +4274,31 @@
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
             </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4562,7 +4687,7 @@
 --diag_suppress=66,1296,186 
  
 </MiscControls>
-              <Define>CPU_MIMXRT1052DVL6B,XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE =1,XIP_BOOT_HEADER_DCD_ENABLE =1,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,USE_RAM_VECTOR_TABLE,__FPU_PRESENT=1,ARM_MATH_CM7,__TARGET_FPU_VFP,USE_LCD=1</Define>
+              <Define>CPU_MIMXRT1052DVL6B,XIP_EXTERNAL_FLASH=1, XIP_BOOT_HEADER_ENABLE =1,XIP_BOOT_HEADER_DCD_ENABLE =1,PRINTF_FLOAT_ENABLE=1, SCANF_FLOAT_ENABLE=1, PRINTF_ADVANCED_ENABLE=1, SCANF_ADVANCED_ENABLE=1,USE_RAM_VECTOR_TABLE,__FPU_PRESENT=1,ARM_MATH_CM7,__TARGET_FPU_VFP,USE_LCD=0</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\libraries\CMSIS\Include;..\..\libraries\drivers;..\..\libraries\utilities;..\..\libraries\utilities\str;..\..\libraries\utilities\log;..\..\libraries\utilities\io;..\..\libraries\xip;..\..\user;..\..\user\bsp;..\..\rtthread\3.0.3\components\finsh;..\..\rtthread\3.0.3\include;..\..\rtthread\3.0.3\include\libc;..\..\user\bsp\camera</IncludePath>
             </VariousControls>
@@ -5018,6 +5143,31 @@
               <FileName>bsp_FlexPwm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5863,6 +6013,31 @@
               <FileName>bsp_FlexPwm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\user\bsp\bsp_FlexPwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>path.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\path.c</FilePath>
+            </File>
+            <File>
+              <FileName>ranging.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\ranging.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\oled2.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\user\bsp\bsp_oled.c</FilePath>
             </File>
           </Files>
         </Group>

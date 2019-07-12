@@ -276,63 +276,60 @@ RT_WEAK void *rt_heap_end_get(void)
   * 当然，你想把这些函数统一放到main.c文件也是可以的。
   */
 void rt_hw_board_init(void)
-{  
-	  /* 初始化内存管理单元 */
+{
+    /* 初始化内存管理单元 */
     BOARD_ConfigMPU();
-  
-		/* 初始化开发板引脚 */
+
+    /* 初始化开发板引脚 */
     BOARD_InitPins();
-  
-		/* 初始化开发板时钟 */
-    BOARD_BootClockRUN(); 
-  
-		/* 初始化调试串口 */
-	BOARD_InitDebugConsole();
+
+    /* 初始化开发板时钟 */
+    BOARD_BootClockRUN();
+
+    /* 初始化调试串口 */
+    BOARD_InitDebugConsole();
     //PRINTF("*****欢迎使用 野火i.MX RT1052 开发板*****\r\n");
     // PRINTF
-		
-		
-        #if defined  (USE_LCD) && (USE_LCD == 1U)
-		LCD_Init(LCD_INTERRUPT_ENABLE);
-        //LCD_PXP_Config();
-        #endif
-        /* 初始化LED引脚 */
-		LED_GPIO_Config();
-        // BEE_GPIO_Config();
-		//CAMCSI_Init();
-        // PWMInit();
-        // ENCInit();
-        //bsp_spi_InitAD7606();
-        KEY_Init();
-		PIT_CH0_Int_Init(750000);
-        uart_Init();
-        // Init_OK();
-        // Peripheral_power_ON();
-		CAMCSI_Init();
 
-    //Campin_Init();
-//		OLEDPinInit();
-//		oled_init();
-/* 将开发板硬件相关的初始化放上面 */
-  
+#if defined(USE_LCD) && (USE_LCD == 1U)
+    LCD_Init(LCD_INTERRUPT_ENABLE);
+//LCD_PXP_Config();
+#endif
+    /* 初始化LED引脚 */
+    LED_GPIO_Config();
+// BEE_GPIO_Config();
+#if defined(USE_LCD) && (USE_LCD == 0U)
+    PWMInit();
+    ENCInit();
+    Init_OK();
+    OLEDPinInit();
+    oled_init();
+    Peripheral_power_ON();
+#endif
+    KEY_Init();
+    PIT_CH0_Int_Init(750000);
+    uart_Init();
+    CAMCSI_Init();
+
+    // Dis_numint(80,5,666);
+    /* 将开发板硬件相关的初始化放上面 */
+
     /* 初始化SysTick */
-    SysTick_Config( SystemCoreClock / RT_TICK_PER_SECOND ); 
+    SysTick_Config(SystemCoreClock / RT_TICK_PER_SECOND);
 
-  
 /* Call components board initial (use INIT_BOARD_EXPORT()) */
 #ifdef RT_USING_COMPONENTS_INIT
     rt_components_board_init();
 #endif
-    
-#if defined(RT_USING_CONSOLE) && defined(RT_USING_DEVICE)
-	rt_console_set_device(RT_CONSOLE_DEVICE_NAME);
-#endif
-    
-#if defined(RT_USING_USER_MAIN) && defined(RT_USING_HEAP)   
-    rt_system_heap_init(rt_heap_begin_get(), rt_heap_end_get());
-#endif 
-}
 
+#if defined(RT_USING_CONSOLE) && defined(RT_USING_DEVICE)
+    rt_console_set_device(RT_CONSOLE_DEVICE_NAME);
+#endif
+
+#if defined(RT_USING_USER_MAIN) && defined(RT_USING_HEAP)
+    rt_system_heap_init(rt_heap_begin_get(), rt_heap_end_get());
+#endif
+}
 
 /**
   * @brief  SysTick中断服务函数

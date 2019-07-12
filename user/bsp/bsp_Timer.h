@@ -2,11 +2,6 @@
 #define __BSP_TIMER_H
 
 #include "fsl_common.h"
-#include "1052_NVIC.h"
-#include "fsl_iomuxc.h"
-#include "fsl_gpio.h"  
-#include "fsl_qtmr.h"
-#include "fsl_pit.h"
 
 void ENCInit(void);
 int16_t DisCNT(void);
